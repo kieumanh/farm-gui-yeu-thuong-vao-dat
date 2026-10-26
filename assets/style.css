@@ -1018,3 +1018,9 @@ body::after{opacity:.045;z-index:0}main,footer,.site-header{position:relative}ma
   .layers .layer-description h3 { font-size: 1.08rem; }
   .layers .layer-description p { font-size: .91rem; }
 }
+
+/* Footer navigation v2.3.3 */
+.footer-grid .footer-release-link{display:flex;align-items:center;flex-wrap:wrap;gap:8px;width:fit-content;max-width:100%;margin-top:8px;padding:7px 0;line-height:1.6;color:var(--paper-100);text-decoration:none;font-weight:550}
+.footer-grid .footer-release-link:hover{color:var(--sun-300)}
+.footer-grid .footer-version{display:inline-block;border:1px solid rgba(244,200,126,.4);border-radius:999px;padding:2px 9px;color:var(--sun-300);font-size:.77rem;font-variant-numeric:tabular-nums}
+@media(max-width:620px){.footer-grid .footer-release-link{min-height:44px;margin-top:5px}}

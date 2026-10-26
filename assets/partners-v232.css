@@ -80,3 +80,14 @@
  .partner-v232 .partner-hero h1 {font-size:clamp(2rem,9vw,2.5rem);}
 }
 @media(prefers-reduced-motion:reduce) {.partner-v232 .partner-card img {transition:none;transform:none!important;}}
+
+/* Partner images v2.3.3: photos above text, in normal document flow */
+.partner-v232 .partner-exchange-card{display:flex;flex-direction:column;padding:0;overflow:hidden;min-width:0}
+.partner-v232 .partner-exchange-figure{display:block;width:100%;margin:0;flex:0 0 auto;background:#e7edde;border-bottom:1px solid #d5dcc8}
+.partner-v232 .partner-exchange-figure img{display:block;width:100%;height:auto;aspect-ratio:16/8.8;object-fit:cover;object-position:center 55%}
+.partner-v232 .partner-exchange-figure figcaption{padding:10px clamp(20px,2.7vw,32px);font-size:.8rem;line-height:1.5;color:var(--forest-800);background:#f5f1e7}
+.partner-v232 .partner-exchange-copy{display:flex;flex-direction:column;flex:1 1 auto;min-width:0;padding:clamp(22px,3vw,36px)}
+.partner-v232 .partner-exchange-copy h3{line-height:1.24;margin:0 0 16px;text-wrap:balance}
+.partner-v232 .partner-exchange-copy ul{margin:0;padding-left:22px;line-height:1.72;overflow-wrap:anywhere}
+.partner-v232 .partner-exchange-grid{align-items:stretch}
+@media(max-width:740px){.partner-v232 .partner-exchange-card{border-radius:20px}.partner-v232 .partner-exchange-figure img{aspect-ratio:16/9}.partner-v232 .partner-exchange-copy{padding:22px 20px}}
