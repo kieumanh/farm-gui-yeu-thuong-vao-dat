@@ -15,3 +15,5 @@ for(const c of critical)if(!paths.some(p=>p.file===c))throw Error('Critical asse
 if(missing.length)throw Error('Mirror incomplete: '+missing.length+' resources failed');
 if(paths.length<25)throw Error('Unexpectedly few files');
 console.log('Validated',paths.length,'files');
+
+// Verified source-capture workflow trigger: 2026-10-26
