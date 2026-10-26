@@ -1,0 +1,29 @@
+name: Farm content and comments release
+on:
+  push:
+    paths:
+      - "scripts/release-farm-content.mjs"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node scripts/release-farm-content.mjs
+      - run: |
+          git diff --check
+          node --check assets/comments.js
+          node --check functions/api/comments.js
+          grep -q 'v2.3.0' phien-ban/index.html
+          test -f functions/api/comments.js
+      - run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- '*.html' assets/ functions/
+          git commit -m "feat(farm): comments, living soil article, streamline topics v2.3.0" || true
+          git push
