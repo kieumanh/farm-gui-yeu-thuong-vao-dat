@@ -107,3 +107,8 @@
   .site-header .header-inner > .brand small { font-size: .41rem; letter-spacing: .06em; }
 }
 @media print { .site-header .music-player { display: none !important; } }
+/* v2.2.2 mobile QA: prevent decorative hero overhang from widening viewport. */
+@media (max-width: 620px) {
+  html, body { max-width: 100%; overflow-x: clip; }
+  .hero-art { overflow-x: clip; }
+}
