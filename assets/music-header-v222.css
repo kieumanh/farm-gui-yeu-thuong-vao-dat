@@ -1,0 +1,109 @@
+/* Farm Yêu Thương v2.2.2 — header music controller.
+   No persistent fixed overlay: all controls live inside sticky header. */
+.site-header .header-inner { overflow: visible; }
+.site-header .header-inner > .brand { flex-shrink: 0; margin-right: auto; }
+.site-header .header-inner > nav { order: 2; }
+.site-header .header-inner > .music-player { order: 3; }
+.site-header .header-inner > .menu-button { order: 4; }
+.site-header .music-player,
+.site-header .music-player.on-dark {
+  position: relative; left: auto; right: auto; bottom: auto;
+  z-index: 60; flex: 0 0 auto;
+  display: flex; align-items: center; gap: 3px;
+  min-height: 42px; padding: 3px;
+  border-radius: 999px; border: 1px solid rgba(46,87,57,.18);
+  background: #ecf0e3; color: #183b29; box-shadow: none;
+}
+.site-header .music-toggle {
+  position: relative; width: 34px; height: 34px; min-width: 34px;
+  padding: 0; display: grid; place-items: center;
+  background: #28573c; color: #fffdf6; border-radius: 50%;
+}
+.site-header .music-toggle:hover { transform: none; background: #1a3f2b; }
+.site-header .music-toggle svg,
+.site-header .music-player.on-dark .music-toggle svg {
+  position: static; inset: auto; width: 14px; height: 14px; display: block;
+}
+.site-header .music-player:not(.playing) .pause-symbol,
+.site-header .music-player.playing .play-symbol { display: none; }
+.site-header .music-player.playing .pause-symbol { display: block; }
+.site-header .music-info {
+  position: absolute; width: 1px; height: 1px; margin: -1px;
+  padding: 0; overflow: hidden; clip: rect(0,0,0,0);
+  white-space: nowrap; border: 0;
+}
+.site-header .music-settings,
+.site-header .music-player.on-dark .music-settings {
+  width: 34px; height: 34px; min-width: 34px;
+  color: #183b29; border-radius: 50%; padding: 0;
+}
+.site-header .music-settings:hover,
+.site-header .music-settings[aria-expanded="true"] { background: #d7e4cb; }
+.site-header .music-panel {
+  position: absolute; top: calc(100% + 12px); right: 0; left: auto; bottom: auto;
+  width: min(260px, calc(100vw - 20px)); padding: 16px;
+  border-radius: 18px; border: 1px solid rgba(46,87,57,.16);
+  background: #fffdf6; color: #183b29;
+  box-shadow: 0 12px 32px rgba(18,36,26,.18);
+}
+.site-header .music-volume-heading {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+}
+.site-header .music-panel label {
+  font-size: 13px; line-height: 1.4; letter-spacing: .02em;
+  color: #183b29; text-transform: none;
+}
+.site-header .music-volume-heading output {
+  font-weight: 700; font-size: 14px; color: #28573c;
+}
+.site-header .music-panel input[type="range"] {
+  width: 100%; margin: 14px 0 10px;
+  accent-color: #28573c; min-height: 26px; touch-action: pan-x;
+}
+.site-header .music-panel .music-mute {
+  border: 1px solid #d8d7c9; border-radius: 999px;
+  padding: 8px 13px; background: #f6f3e8; color: #183b29;
+  font: inherit; font-size: 13px; font-weight: 650;
+  cursor: pointer; min-height: 40px;
+}
+.site-header .music-mute:hover { background: #d7e4cb; }
+.site-header .music-panel p {
+  font-size: 11px; line-height: 1.45; color: #4b5a4b; margin: 12px 0 0;
+}
+/* Tablet: collapse desktop nav sooner to reserve space for music controls. */
+@media (max-width: 1160px) {
+  .site-header .menu-button { display: inline-flex; }
+  .site-header nav {
+    display: none; position: absolute; top: calc(100% + 6px);
+    left: 0; right: 0; flex-direction: column;
+    align-items: stretch; gap: .2rem;
+    background: #fffdf6; border: 1px solid rgba(32,41,31,.14);
+    border-radius: 18px; padding: .8rem; box-shadow: var(--shadow-soft);
+  }
+  .site-header.menu-open nav { display: flex; }
+}
+/* Mobile: both buttons remain touchable without crossing body content. */
+@media (max-width: 620px) {
+  .site-header .header-inner { width: min(96vw, var(--wrap)); gap: 5px; }
+  .site-header .header-inner > .brand { gap: 6px; min-width: 0; margin-right: auto; }
+  .site-header .header-inner > .brand svg { width: 30px; height: 30px; }
+  .site-header .header-inner > .brand span { font-size: clamp(.87rem, 3.6vw, 1.07rem); min-width: 0; }
+  .site-header .header-inner > .brand small { font-size: .44rem; letter-spacing: .1em; }
+  .site-header .menu-button {
+    font-size: 0; min-width: 38px; width: 38px; height: 38px;
+    padding: 0; justify-content: center;
+  }
+  .site-header .menu-button span { font-size: 18px; }
+  .site-header .music-player { min-height: 38px; padding: 2px; gap: 2px; }
+  .site-header .music-toggle,
+  .site-header .music-settings { width: 32px; height: 32px; min-width: 32px; }
+  .site-header .music-panel {
+    width: min(260px, calc(100vw - 16px)); right: -34px; padding: 14px;
+  }
+}
+@media (max-width: 360px) {
+  .site-header .header-inner > .brand svg { width: 26px; height: 26px; }
+  .site-header .header-inner > .brand span { font-size: .83rem; }
+  .site-header .header-inner > .brand small { font-size: .41rem; letter-spacing: .06em; }
+}
+@media print { .site-header .music-player { display: none !important; } }
