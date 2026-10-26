@@ -1,0 +1,270 @@
+{
+  "origin": "https://farm-yeu-thuong.kieumanh2211.chatgpt.site",
+  "downloaded": [
+    {
+      "file": "index.html",
+      "bytes": 21435
+    },
+    {
+      "file": "sitemap.xml",
+      "bytes": 1544
+    },
+    {
+      "file": "robots.txt",
+      "bytes": 94
+    },
+    {
+      "file": "assets/logo.svg",
+      "bytes": 732
+    },
+    {
+      "file": "assets/style.css",
+      "bytes": 49176
+    },
+    {
+      "file": "assets/app.js",
+      "bytes": 7164
+    },
+    {
+      "file": "assets/contact.js",
+      "bytes": 1514
+    },
+    {
+      "file": "assets/nature.mjs",
+      "bytes": 6380
+    },
+    {
+      "file": "assets/music.mjs",
+      "bytes": 4583
+    },
+    {
+      "file": "gioi-thieu/index.html",
+      "bytes": 10983
+    },
+    {
+      "file": "cau-chuyen/index.html",
+      "bytes": 15456
+    },
+    {
+      "file": "san-pham/index.html",
+      "bytes": 10770
+    },
+    {
+      "file": "doi-tac/index.html",
+      "bytes": 9762
+    },
+    {
+      "file": "nhat-ky/index.html",
+      "bytes": 11748
+    },
+    {
+      "file": "hoc-tap/index.html",
+      "bytes": 15861
+    },
+    {
+      "file": "lien-he/index.html",
+      "bytes": 13709
+    },
+    {
+      "file": "assets/le-lam-son.webp",
+      "bytes": 136214
+    },
+    {
+      "file": "assets/rau-nhin-tu-mat-dat.webp",
+      "bytes": 142816
+    },
+    {
+      "file": "assets/bo-rau-tu-vuon.webp",
+      "bytes": 206684
+    },
+    {
+      "file": "assets/nhieu-tang-la.webp",
+      "bytes": 342904
+    },
+    {
+      "file": "assets/chuoi-trong-vuon.webp",
+      "bytes": 227918
+    },
+    {
+      "file": "assets/goc-vuon-dat-do.webp",
+      "bytes": 431410
+    },
+    {
+      "file": "assets/rau-sau-thu-hai.webp",
+      "bytes": 332936
+    },
+    {
+      "file": "assets/ot-chin.webp",
+      "bytes": 307848
+    },
+    {
+      "file": "nhat-ky/anh-tu-vuon/index.html",
+      "bytes": 23731
+    },
+    {
+      "file": "assets/cay-trong-xen.webp",
+      "bytes": 195096
+    },
+    {
+      "file": "assets/rau-tren-dat-do.webp",
+      "bytes": 123764
+    },
+    {
+      "file": "hoc-tap/lam-vuon-thuan-tu-nhien/index.html",
+      "bytes": 19488
+    },
+    {
+      "file": "assets/khu-vuon-xanh.webp",
+      "bytes": 409500
+    },
+    {
+      "file": "hoc-tap/he-sinh-thai-da-tang-tan/index.html",
+      "bytes": 19367
+    },
+    {
+      "file": "hoc-tap/nuoi-dat-giu-lop-phu/index.html",
+      "bytes": 19381
+    },
+    {
+      "file": "assets/dat-do-la-tim.webp",
+      "bytes": 481100
+    },
+    {
+      "file": "phien-ban/index.html",
+      "bytes": 15454
+    },
+    {
+      "file": "assets/near-and-far.mp3",
+      "bytes": 2336205
+    },
+    {
+      "file": "cdn-cgi/challenge-platform/scripts/jsd/main.js",
+      "bytes": 22238
+    },
+    {
+      "file": "hoc-tap/nong-nghiep-thuc-chien-va-cong-nghe/index.html",
+      "bytes": 19531
+    },
+    {
+      "file": "hoc-tap/nhat-ky-vuon-minh-bach/index.html",
+      "bytes": 19242
+    },
+    {
+      "file": "hoc-tap/dat-song-la-gi/index.html",
+      "bytes": 19679
+    },
+    {
+      "file": "assets/vuon-serif.woff",
+      "bytes": 47196
+    },
+    {
+      "file": "assets/son-thu-hoach-ot.webp",
+      "bytes": 195420
+    },
+    {
+      "file": "assets/cham-cay-tren-dat-do.webp",
+      "bytes": 578448
+    },
+    {
+      "file": "assets/rau-non-dat-do.webp",
+      "bytes": 191274
+    },
+    {
+      "file": "assets/met-nong-san-theo-mua.webp",
+      "bytes": 409864
+    },
+    {
+      "file": "assets/san-pham-thu-cong-tu-vuon.webp",
+      "bytes": 238408
+    },
+    {
+      "file": "assets/luong-rau-dai.webp",
+      "bytes": 143520
+    },
+    {
+      "file": "assets/bap-ngo-trong-vuon.webp",
+      "bytes": 338244
+    },
+    {
+      "file": "assets/vuon-xen-canh.webp",
+      "bytes": 136332
+    },
+    {
+      "file": "assets/rau-duoi-tan.webp",
+      "bytes": 282436
+    },
+    {
+      "file": "assets/ngo-va-chuoi.webp",
+      "bytes": 366204
+    },
+    {
+      "file": "assets/luong-rau-non.webp",
+      "bytes": 426746
+    },
+    {
+      "file": "assets/rau-va-khung-vuon.webp",
+      "bytes": 214252
+    },
+    {
+      "file": "assets/la-rau-xanh.webp",
+      "bytes": 222720
+    },
+    {
+      "file": "assets/nong-san-tu-vuon.webp",
+      "bytes": 155782
+    },
+    {
+      "file": "assets/du-du-tren-cay.webp",
+      "bytes": 278398
+    },
+    {
+      "file": "assets/ca-chua-xanh.webp",
+      "bytes": 216468
+    },
+    {
+      "file": "assets/cai-trong-vuon.webp",
+      "bytes": 269704
+    },
+    {
+      "file": "assets/gio-rau-cu.webp",
+      "bytes": 380574
+    },
+    {
+      "file": "assets/hien-nha.webp",
+      "bytes": 317276
+    },
+    {
+      "file": "assets/luong-cai-xanh.webp",
+      "bytes": 245420
+    },
+    {
+      "file": "assets/dua-tren-gian.webp",
+      "bytes": 193092
+    },
+    {
+      "file": "assets/vuon-xen-tang.webp",
+      "bytes": 346754
+    },
+    {
+      "file": "assets/gian-leo.webp",
+      "bytes": 336644
+    },
+    {
+      "file": "assets/cai-la-rong.webp",
+      "bytes": 264392
+    },
+    {
+      "file": "assets/luong-la-dai.webp",
+      "bytes": 390000
+    },
+    {
+      "file": "assets/qua-tu-farm.webp",
+      "bytes": 389386
+    },
+    {
+      "file": "assets/rau-va-loi-di.webp",
+      "bytes": 464590
+    }
+  ],
+  "missing": []
+}
