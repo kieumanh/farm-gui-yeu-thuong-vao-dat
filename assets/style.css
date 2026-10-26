@@ -1024,3 +1024,12 @@ body::after{opacity:.045;z-index:0}main,footer,.site-header{position:relative}ma
 .footer-grid .footer-release-link:hover{color:var(--sun-300)}
 .footer-grid .footer-version{display:inline-block;border:1px solid rgba(244,200,126,.4);border-radius:999px;padding:2px 9px;color:var(--sun-300);font-size:.77rem;font-variant-numeric:tabular-nums}
 @media(max-width:620px){.footer-grid .footer-release-link{min-height:44px;margin-top:5px}}
+
+/* Farm v2.3.4 - Phone and Zalo contact channels */
+.contact-channel-actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:12px;min-width:0}
+.farm-contact-info .contact-channel-link{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:42px;padding:9px 14px;border-radius:999px;border:1px solid rgba(244,200,126,.48);font-size:.9rem;font-weight:650;line-height:1.35;text-align:center;text-decoration:none;color:#ffe7b4;background:rgba(255,255,255,.05);white-space:normal;transition:background .2s ease,border-color .2s ease}
+.farm-contact-info .contact-channel-link:hover,.farm-contact-info .contact-channel-link:focus-visible{color:#122b1c;background:#f8e8bb;border-color:#f8e8bb}
+.farm-contact-info .contact-zalo-link{border-color:rgba(174,217,194,.7);color:#e0f8e9;background:rgba(80,151,117,.18)}
+.farm-contact-info .contact-line>div{min-width:0}
+@media(max-width:620px){.contact-channel-actions{gap:8px}.farm-contact-info .contact-channel-link{min-height:44px;padding:10px 12px;flex:1 1 128px}.contact-channel-actions{max-width:100%}}
+@media(prefers-reduced-motion:reduce){.farm-contact-info .contact-channel-link{transition:none}}
