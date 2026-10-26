@@ -1,0 +1,50 @@
+name: Publish 4 real farm photos (43-image album)
+on:
+  push:
+    paths:
+      - "scripts/sync-album-43.sh"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: farm-photo-43
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Farm production repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Download, verify and install 4 genuine farm photos
+        run: bash scripts/sync-album-43.sh
+      - name: Verify site, images and version
+        run: |
+          git diff --check
+          test ! -e _worker.js
+          test "$(grep -o 'farm-photo-grid' nhat-ky/anh-tu-vuon/index.html | wc -l)" -eq 1
+          grep -q '43 ảnh' nhat-ky/anh-tu-vuon/index.html
+          grep -q 'v2.3.1' phien-ban/index.html
+          python3 - <<'PY'
+          from pathlib import Path
+          from struct import unpack
+          names = ('01-ngoi-nha-giua-khu-vuon','02-luong-rau-xanh-va-gian-leo','03-bap-cai-duoi-tan-du-du','04-buong-chuoi-giua-vuon')
+          html = Path('nhat-ky/anh-tu-vuon/index.html').read_text()
+          for name in names:
+              data=Path('assets/'+name+'.webp').read_bytes()
+              assert data[:4]==b'RIFF' and data[8:12]==b'WEBP',name
+              assert len(data)>100_000,name
+              assert html.count('/assets/'+name+'.webp')>=2,name
+          assert html.count('<figure>') >= 43
+          print('PASS: all 4 WebP files, 43-photo gallery, new version')
+          PY
+      - name: Commit and publish to Cloudflare production
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- assets/*.webp
+          git add -- '*.html'
+          git diff --cached --quiet && exit 0
+          git commit -m "feat(farm): publish 4 real farm photos in 43-image gallery v2.3.1"
+          git push origin HEAD:main
