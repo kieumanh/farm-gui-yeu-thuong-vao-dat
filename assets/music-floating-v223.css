@@ -1,0 +1,166 @@
+/* Farm Yêu Thương v2.2.3 — compact music control returns to bottom-left.
+   Header is free for future navigation links. Keep this stylesheet loaded
+   AFTER style.css; intentionally no .site-header rules. */
+.music-player,
+.music-player.on-dark {
+  position: fixed;
+  left: max(12px, env(safe-area-inset-left, 0px));
+  bottom: max(14px, env(safe-area-inset-bottom, 0px));
+  right: auto;
+  top: auto;
+  z-index: 58;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  width: auto;
+  max-width: calc(100vw - 24px);
+  min-height: 46px;
+  margin: 0;
+  padding: 3px;
+  background: rgba(250,247,236,.96);
+  color: #193d2b;
+  border: 1px solid rgba(34,75,49,.27);
+  border-radius: 999px;
+  box-shadow: 0 3px 13px rgba(18,36,26,.15);
+  transition: box-shadow .2s ease, opacity .2s ease;
+}
+.music-player:hover,
+.music-player:focus-within {
+  opacity: 1;
+  box-shadow: 0 5px 20px rgba(18,36,26,.18);
+}
+.music-player .music-toggle {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  flex: 0 0 38px;
+  margin: 0;
+  padding: 0;
+  background: #28543b;
+  color: #fffdf6;
+  border: 0;
+  border-radius: 50%;
+}
+.music-player .music-toggle:hover { background: #1c422e; transform: none; }
+.music-player .music-toggle svg {
+  position: static;
+  inset: auto;
+  width: 15px;
+  height: 15px;
+  fill: currentColor;
+}
+.music-player:not(.playing) .pause-symbol,
+.music-player.playing .play-symbol { display: none; }
+.music-player.playing .pause-symbol { display: block; }
+.music-player .music-info {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+.music-player .music-settings,
+.music-player.on-dark .music-settings {
+  display: grid;
+  place-content: center;
+  flex: 0 0 38px;
+  width: 38px;
+  height: 38px;
+  margin: 0;
+  padding: 0;
+  color: #28543b;
+  background: transparent;
+  border: 0;
+  border-radius: 50%;
+}
+.music-player .music-settings:hover,
+.music-player .music-settings[aria-expanded="true"] { background: #dde9d5; }
+.music-player .music-settings svg {
+  width: 17px;
+  height: 17px;
+  stroke: currentColor;
+  fill: none;
+}
+.music-player .music-panel {
+  position: absolute;
+  left: 0;
+  right: auto;
+  bottom: calc(100% + 11px);
+  top: auto;
+  box-sizing: border-box;
+  width: min(260px, calc(100vw - 24px));
+  padding: 16px;
+  background: #fffdf6;
+  color: #193d2b;
+  border: 1px solid rgba(34,75,49,.23);
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(18,36,26,.18);
+}
+.music-player .music-volume-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.music-player .music-panel label {
+  font-size: 13px;
+  letter-spacing: 0;
+  line-height: 1.4;
+  text-transform: none;
+  color: #193d2b;
+}
+.music-player .music-volume-heading output {
+  font-size: 14px;
+  font-weight: 700;
+  color: #28543b;
+}
+.music-player .music-panel input[type="range"] {
+  display: block;
+  width: 100%;
+  height: 32px;
+  min-height: 32px;
+  margin: 12px 0 10px;
+  touch-action: pan-x;
+  accent-color: #28543b;
+}
+.music-player .music-mute {
+  min-height: 40px;
+  border: 1px solid #dad8ca;
+  background: #f8f6ec;
+  color: #193d2b;
+  border-radius: 999px;
+  padding: 8px 13px;
+  cursor: pointer;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 650;
+}
+.music-player .music-mute:hover { background: #e1ebd9; }
+.music-player .music-panel p {
+  margin: 12px 0 0;
+  font-size: 11px;
+  line-height: 1.45;
+  color: #546352;
+}
+.music-player :is(button, input):focus-visible {
+  outline: 2px solid #a76f39;
+  outline-offset: 3px;
+}
+/* Unrelated hero artwork used to extend the horizontal scroll area on phones. */
+@media (max-width: 620px) {
+  html, body { max-width: 100%; overflow-x: clip; }
+  .hero-art { overflow-x: clip; }
+  .music-player { left: max(10px, env(safe-area-inset-left, 0px)); bottom: max(12px, env(safe-area-inset-bottom, 0px)); }
+  .music-player .music-panel { width: min(248px, calc(100vw - 20px)); padding: 14px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .music-player { transition: none; }
+}
+@media print { .music-player { display: none !important; } }
