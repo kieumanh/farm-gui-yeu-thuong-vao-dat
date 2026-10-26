@@ -1,0 +1,43 @@
+name: Farm Contact Call and Zalo v2.3.4
+on:
+  push:
+    paths:
+      - 'scripts/release-contact-v234.mjs'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: farm-contact-v234
+  cancel-in-progress: false
+jobs:
+  contact-update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Apply contact changes and release version
+        run: node scripts/release-contact-v234.mjs
+      - name: Validate contact functionality and site content
+        run: |
+          node --check assets/contact.js
+          node --check assets/app.js
+          git diff --check
+          grep -q 'https://zalo.me/0935819090' lien-he/index.html
+          grep -q 'tel:+84935819090' lien-he/index.html
+          ! grep -q 'contact-copy-message' lien-he/index.html
+          ! grep -q 'contact-copy-message' assets/contact.js
+          grep -q 'Gửi lời nhắn' lien-he/index.html
+          grep -q 'v2.3.4' phien-ban/index.html
+          test ! -e _worker.js
+      - name: Publish to main and trigger Cloudflare Pages
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- '*.html' assets/contact.js assets/style.css
+          git diff --cached --quiet && exit 0
+          git commit -m "feat(farm): replace copy button with phone and Zalo contact v2.3.4"
+          git push origin HEAD:main
