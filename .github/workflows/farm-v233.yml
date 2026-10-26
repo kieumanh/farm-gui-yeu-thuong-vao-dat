@@ -1,0 +1,38 @@
+name: Farm footer and partner imagery v2.3.3
+on:
+  push:
+    paths:
+      - "scripts/release-farm-v233.mjs"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Apply footer move and partner photo layout
+        run: node scripts/release-farm-v233.mjs
+      - name: Validate published source
+        run: |
+          git diff --check
+          node --check scripts/release-farm-v233.mjs
+          test -s assets/02-luong-rau-xanh-va-gian-leo.webp
+          test -s assets/03-bap-cai-duoi-tan-du-du.webp
+          grep -q 'partner-exchange-figure' doi-tac/index.html
+          grep -q 'footer-release-link' index.html
+          grep -q 'v2.3.3' phien-ban/index.html
+          test ! -e _worker.js
+      - name: Commit release for Cloudflare auto deploy
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- '*.html' assets/style.css assets/partners-v232.css
+          git diff --cached --quiet && exit 0
+          git commit -m "feat(farm): move version link into footer navigation, illustrate partnership cards v2.3.3"
+          git push origin HEAD:main
