@@ -1,0 +1,27 @@
+name: Export latest Farm website (manual)
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Mirror public Farm website
+        run: node scripts/mirror.mjs
+      - name: Verify and publish static assets
+        run: |
+          test -s site/index.html
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          mkdir -p .farm-backups
+          rm -f _worker.js
+          cp -a site/. ./
+          rm -rf site
+          git add -A
+          git commit -m "chore: migrate complete Farm Yêu Thương site to independent Cloudflare Pages" || true
+          git push
