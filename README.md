@@ -1,21 +1,26 @@
-# Farm Yêu Thương — Lê Lam Sơn
+# Farm Yêu Thương — Lê Lam Sơn 🌿
 
-**Live website:** https://le-lam-son-farm.huongthiennature.com/
+**Website:** https://le-lam-son-farm.huongthiennature.com/
 
-**Cloudflare Pages:** `farm-gui-yeu-thuong-vao-dat.pages.dev`  
-**Production branch:** `main`  
-**Upstream version:** v2.2.0 (ChatGPT Site)
+**Phiên bản nội dung được đồng bộ:** v2.2.0 (26/10/2026)  
+**Hạ tầng:** GitHub + Cloudflare Pages  
+**Cloudflare Pages project:** `farm-gui-yeu-thuong-vao-dat`  
+**Production branch:** `main`
 
-## Current architecture
+## Đồng bộ độc lập thành công
 
-Cloudflare Pages `_worker.js` currently acts as a **temporary reverse proxy** to `https://farm-yeu-thuong.kieumanh2211.chatgpt.site/`. HTML metadata referring to the original domain is rewritten to the new subdomain. The live content and assets are therefore still supplied by the original ChatGPT Site.
+Mã triển khai tĩnh (HTML, CSS, JavaScript, ảnh, font, nhạc và tài nguyên liên quan) đã được sao chép từ phiên bản công khai của Farm Yêu Thương vào repository này. **Không còn sử dụng `_worker.js` proxy** để chuyển yêu cầu sang ChatGPT Site.
 
-**Important:** This repository is **NOT YET** a complete source-code migration. It does not contain the newest site's HTML/CSS/JS/assets locally. If the upstream site is disabled, this proxy site may cease to function. To achieve independent hosting, export the current complete site source and assets, commit them to this repository, then replace the proxy with a static Cloudflare Pages deployment.
+- Số tệp được thu thập: **66**
+- Số tài nguyên tải lỗi: **0**
+- Báo cáo chi tiết: [mirror-report.json](./mirror-report.json)
+- Trang con: `/cau-chuyen/`, `/hoc-tap/`, `/phien-ban/` và các mục khác
+- Deploy tự động từ GitHub lên Cloudflare Pages
 
-## Current deployment state
+## Cập nhật nội dung
 
-- GitHub ↔ Cloudflare Pages: connected with automatic deployments on `main`.
-- Custom domain and HTTPS: active.
-- Production verified through Cloudflare Browser Rendering.
-- Source-code migration: pending.
-- Do not claim v2.2.0 is independently hosted here yet.
+Chỉnh sửa trực tiếp tệp trong repository, commit lên nhánh `main`; Cloudflare sẽ tự triển khai. Nếu cần lấy lại bản công khai từ trang gốc, có thể chạy thủ công workflow `Export latest Farm website` trong GitHub Actions. Lưu ý workflow sẽ thay mã nguồn tĩnh theo trang nguồn, vì vậy tránh chạy sau khi đã chỉnh sửa độc lập trên GitHub.
+
+## Giới hạn
+
+Đây là bản xuất **website đã build**, không phải toàn bộ dự án biên tập gốc từ ChatGPT Site. Các dịch vụ bên ngoài như API biểu mẫu, mạng xã hội hoặc bản đồ vẫn cần kết nối đến nhà cung cấp tương ứng khi sử dụng.
