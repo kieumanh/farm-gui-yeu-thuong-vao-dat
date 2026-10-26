@@ -988,3 +988,33 @@ body::after{opacity:.045;z-index:0}main,footer,.site-header{position:relative}ma
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*::before,*::after{animation:none!important;transition:none!important}.story-card:hover,.layer-photo-trigger:hover img{transform:none}}
 @media print{.living-keyword{text-decoration:none}.toc-panel{display:none}}
 .article-cover img{height:auto;aspect-ratio:4/4.4;object-fit:cover}
+
+/* Farm v2.2.1 · Compact layer explanation card */
+.layers .layer-graphic { margin-bottom: 12px; }
+.layers .layer-description {
+  min-height: 0;
+  height: auto;
+  display: grid;
+  align-content: start;
+  gap: 5px;
+  padding: 14px 18px;
+  border-radius: 16px;
+}
+.layers .layer-description h3 {
+  margin: 0;
+  font-size: clamp(1.12rem, 1.45vw, 1.32rem);
+  line-height: 1.35;
+}
+.layers .layer-description p {
+  margin: 0;
+  max-width: none;
+  font-size: clamp(.91rem, 1vw, .98rem);
+  line-height: 1.5;
+  text-wrap: pretty;
+}
+@media (max-width: 620px) {
+  .layers .layer-graphic { margin-bottom: 10px; }
+  .layers .layer-description { min-height: 0; gap: 4px; padding: 13px 15px; }
+  .layers .layer-description h3 { font-size: 1.08rem; }
+  .layers .layer-description p { font-size: .91rem; }
+}

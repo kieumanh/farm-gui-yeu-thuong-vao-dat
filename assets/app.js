@@ -21,16 +21,16 @@
   /* ---- Khám phá các tầng vườn ---- */
   var LAYERS = [
     {
-      title: 'Tán cao · Giữ một khoảng xanh',
-      text: 'Cây lâu năm tạo cấu trúc cho vườn. Khoảng cách và việc tỉa tán cần được cân nhắc để các tầng dưới vẫn nhận đủ ánh sáng.'
+      title: 'Tán cao · Giữ bóng mát',
+      text: 'Cây cao điều tiết nắng và che chở những tầng cây bên dưới.'
     },
     {
-      title: 'Tầng giữa · Chia sẻ ánh sáng',
-      text: 'Cây vừa tầm là nơi vườn dày nhất. Mình xen từng khóm, chừa lối đi, để mỗi cây có khoảng sống riêng mà vẫn che phủ cho nhau.'
+      title: 'Tầng giữa · Kết nối tán lá',
+      text: 'Cây vừa tầm trồng xen, chia sẻ ánh sáng và giữ vườn xanh mát.'
     },
     {
-      title: 'Sát mặt đất · Nơi sự sống bắt đầu',
-      text: 'Luống rau, lớp lá rụng và nền đất đỏ. Giữ mặt đất luôn có che phủ là cách mình nuôi đất trước khi nuôi cây.'
+      title: 'Sát mặt đất · Nuôi đất sống',
+      text: 'Rau và lá mục che phủ đất, giữ ẩm và nuôi dưỡng sinh vật nhỏ.'
     }
   ];
   var layerBtns = document.querySelectorAll('.layer-buttons button');
