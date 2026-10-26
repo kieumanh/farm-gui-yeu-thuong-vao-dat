@@ -1,6 +1,9 @@
 name: Export latest Farm website (manual)
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - 'scripts/mirror.mjs'
 permissions:
   contents: write
 jobs:
