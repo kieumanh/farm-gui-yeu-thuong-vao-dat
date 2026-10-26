@@ -1,0 +1,35 @@
+name: Farm Contact Topics v2.3.5
+on:
+  push:
+    paths:
+      - "scripts/release-contact-v235.mjs"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Remove two topics and update release version
+        run: node scripts/release-contact-v235.mjs
+      - name: Validate content
+        run: |
+          node --check scripts/release-contact-v235.mjs
+          node --check assets/contact.js
+          git diff --check
+          ! grep -q '<option>Chuyện làm vườn</option>' lien-he/index.html
+          ! grep -q '<option>Một lời hỏi thăm</option>' lien-he/index.html
+          grep -q '<option>Kết nối và đồng hành</option>' lien-he/index.html
+          grep -q 'v2.3.5' phien-ban/index.html
+      - name: Publish to GitHub main
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- '*.html'
+          git diff --cached --quiet && exit 0
+          git commit -m 'fix(contact): simplify contact subjects, Farm v2.3.5'
+          git push origin HEAD:main
