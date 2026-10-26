@@ -1,15 +1,16 @@
 export function luminance(rgb){const c=rgb.slice(0,3).map(n=>{n/=255;return n<=.04045?n/12.92:((n+.055)/1.055)**2.4});return c[0]*.2126+c[1]*.7152+c[2]*.0722;}
 export function safeVolume(value){const n=Number(value);return (value===null||value===''||!Number.isFinite(n)) ? 0.22 : Math.max(0,Math.min(1,n));}
 if(typeof document!=='undefined'){
- const player=document.querySelector('#music-player'),audio=document.querySelector('#garden-music'),toggle=document.querySelector('#music-toggle'),volume=document.querySelector('#music-volume'),settings=document.querySelector('#music-settings'),panel=document.querySelector('#music-panel'),label=document.querySelector('#music-state');
+ const player=document.querySelector('#music-player'),audio=document.querySelector('#garden-music'),toggle=document.querySelector('#music-toggle'),volume=document.querySelector('#music-volume'),settings=document.querySelector('#music-settings'),panel=document.querySelector('#music-panel'),label=document.querySelector('#music-state'),mute=document.querySelector('#music-mute'),volumeValue=document.querySelector('#music-volume-value');
  if(player&&audio&&toggle&&volume){
  const get=(k)=>{try{return localStorage.getItem(k)}catch{return null}},set=(k,v)=>{try{localStorage.setItem(k,v)}catch{}};
  let wanted=get('farm-music-wanted')!=='false',needsGesture=false,attempt=0;
- audio.volume=safeVolume(get('farm-music-volume'));volume.value=Math.round(audio.volume*100);audio.loop=true;
- function render(){const playing=!audio.paused;toggle.setAttribute('aria-pressed',String(playing));toggle.setAttribute('aria-label',playing?'Tạm dừng nhạc nền':'Phát nhạc nền');toggle.title=playing?'Tạm dừng nhạc':'Phát nhạc';player.classList.toggle('playing',playing);label.textContent=playing?'Đang nghe':needsGesture?'Chạm để nghe':'Nhạc vườn';volume.setAttribute('aria-valuetext',Math.round(audio.volume*100)+'%');}
+ audio.volume=safeVolume(get('farm-music-volume'));audio.muted=get('farm-music-muted')==='true';volume.value=Math.round(audio.volume*100);audio.loop=true;
+ function render(){const playing=!audio.paused;toggle.setAttribute('aria-pressed',String(playing));toggle.setAttribute('aria-label',playing?'Tạm dừng nhạc nền':'Phát nhạc nền');toggle.title=playing?'Tạm dừng nhạc':'Phát nhạc';player.classList.toggle('playing',playing);label.textContent=playing?'Đang nghe':needsGesture?'Chạm để nghe':'Nhạc vườn';const displayVolume=audio.muted?0:Math.round(audio.volume*100);volume.value=displayVolume;volume.setAttribute('aria-valuetext',audio.muted?'Đã tắt tiếng':displayVolume+'%');if(volumeValue)volumeValue.textContent=displayVolume+'%';if(mute){mute.textContent=audio.muted?'Bật tiếng':'Tắt tiếng';mute.setAttribute('aria-pressed',String(audio.muted));}}
  async function play(){const current=++attempt;needsGesture=false;try{await audio.play();if(current!==attempt&&!wanted)audio.pause();if(current===attempt)needsGesture=false}catch{if(current===attempt)needsGesture=wanted}render();}
  toggle.addEventListener('click',()=>{if(wanted&&!audio.paused){wanted=false;needsGesture=false;attempt++;audio.pause();set('farm-music-wanted','false');render()}else{wanted=true;set('farm-music-wanted','true');play()}});
- volume.addEventListener('input',()=>{audio.volume=safeVolume(Number(volume.value)/100);set('farm-music-volume',String(audio.volume));render()});
+ volume.addEventListener('input',()=>{audio.volume=safeVolume(Number(volume.value)/100);audio.muted=false;set('farm-music-muted','false');set('farm-music-volume',String(audio.volume));render()});
+ mute?.addEventListener('click',()=>{audio.muted=!audio.muted;set('farm-music-muted',String(audio.muted));render()});
  audio.addEventListener('ended',()=>{if(wanted){audio.currentTime=0;play()}});
  for(const event of ['play','pause','volumechange','ended'])audio.addEventListener(event,render);
  audio.addEventListener('error',()=>{needsGesture=false;label.textContent='Chưa tải được nhạc';toggle.title='Thử phát lại nhạc'});
