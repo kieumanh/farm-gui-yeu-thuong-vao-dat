@@ -1,0 +1,36 @@
+name: Farm Partner page v2.3.2
+on:
+  push:
+    paths:
+      - "scripts/release-partners-v232.mjs"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  update-partners:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Apply content and responsive styles
+        run: node scripts/release-partners-v232.mjs
+      - name: Check files and markup
+        run: |
+          node --check scripts/release-partners-v232.mjs
+          git diff --check
+          test -s assets/partners-v232.css
+          grep -q 'assets/partners-v232.css?v=2.3.2' doi-tac/index.html
+          grep -q 'v2.3.2' phien-ban/index.html
+          test ! -e _worker.js
+      - name: Publish to main for Cloudflare Pages
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- '*.html' assets/partners-v232.css
+          git diff --cached --quiet && exit 0
+          git commit -m "feat(farm): detailed responsive partner page and real photos v2.3.2"
+          git push origin HEAD:main
