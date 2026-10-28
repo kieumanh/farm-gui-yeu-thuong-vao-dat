@@ -325,6 +325,19 @@ section { padding-block: clamp(2.8rem, 6.5vw, 5.2rem); }
 .farm-gallery .section-heading { margin-bottom: 1rem; }
 .gallery-note { margin-bottom: 1.4rem; }
 .farm-photo-grid { columns: 3; column-gap: 1.3rem; }
+
+/* TNV: use a true responsive grid so cards keep a stable reading order. */
+.volunteer-gallery .farm-photo-grid {
+  columns: auto; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.2rem; align-items: start;
+}
+.volunteer-gallery .farm-photo-grid figure,
+.volunteer-gallery .farm-photo-grid figure:nth-child(3n+1),
+.volunteer-gallery .farm-photo-grid figure:nth-child(3n+2) {
+  margin: 0; transform: none;
+}
+.volunteer-gallery .farm-photo-grid figure:hover { transform: translateY(-3px); }
+.volunteer-gallery .farm-photo-grid img { background: #eef0e6; }
 .farm-photo-grid figure {
   break-inside: avoid; margin: 0 0 1.3rem;
   background: #fffdf6; padding: 10px 10px 12px;
@@ -909,10 +922,13 @@ footer {
   }
   .menu-open .site-header nav, .site-header.menu-open nav { display: flex; }
   .farm-photo-grid { columns: 2; }
+  .volunteer-gallery .farm-photo-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 620px) {
+  .volunteer-gallery .farm-photo-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .values, .contact-field-row, .distributed-pair { grid-template-columns: 1fr; }
   .farm-photo-grid { columns: 1; }
+  .volunteer-gallery .farm-photo-grid { gap: .8rem; }
   .footer-grid { grid-template-columns: 1fr; }
   .round-stamp { width: 112px; height: 112px; right: 0; }
   .layer-graphic { min-height: 360px; }
