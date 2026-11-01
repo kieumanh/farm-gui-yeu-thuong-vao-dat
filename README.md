@@ -2,7 +2,7 @@
 
 **Website:** https://le-lam-son-farm.huongthiennature.com/
 
-**Phiên bản hiện tại:** v2.3.11 (01/11/2026) — nhật ký cập nhật tại [/phien-ban/](https://le-lam-son-farm.huongthiennature.com/phien-ban/)  
+**Phiên bản hiện tại:** v2.3.12 (01/11/2026) — nhật ký cập nhật tại [/phien-ban/](https://le-lam-son-farm.huongthiennature.com/phien-ban/)  
 **Hạ tầng:** GitHub + Cloudflare Pages  
 **Cloudflare Pages project:** `farm-gui-yeu-thuong-vao-dat`  
 **Production branch:** `main`
@@ -15,7 +15,7 @@ Website là mã tĩnh (HTML, CSS, JavaScript, ảnh, font, nhạc) nằm thẳng
 | --- | --- |
 | `index.html`, `gioi-thieu/`, `cau-chuyen/`, `san-pham/`, `doi-tac/`, `nhat-ky/`, `hoc-tap/`, `lien-he/`, `phien-ban/` | Các trang của website |
 | `assets/` | CSS, JavaScript, ảnh, font, nhạc |
-| `functions/api/comments.js` | Nhận và hiển thị bình luận bài viết |
+| `functions/api/comments.js` | Nhận và trả bình luận bài viết (hiện website không còn khung bình luận) |
 | `functions/api/admin/comments.js` | Duyệt bình luận (chỉ chủ website dùng được) |
 | `quan-ly-binh-luan/` | Trang duyệt bình luận (không hiện trên công cụ tìm kiếm) |
 | `scripts/`, `.github/workflows/` | Lịch sử các bản phát hành trước (xem mục bên dưới) |
@@ -26,9 +26,13 @@ Chỉnh sửa trực tiếp tệp trong repository, commit lên nhánh `main`; C
 
 ## Bình luận bài viết
 
-Khách gửi bình luận dưới các bài trong mục Học tập (`hoc-tap/`). Bình luận mới được lưu ở trạng thái `pending` (chờ duyệt) trong cơ sở dữ liệu Cloudflare D1 `farm-yeu-thuong-comments` (binding tên `DB`); chỉ bình luận đã duyệt (`approved`) mới hiện công khai. Email và số điện thoại của người gửi không bao giờ hiển thị công khai.
+> **Từ v2.3.12 (01/11/2026), khung bình luận đã được gỡ khỏi các bài trong mục Học tập** vì chủ nông trại không có thời gian trả lời. Phần máy chủ (hàm `functions/api/comments.js`, cơ sở dữ liệu D1, trang duyệt) vẫn còn nhưng không còn nơi nào trên website gọi tới. Muốn bật lại: lấy tệp `assets/comments.js` và `assets/comments.css` từ lịch sử Git (commit `f713ef6`) rồi nhúng lại vào các bài.
+
+Trước đây, khách gửi bình luận dưới các bài trong mục Học tập (`hoc-tap/`). Bình luận mới được lưu ở trạng thái `pending` (chờ duyệt) trong cơ sở dữ liệu Cloudflare D1 `farm-yeu-thuong-comments` (binding tên `DB`); chỉ bình luận đã duyệt (`approved`) mới hiện công khai. Email và số điện thoại của người gửi không bao giờ hiển thị công khai.
 
 ## Duyệt bình luận (dành cho chủ website)
+
+*Khung bình luận đã gỡ khỏi website nên phần này hiện chưa cần dùng.*
 
 Mở **https://le-lam-son-farm.huongthiennature.com/quan-ly-binh-luan/**, đăng nhập bằng mật khẩu quản trị, rồi chọn **Duyệt**, **Từ chối**, **Ẩn** hoặc **Xóa** cho từng bình luận.
 
