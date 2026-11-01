@@ -2,7 +2,7 @@
 
 **Website:** https://le-lam-son-farm.huongthiennature.com/
 
-**Phiên bản hiện tại:** v2.3.10 (29/10/2026) — nhật ký cập nhật tại [/phien-ban/](https://le-lam-son-farm.huongthiennature.com/phien-ban/)  
+**Phiên bản hiện tại:** v2.3.11 (01/11/2026) — nhật ký cập nhật tại [/phien-ban/](https://le-lam-son-farm.huongthiennature.com/phien-ban/)  
 **Hạ tầng:** GitHub + Cloudflare Pages  
 **Cloudflare Pages project:** `farm-gui-yeu-thuong-vao-dat`  
 **Production branch:** `main`
