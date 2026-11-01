@@ -2,51 +2,30 @@
 
 **Website:** https://le-lam-son-farm.huongthiennature.com/
 
-**Phiên bản hiện tại:** v2.3.12 (01/11/2026) — nhật ký cập nhật tại [/phien-ban/](https://le-lam-son-farm.huongthiennature.com/phien-ban/)  
+**Phiên bản hiện tại:** v2.3.13 (01/11/2026) — nhật ký cập nhật tại [/phien-ban/](https://le-lam-son-farm.huongthiennature.com/phien-ban/)  
 **Hạ tầng:** GitHub + Cloudflare Pages  
 **Cloudflare Pages project:** `farm-gui-yeu-thuong-vao-dat`  
 **Production branch:** `main`
 
 ## Cách dự án vận hành
 
-Website là mã tĩnh (HTML, CSS, JavaScript, ảnh, font, nhạc) nằm thẳng ở thư mục gốc repository — **không có bước build**. Mỗi commit lên `main` được Cloudflare tự triển khai. Phần động gồm hai hàm của Cloudflare Pages trong `functions/api/`.
+Website là mã tĩnh (HTML, CSS, JavaScript, ảnh, font, nhạc) nằm thẳng ở thư mục gốc repository — **không có bước build**. Mỗi commit lên `main` được Cloudflare tự triển khai. Website hiện không có phần máy chủ riêng (không có Cloudflare Pages Functions).
 
 | Thành phần | Vai trò |
 | --- | --- |
 | `index.html`, `gioi-thieu/`, `cau-chuyen/`, `san-pham/`, `doi-tac/`, `nhat-ky/`, `hoc-tap/`, `lien-he/`, `phien-ban/` | Các trang của website |
 | `assets/` | CSS, JavaScript, ảnh, font, nhạc |
-| `functions/api/comments.js` | Nhận và trả bình luận bài viết (hiện website không còn khung bình luận) |
-| `functions/api/admin/comments.js` | Duyệt bình luận (chỉ chủ website dùng được) |
-| `quan-ly-binh-luan/` | Trang duyệt bình luận (không hiện trên công cụ tìm kiếm) |
 | `scripts/`, `.github/workflows/` | Lịch sử các bản phát hành trước (xem mục bên dưới) |
 
 ## Cập nhật nội dung
 
 Chỉnh sửa trực tiếp tệp trong repository, commit lên nhánh `main`; Cloudflare sẽ tự triển khai. Sau mỗi lần phát hành, thêm một mục vào trang `phien-ban/` và cập nhật số phiên bản ở đầu README này.
 
-## Bình luận bài viết
+## Bình luận bài viết (đã gỡ)
 
-> **Từ v2.3.12 (01/11/2026), khung bình luận đã được gỡ khỏi các bài trong mục Học tập** vì chủ nông trại không có thời gian trả lời. Phần máy chủ (hàm `functions/api/comments.js`, cơ sở dữ liệu D1, trang duyệt) vẫn còn nhưng không còn nơi nào trên website gọi tới. Muốn bật lại: lấy tệp `assets/comments.js` và `assets/comments.css` từ lịch sử Git (commit `f713ef6`) rồi nhúng lại vào các bài.
+Khung bình luận ở các bài trong mục Học tập đã được gỡ ở v2.3.12 (01/11/2026), và toàn bộ phần máy chủ bình luận (hàm `functions/api/comments.js`, hàm duyệt `functions/api/admin/comments.js`, trang `quan-ly-binh-luan/`, cơ sở dữ liệu Cloudflare D1 `farm-yeu-thuong-comments`) được gỡ ở v2.3.13 (01/11/2026) vì chủ nông trại không có thời gian trả lời bình luận.
 
-Trước đây, khách gửi bình luận dưới các bài trong mục Học tập (`hoc-tap/`). Bình luận mới được lưu ở trạng thái `pending` (chờ duyệt) trong cơ sở dữ liệu Cloudflare D1 `farm-yeu-thuong-comments` (binding tên `DB`); chỉ bình luận đã duyệt (`approved`) mới hiện công khai. Email và số điện thoại của người gửi không bao giờ hiển thị công khai.
-
-## Duyệt bình luận (dành cho chủ website)
-
-*Khung bình luận đã gỡ khỏi website nên phần này hiện chưa cần dùng.*
-
-Mở **https://le-lam-son-farm.huongthiennature.com/quan-ly-binh-luan/**, đăng nhập bằng mật khẩu quản trị, rồi chọn **Duyệt**, **Từ chối**, **Ẩn** hoặc **Xóa** cho từng bình luận.
-
-**Đặt mật khẩu quản trị (làm một lần):**
-
-1. Vào Cloudflare Dashboard → **Workers & Pages** → chọn project `farm-gui-yeu-thuong-vao-dat` → **Settings** → **Variables and Secrets** → **Add**.
-2. Đặt tên biến là `ADMIN_TOKEN`; giá trị là một chuỗi ngẫu nhiên **từ 32 ký tự trở lên** (nên tạo bằng trình quản lý mật khẩu); bật **Encrypt**; bấm **Save**.
-3. Triển khai lại project (ví dụ commit mới lên `main`) để biến có hiệu lực — biến chỉ được áp dụng cho các lần triển khai sau khi đặt.
-
-Lưu ý:
-
-- Khi chưa đặt `ADMIN_TOKEN` (hoặc ngắn hơn 32 ký tự), trang duyệt từ chối mọi yêu cầu — mặc định an toàn.
-- Mật khẩu chỉ được giữ trong tab đang mở và mất khi đóng tab. Muốn đổi mật khẩu, sửa giá trị biến rồi triển khai lại.
-- Bình luận lưu bằng binding `DB`. Nếu cần gắn lại: **Settings** → **Bindings** → **Add** → **D1 database bindings**, tên biến `DB`, chọn `farm-yeu-thuong-comments`, rồi triển khai lại.
+Muốn dựng lại: lấy mã từ lịch sử Git — `assets/comments.js`, `assets/comments.css` và `functions/` ở commit `f713ef6`; `quan-ly-binh-luan/` và `assets/admin-comments.js` ở commit `21135e8`. Cần tạo lại cơ sở dữ liệu D1 và gắn binding tên `DB` (**Settings** → **Bindings** → **Add** → **D1 database bindings**) rồi triển khai lại.
 
 ## Nguồn gốc và các script phát hành cũ
 
