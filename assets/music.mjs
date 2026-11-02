@@ -2,7 +2,10 @@ export function luminance(rgb){const c=rgb.slice(0,3).map(n=>{n/=255;return n<=.
 export function safeVolume(value){const n=Number(value);return (value===null||value===''||!Number.isFinite(n)) ? 0.22 : Math.max(0,Math.min(1,n));}
 if(typeof document!=='undefined'){
  const player=document.querySelector('#music-player'),audio=document.querySelector('#garden-music'),toggle=document.querySelector('#music-toggle'),volume=document.querySelector('#music-volume'),settings=document.querySelector('#music-settings'),panel=document.querySelector('#music-panel'),label=document.querySelector('#music-state'),mute=document.querySelector('#music-mute'),volumeValue=document.querySelector('#music-volume-value');
- if(player&&audio&&toggle&&volume){
+ const desktop=typeof matchMedia==='function'&&matchMedia('(hover: hover) and (pointer: fine)').matches;
+ if(!desktop){player?.remove();audio?.remove();}
+ else if(player&&audio&&toggle&&volume){
+ audio.preload='metadata';audio.src='/assets/near-and-far.mp3';
  const get=(k)=>{try{return localStorage.getItem(k)}catch{return null}},set=(k,v)=>{try{localStorage.setItem(k,v)}catch{}};
  let wanted=get('farm-music-wanted')!=='false',needsGesture=false,attempt=0;
  audio.volume=safeVolume(get('farm-music-volume'));audio.muted=get('farm-music-muted')==='true';volume.value=Math.round(audio.volume*100);audio.loop=true;

@@ -164,3 +164,5 @@
   .music-player { transition: none; }
 }
 @media print { .music-player { display: none !important; } }
+/* v2.4.0: nhạc nền chỉ dành cho máy tính (chuột) */
+@media (hover: none), (pointer: coarse) { #music-player, .music-player, #garden-music { display: none !important; } }
