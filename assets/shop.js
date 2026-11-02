@@ -3,7 +3,7 @@
   'use strict';
   var root = document.getElementById('shop-root');
   if (!root) return;
-  var V = '2.6.5';
+  var V = '2.6.6';
   var LABEL = { 'co-hang': 'Có hàng', 'sap-co': 'Sắp có', 'tam-het': 'Tạm hết', 'cho-cap-nhat': 'Chờ cập nhật' };
   var RANK = { 'co-hang': 0, 'sap-co': 1, 'cho-cap-nhat': 2, 'tam-het': 3 };
 
@@ -40,7 +40,7 @@
       line.appendChild(document.createTextNode(' · ' + have + ' loại đang có' + (soon ? ', ' + soon + ' loại sắp có' : '')));
     } else {
       line.appendChild(el('strong', '', 'Số lượng hôm nay chưa được cập nhật.'));
-      line.appendChild(document.createTextNode(' Bạn bấm “Hỏi Sơn” ở món mình thích để hỏi nhé.'));
+      line.appendChild(document.createTextNode(' Bạn bấm “Hỏi mình” ở món mình thích để hỏi nhé.'));
     }
     status.appendChild(line);
 
@@ -85,8 +85,8 @@
       count.textContent = 'Đang hiện ' + list.length + ' / ' + items.length + ' món';
       if (!list.length) {
         var empty = el('div', 'shop-empty');
-        empty.appendChild(el('p', '', 'Chưa có món nào khớp. Bạn thử bỏ bớt bộ lọc, hoặc hỏi thẳng Sơn nhé.'));
-        var ask = el('a', 'button primary', 'Nhắn cho Sơn'); ask.href = '/lien-he/';
+        empty.appendChild(el('p', '', 'Chưa có món nào khớp. Bạn thử bỏ bớt bộ lọc, hoặc hỏi thẳng mình nhé.'));
+        var ask = el('a', 'button primary', 'Nhắn cho mình'); ask.href = '/lien-he/';
         empty.appendChild(ask);
         grid.appendChild(empty);
         return;
@@ -111,9 +111,9 @@
         var sub = [it.season, it.note].filter(Boolean).join(' · ');
         if (facts.length) body.appendChild(el('p', 'shop-qty', facts.join(' · ')));
         body.appendChild(el('p', 'shop-meta', sub || it.group));
-        var ask = el('a', 'shop-ask', out ? 'Hỏi khi nào có lại' : 'Hỏi Sơn');
+        var ask = el('a', 'shop-ask', out ? 'Hỏi khi nào có lại' : 'Hỏi mình');
         ask.href = '/lien-he/?mon=' + encodeURIComponent(it.name) + '#gui-loi-nhan';
-        ask.setAttribute('aria-label', 'Hỏi Sơn về ' + it.name);
+        ask.setAttribute('aria-label', 'Hỏi mình về ' + it.name);
         ask.appendChild(el('span', '', '→'));
         ask.lastChild.setAttribute('aria-hidden', 'true');
         body.appendChild(ask);
@@ -129,6 +129,6 @@
     .then(render)
     .catch(function () {
       var s = document.getElementById('shop-status');
-      s.textContent = 'Chưa tải được danh sách. Bạn vào trang Liên hệ để hỏi Sơn nhé.';
+      s.textContent = 'Chưa tải được danh sách. Bạn vào trang Liên hệ để hỏi mình nhé.';
     });
 })();
