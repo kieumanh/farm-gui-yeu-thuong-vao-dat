@@ -200,3 +200,17 @@
 .shop-notice li > span { color: var(--sun-600); line-height: 1.6; }
 .shop-notice p { margin: 0; font-size: .93rem; line-height: 1.6; color: var(--ink-700); }
 .shop-notice strong { color: var(--forest-900); }
+
+/* ---------- v2.9.7: thông báo của chủ farm ở đầu trang Cửa hàng ---------- */
+.shop-announce { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: .85rem; align-items: start; margin: 0 0 1rem; padding: 1rem 1.15rem; border-radius: 18px; border: 1.5px solid var(--leaf-500); background: #e6efdf; color: var(--ink-900); }
+.shop-announce-ico { display: inline-grid; place-items: center; width: 1.9rem; height: 1.9rem; border-radius: 50%; background: var(--forest-700); color: var(--paper-50); font-weight: 800; font-size: 1rem; line-height: 1; }
+.shop-announce-body { min-width: 0; }
+.shop-announce-title { display: block; font-family: var(--font-display); font-size: 1.1rem; line-height: 1.3; color: var(--forest-900); overflow-wrap: anywhere; }
+.shop-announce-text { margin: .25rem 0 0; font-size: .98rem; line-height: 1.6; white-space: pre-line; overflow-wrap: anywhere; }
+.shop-announce-until { display: block; margin-top: .55rem; color: var(--ink-700); font-size: .86rem; }
+.shop-announce.kind-warn { background: var(--sun-100); border-color: var(--sun-500); }
+.shop-announce.kind-warn .shop-announce-ico { background: var(--sun-300); color: var(--ink-900); }
+.shop-announce.kind-good { background: #dcefd5; border-color: #3f9a5c; }
+.shop-announce.kind-good .shop-announce-ico { background: #25683a; }
+@media (max-width: 560px) { .shop-announce { padding: .9rem; gap: .7rem; } }
+@media print { .shop-announce { border-color: #000; background: #fff; } }

@@ -3,7 +3,7 @@
   'use strict';
   var root = document.getElementById('shop-root');
   if (!root) return;
-  var V = '2.9.6';
+  var V = '2.9.7';
   /* Nguồn cấp của Kho vườn. Để '' để chỉ dùng assets/shop-data.json (cần khớp với connect-src trong _headers). */
   var KHO_FEED = 'https://quan-ly-kho-hang.guiyeuthuongvaodat.com/api/shop-feed';
   var LOCAL_FEED = '/assets/shop-data.json';
@@ -50,6 +50,25 @@
       line.appendChild(document.createTextNode(' Bạn nhắn cho mình ở mục Liên hệ để hỏi về món bạn thích nhé.'));
     }
     status.appendChild(line);
+
+    /* ---- thông báo của chủ farm (viết ở Kho vườn). Chỉ dùng textContent nên chữ nhập vào không thể chèn mã. ---- */
+    var an = document.getElementById('shop-announce');
+    if (an) an.remove();
+    var a = data.announcement;
+    if (a && typeof a.message === 'string' && a.message) {
+      var kind = /^(info|warn|good)$/.test(a.kind) ? a.kind : 'info';
+      an = el('div', 'shop-announce kind-' + kind);
+      an.id = 'shop-announce';
+      an.setAttribute('role', 'status');
+      an.appendChild(el('span', 'shop-announce-ico', kind === 'warn' ? '!' : kind === 'good' ? '✓' : 'i'));
+      an.lastChild.setAttribute('aria-hidden', 'true');
+      var abody = el('div', 'shop-announce-body');
+      if (a.title) abody.appendChild(el('strong', 'shop-announce-title', String(a.title)));
+      abody.appendChild(el('p', 'shop-announce-text', a.message));
+      if (a.until && fmtDate(a.until)) abody.appendChild(el('small', 'shop-announce-until', 'Thông báo áp dụng đến hết ngày ' + fmtDate(a.until) + '.'));
+      an.appendChild(abody);
+      status.parentNode.insertBefore(an, status);
+    }
 
     /* ---- bộ lọc ---- */
     var state = { group: 'Tất cả', q: '', onlyHave: false };

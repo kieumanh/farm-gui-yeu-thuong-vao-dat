@@ -2,7 +2,7 @@
 
 **Website:** https://guiyeuthuongvaodat.com/
 
-**Phiên bản hiện tại:** v2.9.6 (03/11/2026) — nhật ký cập nhật tại [/phien-ban/](https://le-lam-son-farm.guiyeuthuongvaodat.com/phien-ban/)  
+**Phiên bản hiện tại:** v2.9.7 (03/11/2026) — nhật ký cập nhật tại [/phien-ban/](https://le-lam-son-farm.guiyeuthuongvaodat.com/phien-ban/)  
 **Tên miền:** guiyeuthuongvaodat.com (chính), le-lam-son-farm.huongthiennature.com (vẫn hoạt động)  
 **Hạ tầng:** GitHub + Cloudflare Pages  
 **Cloudflare Pages project:** `farm-gui-yeu-thuong-vao-dat`  
@@ -46,6 +46,10 @@ Các tệp trong `.github/workflows/` là lịch sử những bản phát hành 
 - Mỗi món có `status`: `co-hang` (Có hàng), `sap-co` (Sắp có), `tam-het` (Tạm hết) hoặc `cho-cap-nhat` (Chờ cập nhật); tùy chọn `qty` (ví dụ "Còn khoảng 5 kg"), `price`, `season`, `note`.
 - Thêm món mới: sao chép một dòng trong `items`, đổi `id`, `name`, `image`, `alt`; ảnh vuông 600×600 `.webp` để trong `assets/shop/`.
 - Trang `/cua-hang/` đọc tệp này bằng `assets/shop.js`; không có bước build.
+
+## Cập nhật v2.9.7 (03/11/2026)
+
+- Cửa hàng: hiện **thông báo của chủ farm** (nghỉ giao, hết hàng vì thời tiết, món mới…) ở đầu trang. Thông báo được viết ở Kho vườn (Mùa vụ & Cửa hàng → Thông báo cho khách) và đi cùng nguồn cấp `/api/shop-feed` trong trường `announcement` (`null` nếu không có). `assets/shop.js` chỉ dựng bằng `textContent` nên nội dung nhập vào không thể chèn mã; kiểu hiển thị ở cuối `assets/v250.css` (`.shop-announce`). Không có thông báo thì trang không đổi gì. Khi Kho vườn không phản hồi và trang dùng `shop-data.json` dự phòng, thông báo không hiện.
 
 ## Cập nhật v2.9.6 (03/11/2026)
 
