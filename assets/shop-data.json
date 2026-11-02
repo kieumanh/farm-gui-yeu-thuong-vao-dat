@@ -1,6 +1,6 @@
 {
  "updated": "2026-11-02",
- "note": "Danh sách các loại rau củ quả và món làm từ vườn. Số lượng mỗi ngày do Sơn cập nhật tại đây; loại nào chưa có số liệu sẽ hiện \"Chờ cập nhật\".",
+ "note": "Rau củ quả đồng giá 40.000đ. Món sấy và làm thủ công chưa có giá. Số lượng mỗi ngày do Sơn cập nhật tại đây; loại nào chưa có số liệu sẽ hiện \"Chờ cập nhật\".",
  "groups": [
   "Rau & lá",
   "Củ & quả rau",
@@ -14,7 +14,8 @@
    "group": "Rau & lá",
    "image": "rau-xanh.webp",
    "alt": "Rau xanh các loại xếp trên lá chuối",
-   "status": "cho-cap-nhat"
+   "status": "cho-cap-nhat",
+   "price": "40.000đ"
   },
   {
    "id": "rau-mui",
@@ -22,7 +23,8 @@
    "group": "Rau & lá",
    "image": "rau-mui.webp",
    "alt": "Rau mùi mọc giữa thân chuối phủ luống",
-   "status": "cho-cap-nhat"
+   "status": "cho-cap-nhat",
+   "price": "40.000đ"
   },
   {
    "id": "tia-to",
@@ -30,7 +32,8 @@
    "group": "Rau & lá",
    "image": "tia-to.webp",
    "alt": "Luống tía tô lá tím xanh",
-   "status": "cho-cap-nhat"
+   "status": "cho-cap-nhat",
+   "price": "40.000đ"
   },
   {
    "id": "cai-bap",
@@ -38,7 +41,8 @@
    "group": "Rau & lá",
    "image": "cai-bap.webp",
    "alt": "Cải bắp non trên luống phủ cỏ khô",
-   "status": "cho-cap-nhat"
+   "status": "cho-cap-nhat",
+   "price": "40.000đ"
   },
   {
    "id": "cu-cai",
@@ -46,7 +50,8 @@
    "group": "Củ & quả rau",
    "image": "cu-cai.webp",
    "alt": "Bó củ cải trắng còn dính đất",
-   "status": "cho-cap-nhat"
+   "status": "cho-cap-nhat",
+   "price": "40.000đ"
   },
   {
    "id": "ca-tim",
@@ -54,7 +59,8 @@
    "group": "Củ & quả rau",
    "image": "ca-tim.webp",
    "alt": "Cà tím tím sẫm",
-   "status": "cho-cap-nhat"
+   "status": "cho-cap-nhat",
+   "price": "40.000đ"
   },
   {
    "id": "ca-chua",
@@ -62,7 +68,8 @@
    "group": "Củ & quả rau",
    "image": "ca-chua.webp",
    "alt": "Cà chua chín cam",
-   "status": "cho-cap-nhat"
+   "status": "cho-cap-nhat",
+   "price": "40.000đ"
   },
   {
    "id": "ot",
@@ -70,7 +77,8 @@
    "group": "Củ & quả rau",
    "image": "ot.webp",
    "alt": "Ớt chín đỏ giữa tán lá",
-   "status": "cho-cap-nhat"
+   "status": "cho-cap-nhat",
+   "price": "40.000đ"
   },
   {
    "id": "bap",
@@ -78,7 +86,8 @@
    "group": "Củ & quả rau",
    "image": "bap.webp",
    "alt": "Bắp non trong rổ",
-   "status": "cho-cap-nhat"
+   "status": "cho-cap-nhat",
+   "price": "40.000đ"
   },
   {
    "id": "chuoi",
@@ -86,7 +95,8 @@
    "group": "Trái cây",
    "image": "chuoi.webp",
    "alt": "Nải chuối xanh",
-   "status": "cho-cap-nhat"
+   "status": "cho-cap-nhat",
+   "price": "40.000đ"
   },
   {
    "id": "du-du",
@@ -94,7 +104,8 @@
    "group": "Trái cây",
    "image": "du-du.webp",
    "alt": "Đu đủ và mít trên xe rùa",
-   "status": "cho-cap-nhat"
+   "status": "cho-cap-nhat",
+   "price": "40.000đ"
   },
   {
    "id": "mit",
@@ -102,7 +113,8 @@
    "group": "Trái cây",
    "image": "mit.webp",
    "alt": "Quả mít xanh",
-   "status": "cho-cap-nhat"
+   "status": "cho-cap-nhat",
+   "price": "40.000đ"
   },
   {
    "id": "bo",
@@ -110,7 +122,8 @@
    "group": "Trái cây",
    "image": "bo.webp",
    "alt": "Bơ xanh trong mẹt tre",
-   "status": "cho-cap-nhat"
+   "status": "cho-cap-nhat",
+   "price": "40.000đ"
   },
   {
    "id": "chom-chom",
@@ -118,7 +131,8 @@
    "group": "Trái cây",
    "image": "chom-chom.webp",
    "alt": "Chùm chôm chôm chín",
-   "status": "cho-cap-nhat"
+   "status": "cho-cap-nhat",
+   "price": "40.000đ"
   },
   {
    "id": "chanh-day",
@@ -126,7 +140,8 @@
    "group": "Trái cây",
    "image": "chanh-day.webp",
    "alt": "Chanh dây nhiều màu trong rổ",
-   "status": "cho-cap-nhat"
+   "status": "cho-cap-nhat",
+   "price": "40.000đ"
   },
   {
    "id": "chuoi-say",
@@ -134,7 +149,8 @@
    "group": "Làm từ vườn",
    "image": "chuoi-say.webp",
    "alt": "Chuối sấy đóng túi",
-   "status": "cho-cap-nhat"
+   "status": "cho-cap-nhat",
+   "price": "Chưa có giá"
   },
   {
    "id": "sa-te",
@@ -143,7 +159,8 @@
    "image": "sa-te.webp",
    "alt": "Hũ sa tế thủ công của vườn, nắp dán nhãn Gửi yêu thương vào đất",
    "status": "cho-cap-nhat",
-   "note": "Làm thủ công, đóng hũ"
+   "note": "Làm thủ công, đóng hũ",
+   "price": "Chưa có giá"
   },
   {
    "id": "ot-rim",
@@ -152,7 +169,8 @@
    "image": "ot-rim.webp",
    "alt": "Hũ ớt rim dầu phụng thủ công của vườn",
    "status": "cho-cap-nhat",
-   "note": "Làm thủ công, đóng hũ"
+   "note": "Làm thủ công, đóng hũ",
+   "price": "Chưa có giá"
   },
   {
    "id": "mat-mia",
@@ -161,7 +179,8 @@
    "image": "mat-mia.webp",
    "alt": "Chai mật mía làm thủ công của vườn",
    "status": "cho-cap-nhat",
-   "note": "Làm thủ công, đóng chai"
+   "note": "Làm thủ công, đóng chai",
+   "price": "Chưa có giá"
   }
  ]
 }
