@@ -3,7 +3,7 @@
   'use strict';
   var root = document.getElementById('shop-root');
   if (!root) return;
-  var V = '2.6.7';
+  var V = '2.7.0';
   var LABEL = { 'co-hang': 'Có hàng', 'sap-co': 'Sắp có', 'tam-het': 'Tạm hết', 'cho-cap-nhat': 'Chờ cập nhật' };
   var RANK = { 'co-hang': 0, 'sap-co': 1, 'cho-cap-nhat': 2, 'tam-het': 3 };
 

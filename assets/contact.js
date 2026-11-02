@@ -22,6 +22,19 @@
     if (topic) topic.checked = true;
     if (msg && !msg.value) msg.value = 'Mình muốn hỏi về: ' + mon + '. Hiện vườn còn không, giá và cách nhận thế nào ạ?';
   }
+  /* Mở từ các nút CTA cuối trang: ?chu-de=ghe-tham|nong-san|tinh-nguyen|dong-hanh|hoi-ve-vuon và ?bai=Tên+bài */
+  var TOPICS = { 'ghe-tham': 'Ghé thăm khu vườn', 'nong-san': 'Nông sản theo mùa', 'tinh-nguyen': 'Làm tình nguyện',
+                 'dong-hanh': 'Kết nối và đồng hành', 'hoi-ve-vuon': 'Câu hỏi về vườn hoặc bài viết' };
+  var chuDe = TOPICS[params.get('chu-de') || ''];
+  if (chuDe && !mon) {
+    var chip = form.querySelector('input[name=topic][value="' + chuDe + '"]');
+    if (chip) chip.checked = true;
+  }
+  var bai = (params.get('bai') || '').slice(0, 120);
+  if (bai) {
+    var msg2 = document.getElementById('contact-message');
+    if (msg2 && !msg2.value) msg2.value = 'Mình vừa đọc bài “' + bai + '” và muốn hỏi: ';
+  }
   if (params.get('da-gui') === '1') say('Cảm ơn bạn! Lời nhắn đã được gửi. Mình sẽ phản hồi sớm nhất có thể.');
 
   form.addEventListener('submit', function (e) {

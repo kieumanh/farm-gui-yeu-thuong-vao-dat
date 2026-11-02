@@ -2,7 +2,7 @@
 
 **Website:** https://guiyeuthuongvaodat.com/
 
-**Phiên bản hiện tại:** v2.6.7 (03/11/2026) — nhật ký cập nhật tại [/phien-ban/](https://le-lam-son-farm.guiyeuthuongvaodat.com/phien-ban/)  
+**Phiên bản hiện tại:** v2.7.0 (03/11/2026) — nhật ký cập nhật tại [/phien-ban/](https://le-lam-son-farm.guiyeuthuongvaodat.com/phien-ban/)  
 **Tên miền:** guiyeuthuongvaodat.com (chính), le-lam-son-farm.huongthiennature.com (vẫn hoạt động)  
 **Hạ tầng:** GitHub + Cloudflare Pages  
 **Cloudflare Pages project:** `farm-gui-yeu-thuong-vao-dat`  
@@ -74,4 +74,4 @@ Các bài Học tập số 06–09 được viết lại sâu hơn. Bài "Đất
 ## Cập nhật v2.6.0 (02/11/2026)
 - Trang Sản phẩm đã gộp vào Cửa hàng (`cua-hang/`); `_redirects` chuyển `/san-pham/` sang `/cua-hang/`.
 - Form liên hệ trở lại: `assets/contact.js` gửi qua FormSubmit (`https://formsubmit.co/ajax/kieumanh2211@gmail.com`). **Lần gửi đầu tiên FormSubmit sẽ gửi một email kích hoạt đến hộp thư đó; bấm vào liên kết trong email (xem cả thư rác) thì các lời nhắn sau mới được chuyển đến.** Muốn đổi hộp thư nhận: sửa địa chỉ trong `lien-he/index.html` (thuộc tính `action`) và `assets/contact.js` (`ENDPOINT`).
-- Nút "Hỏi mình" ở Cửa hàng mở `/lien-he/?mon=<tên món>`; `contact.js` điền sẵn chủ đề và lời nhắn.
+- Nút "Hỏi mình" ở Cửa hàng mở `/lien-he/?mon=<tên món>`; `contact.js` điền sẵn chủ đề và lời nhắn. Các CTA cuối trang mở `/lien-he/?chu-de=ghe-tham|nong-san|tinh-nguyen|dong-hanh|hoi-ve-vuon` (kèm `&bai=<tên bài>` ở bài Học tập).

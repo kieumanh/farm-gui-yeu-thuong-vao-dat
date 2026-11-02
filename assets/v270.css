@@ -1,0 +1,123 @@
+/* v2.7.0 — định hướng trang, CTA rõ kênh, tương tác bàn phím/chạm, cấu trúc bài Học tập */
+
+/* ---------- 1. Tương tác: bàn phím và màn hình cảm ứng ---------- */
+/* Mọi hiệu ứng rê chuột của thẻ cũng xuất hiện khi thẻ được tab tới (focus-within). */
+.story-card:focus-within { transform: translateY(-4px); box-shadow: var(--shadow-soft); }
+.story-card:focus-within .card-image img { transform: scale(1.04); }
+.produce-grid article:focus-within,
+.farm-photo-grid figure:focus-within,
+.shop-card:focus-within { transform: translateY(-4px); box-shadow: var(--shadow-soft); }
+.journey-item:focus-within .journey-dot { transform: scale(1.12); background: var(--forest-800); color: var(--paper-50); }
+.partner-v232 .partner-card:focus-within,
+.partner-v232 .partner-exchange-card:focus-within,
+.partner-v232 .partner-steps li:focus-within { transform: translateY(-6px); box-shadow: var(--shadow-soft); }
+
+/* Vòng focus rõ trên mọi điều khiển, kể cả nền tối và thẻ ảnh */
+:where(a, button, input, textarea, select, summary, [tabindex]):focus-visible {
+  outline: 3px solid var(--basalt-600);
+  outline-offset: 3px;
+}
+.footer-grid a:focus-visible, .footer-bottom a:focus-visible, .button.on-dark:focus-visible { outline-color: var(--sun-500, #e8a33d); }
+.card-image:focus-visible, .layer-photo-trigger:focus-visible { outline-offset: -3px; }
+
+/* Màn hình cảm ứng không có "rê chuột": bỏ trạng thái hover dính lại sau khi chạm,
+   thay bằng phản hồi nhẹ khi đang nhấn (:active). */
+@media (hover: none) {
+  .story-card:hover, .produce-grid article:hover, .farm-photo-grid figure:hover,
+  .volunteer-gallery .farm-photo-grid figure:hover, .shop-card:hover,
+  .partner-v232 .partner-card:hover, .partner-v232 .partner-exchange-card:hover,
+  .partner-v232 .partner-steps li:hover, .lift-card:hover {
+    transform: none; box-shadow: none;
+  }
+  .story-card:hover .card-image img, .shop-card:hover img,
+  .partner-v232 .partner-card:hover img, .partner-v232 .partner-card:hover .partner-photo img { transform: none; }
+  .story-card:active, .shop-card:active, .path-card:active, .related-grid a:active { transform: scale(.985); }
+  .button:active, .shop-ask:active, .filters button:active { transform: scale(.97); }
+}
+
+/* Ai chọn "giảm chuyển động" vẫn thấy được trạng thái focus, chỉ không còn nhấc/phóng */
+@media (prefers-reduced-motion: reduce) {
+  .story-card:focus-within, .produce-grid article:focus-within, .farm-photo-grid figure:focus-within,
+  .shop-card:focus-within, .partner-v232 .partner-card:focus-within,
+  .partner-v232 .partner-exchange-card:focus-within, .partner-v232 .partner-steps li:focus-within,
+  .path-card:hover, .path-card:focus-visible, .related-grid a:hover, .related-grid a:focus-visible { transform: none !important; }
+}
+
+/* ---------- 2. Khối CTA cuối trang: nói rõ kênh và việc cần làm ---------- */
+.cta-block .cta-channels { display: flex; flex-wrap: wrap; justify-content: center; gap: .7rem; margin-top: 1.2rem; }
+.cta-block .cta-channels .button { margin-top: 0; min-height: 48px; display: inline-flex; align-items: center; justify-content: center; gap: .4rem; }
+.cta-block .cta-note { margin: 1.1rem auto 0; max-width: 52ch; text-wrap: balance; font-size: .88rem; color: var(--ink-700); }
+.cta-block .cta-more { margin: .9rem 0 0; display: flex; flex-wrap: wrap; justify-content: center; gap: .4rem 1.4rem; font-size: .95rem; }
+.cta-block .cta-more a { min-height: 44px; display: inline-flex; align-items: center; }
+.partner-links .cta-channels { display: flex; flex-wrap: wrap; gap: .7rem; }
+.partner-links .button { min-height: 48px; display: inline-flex; align-items: center; }
+@media (max-width: 560px) {
+  .cta-block .cta-channels { flex-direction: column; align-items: stretch; }
+  .cta-block .cta-channels .button { width: 100%; }
+}
+
+/* ---------- 3. Trang chủ: ba cách tham gia ---------- */
+.paths { padding-block: clamp(2.4rem, 5vw, 4rem); }
+.paths > .eyebrow, .paths > h2 { text-align: center; }
+.paths > h2 { margin: .3rem auto 1.6rem; max-width: 22ch; font-size: clamp(1.7rem, 3.4vw, 2.4rem); }
+.path-grid { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; grid-template-columns: repeat(3, 1fr); }
+.path-card {
+  display: flex; flex-direction: column; gap: .5rem; height: 100%;
+  padding: 1.4rem 1.4rem 1.2rem; text-decoration: none; color: inherit;
+  background: #fffdf6; border: 1.6px solid rgba(32, 41, 31, .16); border-radius: 22px;
+  border-top: 4px solid var(--basalt-500);
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.path-card .path-num { font-family: var(--font-display); font-size: 1.1rem; color: var(--basalt-600); letter-spacing: .12em; }
+.path-card h3 { margin: 0; font-size: 1.3rem; }
+.path-card p { margin: 0; flex: 1; color: var(--ink-700); font-size: .95rem; }
+.path-card .path-go { margin-top: .4rem; font-weight: 700; color: var(--forest-800); min-height: 24px; }
+@media (hover: hover) { .path-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-soft); border-top-color: var(--sun-500, #e8a33d); } }
+.path-card:focus-visible { transform: translateY(-3px); box-shadow: var(--shadow-soft); }
+@media (max-width: 820px) { .path-grid { grid-template-columns: 1fr; } }
+
+/* ---------- 4. Bài Học tập: hỏi đáp, đọc tiếp, ngày cập nhật ---------- */
+.faq { margin: 1rem 0 .6rem; display: grid; gap: .6rem; }
+.faq details { background: #fffdf6; border: 1.4px solid rgba(32, 41, 31, .16); border-radius: 16px; overflow: hidden; }
+.faq summary {
+  cursor: pointer; list-style: none; padding: .95rem 3rem .95rem 1.1rem; min-height: 48px;
+  font-weight: 700; color: var(--forest-900); position: relative; display: flex; align-items: center;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after {
+  content: "+"; position: absolute; right: 1.1rem; top: 50%; transform: translateY(-50%);
+  font-size: 1.4rem; line-height: 1; color: var(--basalt-600); transition: transform .2s ease;
+}
+.faq details[open] > summary::after { content: "–"; }
+.faq details[open] > summary { background: var(--sun-100, #fbefd2); }
+.faq details > p { margin: 0; padding: .9rem 1.1rem 1.1rem; color: var(--ink-700); }
+.faq summary:focus-visible { outline-offset: -3px; }
+
+.related-reads { margin-top: 2.6rem; }
+.related-reads h2 { font-size: clamp(1.3rem, 2.4vw, 1.6rem); margin: 0 0 .9rem; }
+.related-grid { list-style: none; margin: 0; padding: 0; display: grid; gap: .9rem; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); }
+.related-grid a {
+  display: flex; flex-direction: column; gap: .35rem; height: 100%; padding: 1.1rem 1.2rem;
+  text-decoration: none; color: var(--forest-900); background: #fffdf6;
+  border: 1.5px solid rgba(32, 41, 31, .16); border-radius: 18px;
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.related-grid .related-cat { font-size: .74rem; letter-spacing: .12em; text-transform: uppercase; font-weight: 700; color: var(--basalt-600); }
+.related-grid strong { font-family: var(--font-display); font-size: 1.08rem; line-height: 1.3; font-weight: 600; }
+.related-grid .related-time { margin-top: auto; padding-top: .3rem; font-size: .85rem; color: var(--ink-700); }
+@media (hover: hover) { .related-grid a:hover { transform: translateY(-4px); box-shadow: var(--shadow-soft); border-color: var(--basalt-500); } }
+.related-grid a:focus-visible { transform: translateY(-2px); box-shadow: var(--shadow-soft); }
+.related-all { margin: 1rem 0 0; }
+.related-all a { min-height: 44px; display: inline-flex; align-items: center; }
+
+/* ---------- 5. Trang Học tập: lộ trình đọc gợi ý ---------- */
+.reading-path { padding-block: 0 1.6rem; }
+.reading-path > h2 { font-size: clamp(1.4rem, 2.6vw, 1.8rem); margin: 0 0 .3rem; }
+.reading-path > p { margin: 0 0 1rem; color: var(--ink-700); }
+.path-routes { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; grid-template-columns: repeat(3, 1fr); }
+.path-routes > li { background: #fffdf6; border: 1.5px solid rgba(32, 41, 31, .16); border-radius: 20px; padding: 1.2rem 1.3rem; }
+.path-routes h3 { margin: 0 0 .1rem; font-size: 1.15rem; }
+.path-routes .route-note { margin: 0 0 .6rem; font-size: .88rem; color: var(--ink-700); }
+.path-routes ol { margin: 0; padding-left: 1.3rem; display: grid; gap: .1rem; }
+.path-routes ol a { display: inline-flex; align-items: center; min-height: 40px; }
+@media (max-width: 860px) { .path-routes { grid-template-columns: 1fr; } }
