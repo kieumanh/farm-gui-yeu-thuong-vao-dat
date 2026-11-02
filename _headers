@@ -4,7 +4,7 @@
   X-Frame-Options: DENY
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()
-  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; media-src 'self'; connect-src 'self' https://formsubmit.co; frame-src https://www.google.com https://maps.google.com; form-action 'self' https://formsubmit.co; base-uri 'self'; object-src 'none'; frame-ancestors 'none'
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://quan-ly-kho-hang.guiyeuthuongvaodat.com; font-src 'self'; media-src 'self'; connect-src 'self' https://formsubmit.co https://quan-ly-kho-hang.guiyeuthuongvaodat.com; frame-src https://www.google.com https://maps.google.com; form-action 'self' https://formsubmit.co; base-uri 'self'; object-src 'none'; frame-ancestors 'none'
 
 /assets/*
   Cache-Control: public, max-age=86400

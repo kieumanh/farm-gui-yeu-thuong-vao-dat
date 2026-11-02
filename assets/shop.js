@@ -1,9 +1,12 @@
-/* Cửa hàng theo mùa — đọc /assets/shop-data.json và dựng danh sách. Không phụ thuộc thư viện. */
+/* Cửa hàng theo mùa — đọc danh sách từ Kho vườn, tự quay về /assets/shop-data.json nếu Kho vườn không phản hồi. Không phụ thuộc thư viện. */
 (function () {
   'use strict';
   var root = document.getElementById('shop-root');
   if (!root) return;
-  var V = '2.9.3';
+  var V = '2.9.4';
+  /* Nguồn cấp của Kho vườn. Để '' để chỉ dùng assets/shop-data.json (cần khớp với connect-src trong _headers). */
+  var KHO_FEED = 'https://quan-ly-kho-hang.guiyeuthuongvaodat.com/api/shop-feed';
+  var LOCAL_FEED = '/assets/shop-data.json';
   var LABEL = { 'co-hang': 'Có hàng', 'sap-co': 'Sắp có', 'tam-het': 'Tạm hết', 'cho-cap-nhat': 'Chờ cập nhật' };
   var RANK = { 'co-hang': 0, 'sap-co': 1, 'cho-cap-nhat': 2, 'tam-het': 3 };
 
@@ -17,12 +20,16 @@
     var m = /^(\d{4})-(\d{2})-(\d{2})/.exec(iso || '');
     return m ? m[3] + '/' + m[2] + '/' + m[1] : '';
   }
+  function imgSrc(it) { // ảnh từ Kho vườn là địa chỉ đầy đủ; ảnh cũ là tên tệp trong assets/shop/
+    var s = it.image || '';
+    return /^https?:\/\//i.test(s) ? s : '/assets/shop/' + s + '?v=' + V;
+  }
   function plain(s) { // bỏ dấu để tìm kiếm
     return String(s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/đ/g, 'd');
   }
 
   function render(data) {
-    var items = (data.items || []).map(function (it, i) { it._i = i; it._k = plain(it.name + ' ' + it.group); return it; });
+    var items = (data.items || []).map(function (it, i) { it._i = i; it._k = plain(it.name + ' ' + it.group + ' ' + (Array.isArray(it.keywords) ? it.keywords.join(' ') : '')); return it; });
     items.sort(function (a, b) {
       var ra = RANK[a.status] != null ? RANK[a.status] : 2, rb = RANK[b.status] != null ? RANK[b.status] : 2;
       return ra - rb || a._i - b._i;
@@ -96,7 +103,7 @@
         var card = el('article', 'shop-card' + (out ? ' is-out' : ''));
         var ph = el('div', 'shop-photo');
         var img = new Image();
-        img.src = '/assets/shop/' + it.image + '?v=' + V;
+        img.src = imgSrc(it);
         img.alt = it.alt || it.name;
         img.width = 600; img.height = 600; img.loading = 'lazy'; img.decoding = 'async';
         ph.appendChild(img);
@@ -108,7 +115,7 @@
         var facts = [];
         if (it.qty) facts.push(it.qty);
         if (it.price) facts.push(it.price);
-        var sub = [it.season, it.note].filter(Boolean).join(' · ');
+        var sub = [it.season, it.note, it.description].filter(Boolean).join(' · ');
         if (facts.length) body.appendChild(el('p', 'shop-qty', facts.join(' · ')));
         body.appendChild(el('p', 'shop-meta', sub || it.group));
         card.appendChild(body);
@@ -118,8 +125,16 @@
     draw();
   }
 
-  fetch('/assets/shop-data.json', { cache: 'no-cache' })
-    .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+  /* Ưu tiên Kho vườn (chờ tối đa 6 giây); lỗi hoặc dữ liệu hỏng thì dùng bản dự phòng ngay trên website. */
+  function getJson(url, ms) {
+    var ctl = typeof AbortController === 'function' ? new AbortController() : null;
+    var timer = ctl ? setTimeout(function () { ctl.abort(); }, ms) : null;
+    return fetch(url, { cache: 'no-cache', signal: ctl ? ctl.signal : undefined })
+      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function (d) { if (!d || !Array.isArray(d.items) || !d.items.length) throw new Error('bad'); return d; })
+      .then(function (d) { if (timer) clearTimeout(timer); return d; }, function (e) { if (timer) clearTimeout(timer); throw e; });
+  }
+  (KHO_FEED ? getJson(KHO_FEED, 6000).catch(function () { return getJson(LOCAL_FEED, 10000); }) : getJson(LOCAL_FEED, 10000))
     .then(render)
     .catch(function () {
       var s = document.getElementById('shop-status');
