@@ -191,3 +191,12 @@
 .journey-points li { font-size: .85rem; padding: .3rem .75rem; border-radius: 999px; background: rgba(111, 158, 106, .16); color: var(--forest-900); font-weight: 600; }
 .journey-links { display: flex; flex-wrap: wrap; gap: .2rem 1.4rem; margin: .4rem 0 0; }
 @media (min-width: 760px) { .journey-card.has-photo figure { grid-row: 1 / span 8; } }
+
+/* ---------- v2.6.5: thông báo dưới danh mục cửa hàng ---------- */
+.shop-notice { margin: 1.8rem 0 0; padding: 1.3rem 1.4rem; border-radius: 20px; background: #f6f1e1; border: 1px dashed rgba(32, 41, 31, .28); max-width: 820px; }
+.shop-notice h3 { margin: 0 0 .7rem; font-size: 1.1rem; }
+.shop-notice ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .75rem; }
+.shop-notice li { display: grid; grid-template-columns: 1.2rem 1fr; gap: .6rem; align-items: start; }
+.shop-notice li > span { color: var(--sun-600); line-height: 1.6; }
+.shop-notice p { margin: 0; font-size: .93rem; line-height: 1.6; color: var(--ink-700); }
+.shop-notice strong { color: var(--forest-900); }

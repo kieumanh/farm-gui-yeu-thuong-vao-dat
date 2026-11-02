@@ -91,3 +91,37 @@
 .partner-v232 .partner-exchange-copy ul{margin:0;padding-left:22px;line-height:1.72;overflow-wrap:anywhere}
 .partner-v232 .partner-exchange-grid{align-items:stretch}
 @media(max-width:740px){.partner-v232 .partner-exchange-card{border-radius:20px}.partner-v232 .partner-exchange-figure img{aspect-ratio:16/9}.partner-v232 .partner-exchange-copy{padding:22px 20px}}
+
+/* ---------- v2.6.5: hiệu ứng rê chuột đồng bộ với các trang khác ---------- */
+.partner-v232 .partner-card, .partner-v232 .partner-exchange-card, .partner-v232 .partner-steps li {
+  position: relative;
+  border-top: 4px solid var(--basalt-500);
+  transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s ease, border-color .35s ease, background .35s ease, opacity .7s ease;
+}
+.partner-v232 .partner-card h3, .partner-v232 .partner-exchange-card h3, .partner-v232 .partner-steps h3 { transition: color .3s ease; }
+.partner-v232 .partner-step-number, .partner-v232 .partner-index { display: inline-block; transform-origin: left bottom; transition: transform .35s cubic-bezier(.2,.8,.2,1), color .3s ease; }
+.partner-v232 .partner-steps li { border-top-style: solid; }
+.partner-v232 .partner-cards > .reveal:nth-child(2), .partner-v232 .partner-steps > .reveal:nth-child(2) { transition-delay: .08s; }
+.partner-v232 .partner-cards > .reveal:nth-child(3), .partner-v232 .partner-steps > .reveal:nth-child(3) { transition-delay: .16s; }
+@media (hover: hover) and (pointer: fine) {
+  .partner-v232 .partner-card:hover, .partner-v232 .partner-card:focus-within,
+  .partner-v232 .partner-exchange-card:hover, .partner-v232 .partner-steps li:hover {
+    transform: translateY(-8px) rotate(-.3deg);
+    box-shadow: 0 22px 44px rgba(26, 50, 35, .18);
+    border-top-color: var(--sun-500); background: #fffef9;
+  }
+  .partner-v232 .partner-card:hover .partner-photo img { transform: scale(1.06); }
+  .partner-v232 .partner-card:hover h3, .partner-v232 .partner-exchange-card:hover h3, .partner-v232 .partner-steps li:hover h3 { color: var(--forest-700); }
+  .partner-v232 .partner-steps li:hover .partner-step-number { transform: scale(1.22) rotate(-4deg); color: var(--basalt-600); }
+  .partner-v232 .partner-card:hover .partner-index { color: var(--basalt-600); transform: translateX(3px); }
+  .partner-v232 .partner-hero-photo img { transition: transform .5s ease; }
+  .partner-v232 .partner-hero-photo:hover img, .partner-v232 .partner-philosophy .partner-photo:hover img, .partner-v232 .partner-exchange-figure:hover img { transform: scale(1.04); }
+  .partner-v232 .partner-contact-link { transition: transform .25s ease, background .25s ease; }
+  .partner-v232 .partner-contact-link:hover { transform: translateY(-3px); }
+}
+.partner-v232 .partner-exchange-figure { overflow: hidden; }
+.partner-v232 .partner-exchange-figure img { transition: transform .5s ease; }
+@media (prefers-reduced-motion: reduce) {
+  .partner-v232 .partner-card:hover, .partner-v232 .partner-exchange-card:hover, .partner-v232 .partner-steps li:hover { transform: none !important; }
+  .partner-v232 * { transition: none !important; }
+}
