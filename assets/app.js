@@ -38,20 +38,24 @@
   var LAYERS = [
     {
       title: 'Tán cao · Giữ bóng mát',
-      text: 'Cây cao điều tiết nắng và che chở những tầng cây bên dưới.'
+      text: 'Cây cao điều tiết nắng và che chở những tầng cây bên dưới.',
+      plants: ['Chuối', 'Đu đủ', 'Bơ']
     },
     {
       title: 'Tầng giữa · Kết nối tán lá',
-      text: 'Cây vừa tầm trồng xen, chia sẻ ánh sáng và giữ vườn xanh mát.'
+      text: 'Cây vừa tầm trồng xen, chia sẻ ánh sáng và giữ vườn xanh mát.',
+      plants: ['Chanh dây', 'Ớt', 'Cây gia vị']
     },
     {
       title: 'Sát mặt đất · Nuôi đất sống',
-      text: 'Rau và lá mục che phủ đất, giữ ẩm và nuôi dưỡng sinh vật nhỏ.'
+      text: 'Rau và lá mục che phủ đất, giữ ẩm và nuôi dưỡng sinh vật nhỏ.',
+      plants: ['Rau lá', 'Rau mùi', 'Cây phủ đất']
     }
   ];
   var layerBtns = document.querySelectorAll('.layer-buttons button');
   var layerTitle = document.querySelector('.layer-description h3');
   var layerText = document.querySelector('.layer-description p');
+  var layerPlants = document.querySelector('.layer-plants');
   var layerGraphic = document.querySelector('.layer-graphic');
   var layerControls = document.querySelectorAll('.layer-buttons [data-layer], .layer-photo-trigger');
   function selectLayer(i, replay) {
@@ -64,6 +68,7 @@
     if (LAYERS[i] && layerTitle && layerText) {
       layerTitle.textContent = LAYERS[i].title;
       layerText.textContent = LAYERS[i].text;
+      if (layerPlants) layerPlants.textContent = 'Ví dụ trong vườn: ' + LAYERS[i].plants.join(' · ');
     }
     var photo = document.querySelector('.layer-photo-trigger[data-layer="' + i + '"] img');
     if (replay && photo && photo.animate && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
