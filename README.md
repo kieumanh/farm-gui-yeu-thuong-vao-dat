@@ -2,7 +2,7 @@
 
 **Website:** https://le-lam-son-farm.huongthiennature.com/
 
-**Phiên bản hiện tại:** v2.6.0 (02/11/2026) — nhật ký cập nhật tại [/phien-ban/](https://le-lam-son-farm.huongthiennature.com/phien-ban/)  
+**Phiên bản hiện tại:** v2.6.1 (02/11/2026) — nhật ký cập nhật tại [/phien-ban/](https://le-lam-son-farm.huongthiennature.com/phien-ban/)  
 **Hạ tầng:** GitHub + Cloudflare Pages  
 **Cloudflare Pages project:** `farm-gui-yeu-thuong-vao-dat`  
 **Production branch:** `main`
@@ -48,6 +48,11 @@ Các tệp trong `.github/workflows/` là lịch sử những bản phát hành 
 
 ## Cập nhật v2.5.1 (02/11/2026)
 Các bài Học tập số 06–09 được viết lại sâu hơn. Bài "Đất sống là gì?" có hình lát cắt đất `assets/dat-song-lat-cat.svg` (vẽ riêng, tự tạo) và kiểu dáng bổ sung trong `assets/v251.css`.
+
+## Cập nhật v2.6.1 (02/11/2026)
+
+- Kiểm tra ảnh trùng toàn site (MD5, dHash, đối sánh đặc trưng ORB): gỡ `met-nong-san-theo-mua.webp` và `vuon-xen-canh.webp` (trùng với `gio-rau-cu.webp` và `rau-nhin-tu-mat-dat.webp`); album còn 67 ảnh.
+- Trang chủ, Đồng hành, bài “Nhật ký vườn minh bạch”: mỗi ảnh chỉ xuất hiện một lần trong một trang.
 
 ## Cập nhật v2.6.0 (02/11/2026)
 - Trang Sản phẩm đã gộp vào Cửa hàng (`cua-hang/`); `_redirects` chuyển `/san-pham/` sang `/cua-hang/`.
