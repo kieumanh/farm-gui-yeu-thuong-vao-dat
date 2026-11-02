@@ -3,7 +3,7 @@
   'use strict';
   var root = document.getElementById('shop-root');
   if (!root) return;
-  var V = '2.9.0';
+  var V = '2.9.1';
   var LABEL = { 'co-hang': 'Có hàng', 'sap-co': 'Sắp có', 'tam-het': 'Tạm hết', 'cho-cap-nhat': 'Chờ cập nhật' };
   var RANK = { 'co-hang': 0, 'sap-co': 1, 'cho-cap-nhat': 2, 'tam-het': 3 };
 
@@ -40,7 +40,7 @@
       line.appendChild(document.createTextNode(' · ' + have + ' loại đang có' + (soon ? ', ' + soon + ' loại sắp có' : '')));
     } else {
       line.appendChild(el('strong', '', 'Số lượng hôm nay chưa được cập nhật.'));
-      line.appendChild(document.createTextNode(' Bạn bấm “Hỏi mình” ở món mình thích để hỏi nhé.'));
+      line.appendChild(document.createTextNode(' Bạn nhắn cho mình ở mục Liên hệ để hỏi về món bạn thích nhé.'));
     }
     status.appendChild(line);
 
@@ -111,12 +111,6 @@
         var sub = [it.season, it.note].filter(Boolean).join(' · ');
         if (facts.length) body.appendChild(el('p', 'shop-qty', facts.join(' · ')));
         body.appendChild(el('p', 'shop-meta', sub || it.group));
-        var ask = el('a', 'shop-ask', out ? 'Hỏi khi nào có lại' : 'Hỏi mình');
-        ask.href = '/lien-he/?mon=' + encodeURIComponent(it.name) + '#gui-loi-nhan';
-        ask.setAttribute('aria-label', 'Hỏi mình về ' + it.name);
-        ask.appendChild(el('span', '', '→'));
-        ask.lastChild.setAttribute('aria-hidden', 'true');
-        body.appendChild(ask);
         card.appendChild(body);
         grid.appendChild(card);
       });
