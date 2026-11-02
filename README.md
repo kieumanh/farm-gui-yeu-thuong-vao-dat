@@ -2,7 +2,7 @@
 
 **Website:** https://le-lam-son-farm.huongthiennature.com/
 
-**Phiên bản hiện tại:** v2.5.0 (02/11/2026) — nhật ký cập nhật tại [/phien-ban/](https://le-lam-son-farm.huongthiennature.com/phien-ban/)  
+**Phiên bản hiện tại:** v2.5.1 (02/11/2026) — nhật ký cập nhật tại [/phien-ban/](https://le-lam-son-farm.huongthiennature.com/phien-ban/)  
 **Hạ tầng:** GitHub + Cloudflare Pages  
 **Cloudflare Pages project:** `farm-gui-yeu-thuong-vao-dat`  
 **Production branch:** `main`
@@ -45,3 +45,6 @@ Các tệp trong `.github/workflows/` là lịch sử những bản phát hành 
 - Mỗi món có `status`: `co-hang` (Có hàng), `sap-co` (Sắp có), `tam-het` (Tạm hết) hoặc `cho-cap-nhat` (Chờ cập nhật); tùy chọn `qty` (ví dụ "Còn khoảng 5 kg"), `price`, `season`, `note`.
 - Thêm món mới: sao chép một dòng trong `items`, đổi `id`, `name`, `image`, `alt`; ảnh vuông 600×600 `.webp` để trong `assets/shop/`.
 - Trang `/cua-hang/` đọc tệp này bằng `assets/shop.js`; không có bước build.
+
+## Cập nhật v2.5.1 (02/11/2026)
+Các bài Học tập số 06–09 được viết lại sâu hơn. Bài "Đất sống là gì?" có hình lát cắt đất `assets/dat-song-lat-cat.svg` (vẽ riêng, tự tạo) và kiểu dáng bổ sung trong `assets/v251.css`.

@@ -1,0 +1,70 @@
+/* Gửi yêu thương vào đất — v2.5.1: thành phần minh họa cho bài "Đất sống là gì?" */
+.soil-figure img { width: 100%; max-width: 640px; height: auto; border-radius: 18px; background: #fbf7ea; }
+
+/* chú giải lát cắt */
+.soil-legend { counter-reset: sl; list-style: none; margin: 1rem 0 1.4rem; padding: 0; display: grid; gap: .55rem; }
+.soil-legend li { counter-increment: sl; display: grid; grid-template-columns: 2rem 1fr; gap: .7rem; align-items: start; color: var(--ink-700); }
+.soil-legend li::before {
+  content: counter(sl); width: 1.8rem; height: 1.8rem; border-radius: 50%; background: var(--forest-800);
+  color: var(--paper-50); display: grid; place-items: center; font-weight: 700; font-size: .92rem;
+}
+.soil-legend b { color: var(--forest-900); }
+
+/* năm bước kiểm tra bằng tay */
+.hand-test { counter-reset: ht; list-style: none; margin: 1rem 0; padding: 0; display: grid; gap: .7rem; }
+.hand-test li {
+  counter-increment: ht; position: relative; background: #fffdf6; border: 1px solid rgba(32, 41, 31, .12);
+  border-left: 4px solid var(--sun-500); border-radius: 14px; padding: .8rem 1rem .8rem 3rem; color: var(--ink-700);
+}
+.hand-test li::before {
+  content: counter(ht); position: absolute; left: .85rem; top: .75rem; font-family: var(--font-display);
+  font-size: 1.4rem; line-height: 1; color: var(--sun-600);
+}
+.hand-test b { color: var(--forest-900); }
+.hand-note { font-size: .92rem; color: var(--ink-500); }
+
+/* vòng quay lưới thức ăn */
+.flow-loop { counter-reset: fl; list-style: none; margin: 1.2rem 0 .4rem; padding: 0; display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
+.flow-loop li {
+  counter-increment: fl; position: relative; background: #eef3e6; border: 1.5px solid var(--forest-800);
+  border-radius: 16px; padding: .85rem 1rem .85rem 1rem; display: grid; gap: .15rem;
+}
+.flow-loop li:nth-child(2) { background: #f6ebc8; } .flow-loop li:nth-child(3) { background: #f3dcd7; }
+.flow-loop li:nth-child(4) { background: #dce9f3; } .flow-loop li:nth-child(5) { background: #eadfcd; }
+.flow-loop li::before {
+  content: counter(fl); position: absolute; top: -.7rem; left: .8rem; width: 1.5rem; height: 1.5rem; border-radius: 50%;
+  background: var(--forest-800); color: var(--paper-50); display: grid; place-items: center; font-size: .8rem; font-weight: 700;
+}
+.flow-loop li::after { content: "↓"; position: absolute; left: 50%; bottom: -1.35rem; transform: translateX(-50%); color: var(--forest-800); font-weight: 700; font-size: 1.1rem; }
+.flow-loop li:last-child::after { content: "↺"; }
+.flow-loop b { color: var(--forest-900); font-size: 1.02rem; }
+.flow-loop span { font-size: .9rem; color: var(--ink-700); }
+.flow-note { font-size: .9rem; color: var(--ink-500); font-style: italic; margin-top: 1.4rem; }
+@media (min-width: 640px) {
+  .flow-loop { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.4rem 1.6rem; }
+  .flow-loop li:nth-child(odd)::after { content: "→"; left: auto; right: -1.3rem; bottom: auto; top: 50%; transform: translateY(-50%); }
+  .flow-loop li:nth-child(even)::after { content: "↓"; }
+  .flow-loop li:last-child::after { content: "↺"; left: auto; right: -1.3rem; bottom: auto; top: 50%; transform: translateY(-50%); }
+}
+
+/* ba nguyên tắc */
+.pillars { counter-reset: pl; list-style: none; margin: 1.2rem 0; padding: 0; display: grid; gap: 1rem; }
+.pillar {
+  display: grid; grid-template-columns: 4.2rem 1fr; gap: 1rem; align-items: start; background: #fffdf6;
+  border: 1px solid rgba(32, 41, 31, .12); border-top: 4px solid var(--basalt-500); border-radius: 18px; padding: 1.1rem 1.2rem;
+  box-shadow: var(--shadow-card); transition: transform .3s ease, box-shadow .3s ease;
+}
+.pillar-icon svg { width: 100%; height: auto; display: block; }
+.pillar-no { font-size: .74rem; letter-spacing: .12em; text-transform: uppercase; font-weight: 700; color: var(--forest-700); }
+.pillar h3 { margin: .15rem 0 .35rem; font-size: 1.2rem; }
+.pillar p { margin: 0; color: var(--ink-700); font-size: .98rem; }
+.pillar p a { color: var(--basalt-700); font-weight: 600; }
+@media (hover: hover) and (pointer: fine) { .pillar:hover { transform: translateY(-4px); box-shadow: 0 16px 32px rgba(26, 50, 35, .15); } }
+@media (max-width: 480px) { .pillar { grid-template-columns: 3.2rem 1fr; gap: .75rem; padding: .95rem .9rem; } }
+@media (prefers-reduced-motion: reduce) { .pillar { transition: none !important; } .pillar:hover { transform: none !important; } }
+
+/* cặp ảnh cạnh nhau */
+.photo-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin: 2rem 0; align-items: start; }
+.photo-pair .article-farm-photo { margin: 0; }
+.photo-pair .article-farm-photo img { width: 100%; height: auto; }
+@media (max-width: 600px) { .photo-pair { grid-template-columns: 1fr; } }
