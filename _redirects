@@ -1,2 +1,5 @@
 /san-pham   /cua-hang/  301
 /san-pham/  /cua-hang/  301
+/scripts/*  /404.html  404
+/mirror-report.json  /404.html  404
+/README.md  /404.html  404

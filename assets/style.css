@@ -1123,3 +1123,30 @@ figcaption { color: var(--ink-500); }
 .farm-contact-form .form-alt .button { padding: .6rem 1.2rem; min-height: 46px; }
 .farm-contact-form .contact-form-actions .button { min-height: 50px; padding: .75rem 1.8rem; }
 #gui-loi-nhan { scroll-margin-top: 100px; }
+
+/* ---------- v2.6.2: vùng chạm tối thiểu và cỡ chữ tối thiểu ---------- */
+a.text-link, a.quiet-link, .breadcrumb a,
+a.contact-email-link, a.contact-inline, a.contact-phone,
+.partner-links a, .gallery-more a {
+  display: inline-flex; align-items: center; min-height: 44px;
+}
+.breadcrumb { row-gap: 0; }
+#nature-next, #nature-toggle { min-width: 40px; min-height: 40px; font-size: 1rem; }
+.shop-toggle { min-height: 44px; display: flex; align-items: center; gap: .6rem; }
+#shop-only-have { width: 22px; height: 22px; flex: none; }
+.site-header .header-inner > .brand small { font-size: .58rem !important; letter-spacing: .08em !important; }
+figcaption { font-size: .85rem !important; line-height: 1.5; }
+.eyebrow, .contact-label, .contact-privacy, .optional, .layer-caption, .partner-index,
+.pillar-no, .journey-tag, .shop-chip, .footer-version, #nature-label,
+.story-card .meta span, .toc-panel summary span, .music-panel p, .music-info small {
+  font-size: .8125rem !important;
+}
+.lift-note a, .gioi-thieu a, li a.text-link { min-height: 0; }
+.lift-note a { display: inline-block; padding-block: .45rem; }
+.music-player-floating .music-toggle, .music-player-floating .music-settings,
+.site-header .music-toggle, .site-header .music-settings { min-width: 40px; min-height: 40px; }
+.round-stamp { width: 132px; height: 132px; }
+.round-stamp span { font-size: 9px !important; }
+@media (max-width: 620px) {
+  .round-stamp { width: 132px; height: 132px; font-size: 7.5px; }
+}

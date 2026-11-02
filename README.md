@@ -2,7 +2,7 @@
 
 **Website:** https://le-lam-son-farm.huongthiennature.com/
 
-**Phiên bản hiện tại:** v2.6.1 (02/11/2026) — nhật ký cập nhật tại [/phien-ban/](https://le-lam-son-farm.huongthiennature.com/phien-ban/)  
+**Phiên bản hiện tại:** v2.6.2 (02/11/2026) — nhật ký cập nhật tại [/phien-ban/](https://le-lam-son-farm.huongthiennature.com/phien-ban/)  
 **Hạ tầng:** GitHub + Cloudflare Pages  
 **Cloudflare Pages project:** `farm-gui-yeu-thuong-vao-dat`  
 **Production branch:** `main`
@@ -29,7 +29,7 @@ Muốn dựng lại: lấy mã từ lịch sử Git — `assets/comments.js`, `a
 
 ## Nguồn gốc và các script phát hành cũ
 
-Website ban đầu được xây dựng trên ChatGPT Sites. Ngày 26/10/2026 (v2.2.0), mã đã build được sao chép về repository này (66 tệp, xem [mirror-report.json](./mirror-report.json)) và từ đó được chỉnh sửa độc lập. Mã nguồn gốc có `build.py` (gói Farm-Yeu-Thuong-v0.2.21) **không** nằm trong repository này.
+Website ban đầu được xây dựng trên ChatGPT Sites. Ngày 26/10/2026 (v2.2.0), mã đã build được sao chép về repository này (66 tệp; báo cáo sao chép đã được gỡ khỏi site ở v2.6.2) và từ đó được chỉnh sửa độc lập. Mã nguồn gốc có `build.py` (gói Farm-Yeu-Thuong-v0.2.21) **không** nằm trong repository này.
 
 Workflow xuất lại bản từ trang ChatGPT cũ đã được gỡ ngày 31/10/2026 để không ghi đè các chỉnh sửa; nếu cần xem lại, lấy từ lịch sử Git (commit `725f8da`).
 
@@ -48,6 +48,10 @@ Các tệp trong `.github/workflows/` là lịch sử những bản phát hành 
 
 ## Cập nhật v2.5.1 (02/11/2026)
 Các bài Học tập số 06–09 được viết lại sâu hơn. Bài "Đất sống là gì?" có hình lát cắt đất `assets/dat-song-lat-cat.svg` (vẽ riêng, tự tạo) và kiểu dáng bổ sung trong `assets/v251.css`.
+
+## Cập nhật v2.6.2 (02/11/2026)
+
+- Diện tích 1,2 hecta; vùng chạm >= 40px; cỡ chữ tối thiểu ~13px; ảnh thu nhỏ `assets/thumb/` cho lưới ảnh; `_redirects` chặn /scripts/, /README.md, /mirror-report.json; gỡ mirror-report.json; thống nhất “khu vườn”.
 
 ## Cập nhật v2.6.1 (02/11/2026)
 
