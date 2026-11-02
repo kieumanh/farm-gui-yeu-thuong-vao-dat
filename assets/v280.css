@@ -122,3 +122,10 @@ dialog.lightbox :focus-visible { outline: 3px solid var(--sun-500); outline-offs
 @media (prefers-reduced-motion: reduce) {
   dialog.lightbox, .gallery-filters button { transition: none !important; }
 }
+
+/* ---------- Thanh menu 7 mục (có Câu chuyện): thu gọn khoảng cách giữa 941 và 1240 px ---------- */
+@media (max-width: 1240px) and (min-width: 941px) {
+  .site-header nav { gap: .1rem; }
+  .site-header nav a { padding: .45rem .5rem; font-size: .88rem; }
+  .brand span { font-size: 1.08rem; }
+}
