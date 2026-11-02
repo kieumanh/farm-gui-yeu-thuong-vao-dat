@@ -1097,3 +1097,8 @@ figcaption { color: var(--ink-500); }
 @media (max-width: 620px) {
   .volunteer-gallery .farm-photo-grid figure:nth-child(n+5) { display: none; }
 }
+
+/* v2.5.0: tên thương hiệu dài hơn — thu nhỏ vừa đủ để nằm một dòng trên điện thoại */
+@media (max-width: 700px) {
+  .site-header .header-inner > .brand span { font-size: clamp(.72rem, 3.3vw, .85rem); }
+}

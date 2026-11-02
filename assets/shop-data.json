@@ -1,0 +1,23 @@
+{
+  "updated": "2026-11-02",
+  "note": "Danh sách các loại rau củ quả của vườn. Số lượng mỗi ngày do Sơn cập nhật tại đây; loại nào chưa có số liệu sẽ hiện \"Chờ cập nhật\".",
+  "groups": ["Rau & lá", "Củ & quả rau", "Trái cây", "Làm từ vườn"],
+  "items": [
+    { "id": "rau-xanh", "name": "Rau xanh các loại", "group": "Rau & lá", "image": "rau-xanh.webp", "alt": "Rau xanh các loại xếp trên lá chuối", "status": "cho-cap-nhat" },
+    { "id": "rau-mui", "name": "Rau mùi", "group": "Rau & lá", "image": "rau-mui.webp", "alt": "Rau mùi mọc giữa thân chuối phủ luống", "status": "cho-cap-nhat" },
+    { "id": "tia-to", "name": "Tía tô", "group": "Rau & lá", "image": "tia-to.webp", "alt": "Luống tía tô lá tím xanh", "status": "cho-cap-nhat" },
+    { "id": "cai-bap", "name": "Cải bắp", "group": "Rau & lá", "image": "cai-bap.webp", "alt": "Cải bắp non trên luống phủ cỏ khô", "status": "cho-cap-nhat" },
+    { "id": "cu-cai", "name": "Củ cải trắng", "group": "Củ & quả rau", "image": "cu-cai.webp", "alt": "Bó củ cải trắng còn dính đất", "status": "cho-cap-nhat" },
+    { "id": "ca-tim", "name": "Cà tím", "group": "Củ & quả rau", "image": "ca-tim.webp", "alt": "Cà tím tím sẫm", "status": "cho-cap-nhat" },
+    { "id": "ca-chua", "name": "Cà chua", "group": "Củ & quả rau", "image": "ca-chua.webp", "alt": "Cà chua chín cam", "status": "cho-cap-nhat" },
+    { "id": "ot", "name": "Ớt", "group": "Củ & quả rau", "image": "ot.webp", "alt": "Ớt chín đỏ giữa tán lá", "status": "cho-cap-nhat" },
+    { "id": "bap", "name": "Bắp non", "group": "Củ & quả rau", "image": "bap.webp", "alt": "Bắp non trong rổ", "status": "cho-cap-nhat" },
+    { "id": "chuoi", "name": "Chuối", "group": "Trái cây", "image": "chuoi.webp", "alt": "Nải chuối xanh", "status": "cho-cap-nhat" },
+    { "id": "du-du", "name": "Đu đủ", "group": "Trái cây", "image": "du-du.webp", "alt": "Đu đủ và mít trên xe rùa", "status": "cho-cap-nhat" },
+    { "id": "mit", "name": "Mít", "group": "Trái cây", "image": "mit.webp", "alt": "Quả mít xanh", "status": "cho-cap-nhat" },
+    { "id": "bo", "name": "Bơ", "group": "Trái cây", "image": "bo.webp", "alt": "Bơ xanh trong mẹt tre", "status": "cho-cap-nhat" },
+    { "id": "chom-chom", "name": "Chôm chôm", "group": "Trái cây", "image": "chom-chom.webp", "alt": "Chùm chôm chôm chín", "status": "cho-cap-nhat" },
+    { "id": "chanh-day", "name": "Chanh dây", "group": "Trái cây", "image": "chanh-day.webp", "alt": "Chanh dây nhiều màu trong rổ", "status": "cho-cap-nhat" },
+    { "id": "chuoi-say", "name": "Chuối sấy", "group": "Làm từ vườn", "image": "chuoi-say.webp", "alt": "Chuối sấy đóng túi", "status": "cho-cap-nhat" }
+  ]
+}
