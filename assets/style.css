@@ -1102,3 +1102,24 @@ figcaption { color: var(--ink-500); }
 @media (max-width: 700px) {
   .site-header .header-inner > .brand span { font-size: clamp(.72rem, 3.3vw, .85rem); }
 }
+
+/* ---------- v2.6.0: hàng nút CTA đồng đều, căn giữa ---------- */
+.cta-row, .about-cta-links {
+  display: flex; flex-wrap: wrap; align-items: stretch; justify-content: center; gap: .8rem; margin-top: 1.4rem;
+}
+.cta-row .button, .about-cta-links .button { justify-content: center; min-height: 50px; text-align: center; }
+.button.primary { background: var(--forest-800); border-color: var(--forest-800); color: var(--paper-50); }
+.button.primary:hover { background: var(--forest-950); border-color: var(--forest-950); }
+.button.ghost { background: transparent; border-color: var(--forest-800); color: var(--forest-900); }
+.button.ghost:hover { background: var(--forest-800); color: var(--paper-50); }
+@media (max-width: 520px) {
+  .cta-row .button, .about-cta-links .button { flex: 1 1 100%; }
+}
+
+/* ---------- v2.6.0: form liên hệ ---------- */
+.contact-form-status.is-error { color: #9b2c1f; }
+.farm-contact-form .form-alt { margin-top: 1.6rem; padding-top: 1.2rem; border-top: 1px dashed rgba(32, 41, 31, .25); color: var(--ink-700); font-size: .93rem; }
+.farm-contact-form .form-alt .cta-row { justify-content: flex-start; margin-top: .8rem; }
+.farm-contact-form .form-alt .button { padding: .6rem 1.2rem; min-height: 46px; }
+.farm-contact-form .contact-form-actions .button { min-height: 50px; padding: .75rem 1.8rem; }
+#gui-loi-nhan { scroll-margin-top: 100px; }

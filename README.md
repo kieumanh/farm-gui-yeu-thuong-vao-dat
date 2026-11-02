@@ -2,7 +2,7 @@
 
 **Website:** https://le-lam-son-farm.huongthiennature.com/
 
-**Phiên bản hiện tại:** v2.5.1 (02/11/2026) — nhật ký cập nhật tại [/phien-ban/](https://le-lam-son-farm.huongthiennature.com/phien-ban/)  
+**Phiên bản hiện tại:** v2.6.0 (02/11/2026) — nhật ký cập nhật tại [/phien-ban/](https://le-lam-son-farm.huongthiennature.com/phien-ban/)  
 **Hạ tầng:** GitHub + Cloudflare Pages  
 **Cloudflare Pages project:** `farm-gui-yeu-thuong-vao-dat`  
 **Production branch:** `main`
@@ -13,7 +13,7 @@ Website là mã tĩnh (HTML, CSS, JavaScript, ảnh, font, nhạc) nằm thẳng
 
 | Thành phần | Vai trò |
 | --- | --- |
-| `index.html`, `gioi-thieu/`, `cau-chuyen/`, `san-pham/`, `doi-tac/`, `nhat-ky/`, `hoc-tap/`, `lien-he/`, `phien-ban/` | Các trang của website |
+| `index.html`, `gioi-thieu/`, `cau-chuyen/`, `cua-hang/`, `doi-tac/`, `nhat-ky/`, `hoc-tap/`, `lien-he/`, `phien-ban/` | Các trang của website |
 | `assets/` | CSS, JavaScript, ảnh, font, nhạc |
 | `scripts/`, `.github/workflows/` | Lịch sử các bản phát hành trước (xem mục bên dưới) |
 
@@ -48,3 +48,8 @@ Các tệp trong `.github/workflows/` là lịch sử những bản phát hành 
 
 ## Cập nhật v2.5.1 (02/11/2026)
 Các bài Học tập số 06–09 được viết lại sâu hơn. Bài "Đất sống là gì?" có hình lát cắt đất `assets/dat-song-lat-cat.svg` (vẽ riêng, tự tạo) và kiểu dáng bổ sung trong `assets/v251.css`.
+
+## Cập nhật v2.6.0 (02/11/2026)
+- Trang Sản phẩm đã gộp vào Cửa hàng (`cua-hang/`); `_redirects` chuyển `/san-pham/` sang `/cua-hang/`.
+- Form liên hệ trở lại: `assets/contact.js` gửi qua FormSubmit (`https://formsubmit.co/ajax/kieumanh2211@gmail.com`). **Lần gửi đầu tiên FormSubmit sẽ gửi một email kích hoạt đến hộp thư đó; bấm vào liên kết trong email (xem cả thư rác) thì các lời nhắn sau mới được chuyển đến.** Muốn đổi hộp thư nhận: sửa địa chỉ trong `lien-he/index.html` (thuộc tính `action`) và `assets/contact.js` (`ENDPOINT`).
+- Nút "Hỏi Sơn" ở Cửa hàng mở `/lien-he/?mon=<tên món>`; `contact.js` điền sẵn chủ đề và lời nhắn.
