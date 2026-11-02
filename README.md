@@ -2,7 +2,7 @@
 
 **Website:** https://guiyeuthuongvaodat.com/
 
-**Phiên bản hiện tại:** v2.8.1 (03/11/2026) — nhật ký cập nhật tại [/phien-ban/](https://le-lam-son-farm.guiyeuthuongvaodat.com/phien-ban/)  
+**Phiên bản hiện tại:** v2.9.0 (03/11/2026) — nhật ký cập nhật tại [/phien-ban/](https://le-lam-son-farm.guiyeuthuongvaodat.com/phien-ban/)  
 **Tên miền:** guiyeuthuongvaodat.com (chính), le-lam-son-farm.huongthiennature.com (vẫn hoạt động)  
 **Hạ tầng:** GitHub + Cloudflare Pages  
 **Cloudflare Pages project:** `farm-gui-yeu-thuong-vao-dat`  
@@ -46,6 +46,12 @@ Các tệp trong `.github/workflows/` là lịch sử những bản phát hành 
 - Mỗi món có `status`: `co-hang` (Có hàng), `sap-co` (Sắp có), `tam-het` (Tạm hết) hoặc `cho-cap-nhat` (Chờ cập nhật); tùy chọn `qty` (ví dụ "Còn khoảng 5 kg"), `price`, `season`, `note`.
 - Thêm món mới: sao chép một dòng trong `items`, đổi `id`, `name`, `image`, `alt`; ảnh vuông 600×600 `.webp` để trong `assets/shop/`.
 - Trang `/cua-hang/` đọc tệp này bằng `assets/shop.js`; không có bước build.
+
+## Cập nhật v2.9.0 (03/11/2026)
+
+- Trang mới `/tinh-nguyen/` (lời mời tình nguyện viên, phúc lợi, cơ chế tham gia, hỏi nhanh) với `assets/v290.css`. Nội dung lấy từ bài đăng tuyển TNV của chủ vườn; mức hỗ trợ tiền mặt 1–5 triệu đồng lấy từ bài đó, cần chủ vườn xác nhận khi thay đổi.
+- Trang `/doi-tac/`: thẻ 01 tách hai cách bắt đầu và dẫn tới `/tinh-nguyen/`.
+- Trang `/lien-he/`: bỏ khối “Nhắn nhanh”.
 
 ## Cập nhật v2.8.1 (03/11/2026)
 

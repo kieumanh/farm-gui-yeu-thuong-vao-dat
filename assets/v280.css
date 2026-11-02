@@ -18,6 +18,10 @@
 .visit-actions .cta-row { display: flex; flex-wrap: wrap; gap: .7rem; }
 .visit-actions .button { min-height: 48px; display: inline-flex; align-items: center; }
 
+/* ---------- Trang chủ: lối vào trang Tình nguyện viên ---------- */
+.visit-actions .visit-vol { margin: .9rem 0 0; font-size: .95rem; color: var(--ink-700); }
+.visit-actions .visit-vol .text-link { min-height: 44px; display: inline-flex; align-items: center; font-weight: 700; }
+
 /* ---------- Lưới ảnh: bố cục so le, bộ lọc, lightbox ---------- */
 .farm-photo-grid figure[hidden] { display: none; }
 .farm-photo-grid figure { break-inside: avoid; }
@@ -100,11 +104,6 @@ dialog.lightbox :focus-visible { outline: 3px solid var(--sun-500); outline-offs
 .try-box p { margin: 0 0 1rem; color: var(--ink-700); max-width: 62ch; }
 .try-box .print-button { min-height: 44px; }
 .related-reads h2 { font-size: clamp(1.3rem, 2.4vw, 1.6rem); }
-
-/* ---------- Form liên hệ: nhắn nhanh ---------- */
-.quick-channels { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem; margin: 0 0 1.2rem; }
-.quick-channels > span { font-weight: 700; color: var(--forest-900); margin-right: .2rem; }
-.quick-channels .button { min-height: 44px; display: inline-flex; align-items: center; padding: .55rem 1rem; }
 
 /* ---------- Chân trang ---------- */
 .footer-credit { display: block; font-size: .8rem; opacity: .85; }
