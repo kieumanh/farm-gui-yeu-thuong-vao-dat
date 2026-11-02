@@ -1150,3 +1150,34 @@ figcaption { font-size: .85rem !important; line-height: 1.5; }
 @media (max-width: 620px) {
   .round-stamp { width: 132px; height: 132px; font-size: 7.5px; }
 }
+
+/* ---------- v2.6.3: form liên hệ gọn ---------- */
+.farm-contact-form { padding: 1.6rem 1.6rem 1.4rem; }
+.farm-contact-form .form-intro { margin: 0 0 .4rem; font-size: .95rem; }
+.farm-contact-form label { margin: .85rem 0 .3rem; }
+.farm-contact-form .topic-chips { border: 0; padding: 0; margin: .9rem 0 0; min-width: 0; display: flex; flex-wrap: wrap; gap: .5rem; }
+.farm-contact-form .topic-chips legend { font-size: .85rem; font-weight: 700; color: var(--forest-900); padding: 0; margin-bottom: .5rem; float: left; width: 100%; }
+.farm-contact-form .topic-chips label { margin: 0; display: block; }
+.farm-contact-form .topic-chips input { position: absolute; opacity: 0; width: 1px; height: 1px; padding: 0; border: 0; }
+.farm-contact-form .topic-chips span {
+  display: inline-flex; align-items: center; min-height: 44px; padding: 0 1rem;
+  border: 1.5px solid rgba(32, 41, 31, .28); border-radius: 999px; background: #fff;
+  font-size: .9rem; font-weight: 650; color: var(--forest-900); cursor: pointer;
+  transition: background .2s, color .2s, border-color .2s;
+}
+.farm-contact-form .topic-chips input:checked + span { background: var(--forest-900); color: #fff; border-color: var(--forest-900); }
+.farm-contact-form .topic-chips input:focus-visible + span { outline: 3px solid rgba(176, 106, 61, .5); outline-offset: 2px; }
+.farm-contact-form .contact-form-actions { align-items: center; margin-top: .9rem; gap: .9rem; }
+.farm-contact-form .contact-form-actions .contact-privacy { margin: 0; }
+.farm-contact-form .contact-form-status { margin-top: .6rem; min-height: 0; }
+.farm-contact-form .contact-form-status:empty { display: none; }
+.farm-contact-form .form-alt { margin: 1rem 0 0; padding-top: .9rem; font-size: .9rem; }
+.farm-contact-form .form-alt a { font-weight: 700; color: var(--forest-800); text-decoration: underline; text-underline-offset: 3px; display: inline-flex; align-items: center; min-height: 44px; }
+@media (max-width: 620px) {
+  .farm-contact-form { padding: 1.3rem 1.1rem 1.1rem; }
+  .farm-contact-form .contact-form-actions .button { width: 100%; justify-content: center; }
+}
+
+/* ---------- v2.6.3: ảnh trong bài viết ---------- */
+.article-farm-photo { max-width: 520px; margin-inline: auto; }
+.article-cover img.focus-low { object-position: 50% 82%; }

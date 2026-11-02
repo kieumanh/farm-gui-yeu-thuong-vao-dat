@@ -17,9 +17,9 @@
   var params = new URLSearchParams(location.search);
   var mon = (params.get('mon') || '').slice(0, 80);
   if (mon) {
-    var topic = document.getElementById('contact-topic');
+    var topic = form.querySelector('input[name=topic][value="Nông sản theo mùa"]');
     var msg = document.getElementById('contact-message');
-    if (topic) topic.value = 'Nông sản theo mùa';
+    if (topic) topic.checked = true;
     if (msg && !msg.value) msg.value = 'Mình muốn hỏi về: ' + mon + '. Hiện vườn còn không, giá và cách nhận thế nào ạ?';
   }
   if (params.get('da-gui') === '1') say('Cảm ơn bạn! Lời nhắn đã được gửi. Sơn sẽ phản hồi sớm nhất có thể.');
@@ -29,6 +29,11 @@
     if (busy || !form.reportValidity()) return;
     var data = {};
     new FormData(form).forEach(function (v, k) { data[k] = v; });
+    var reach = String(data.contact || '').trim();
+    delete data.contact;
+    if (reach.indexOf('@') > 0) { data.email = reach; }
+    else if (reach.replace(/\D/g, '').length >= 8) { data.phone = reach; }
+    else { say('Bạn nhập giúp số Zalo hoặc email để Sơn phản hồi nhé.', true); document.getElementById('contact-reach').focus(); return; }
     if (data._honey) { say('Cảm ơn bạn! Lời nhắn đã được gửi.'); form.reset(); return; } // bot: giả vờ thành công
     delete data._next;
     busy = true; submit.disabled = true; form.setAttribute('aria-busy', 'true');

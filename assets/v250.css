@@ -184,3 +184,10 @@
   .shop-status .pulse { animation: none; }
 }
 @media print { .shop-filters, .shop-tools, .shop-ask { display: none; } }
+
+/* ---------- v2.6.3: timeline hành trình ---------- */
+.journey-card p { margin: .2rem 0; }
+.journey-points { list-style: none; margin: .5rem 0 .2rem; padding: 0; display: flex; flex-wrap: wrap; gap: .4rem; }
+.journey-points li { font-size: .85rem; padding: .3rem .75rem; border-radius: 999px; background: rgba(111, 158, 106, .16); color: var(--forest-900); font-weight: 600; }
+.journey-links { display: flex; flex-wrap: wrap; gap: .2rem 1.4rem; margin: .4rem 0 0; }
+@media (min-width: 760px) { .journey-card.has-photo figure { grid-row: 1 / span 8; } }

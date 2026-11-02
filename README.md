@@ -2,7 +2,7 @@
 
 **Website:** https://le-lam-son-farm.huongthiennature.com/
 
-**Phiên bản hiện tại:** v2.6.2 (02/11/2026) — nhật ký cập nhật tại [/phien-ban/](https://le-lam-son-farm.huongthiennature.com/phien-ban/)  
+**Phiên bản hiện tại:** v2.6.3 (02/11/2026) — nhật ký cập nhật tại [/phien-ban/](https://le-lam-son-farm.huongthiennature.com/phien-ban/)  
 **Hạ tầng:** GitHub + Cloudflare Pages  
 **Cloudflare Pages project:** `farm-gui-yeu-thuong-vao-dat`  
 **Production branch:** `main`
@@ -48,6 +48,10 @@ Các tệp trong `.github/workflows/` là lịch sử những bản phát hành 
 
 ## Cập nhật v2.5.1 (02/11/2026)
 Các bài Học tập số 06–09 được viết lại sâu hơn. Bài "Đất sống là gì?" có hình lát cắt đất `assets/dat-song-lat-cat.svg` (vẽ riêng, tự tạo) và kiểu dáng bổ sung trong `assets/v251.css`.
+
+## Cập nhật v2.6.3 (02/11/2026)
+
+- Form liên hệ gọn (chip chủ đề, 1 ô “Zalo hoặc email”, contact.js tự tách email/phone); timeline Giới thiệu 5 mốc; sửa ảnh bìa và kích thước ảnh trong bài “Sâu trong vườn”.
 
 ## Cập nhật v2.6.2 (02/11/2026)
 
