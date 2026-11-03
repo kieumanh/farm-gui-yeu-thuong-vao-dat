@@ -3,7 +3,7 @@
   'use strict';
   var root = document.getElementById('shop-root');
   if (!root) return;
-  var V = '2.9.16';
+  var V = '2.9.17';
   /* Nguồn cấp của Kho vườn. Để '' để chỉ dùng assets/shop-data.json (cần khớp với connect-src trong _headers). */
   var KHO_FEED = 'https://quan-ly-kho-hang.guiyeuthuongvaodat.com/api/shop-feed';
   var LOCAL_FEED = '/assets/shop-data.json';
@@ -43,11 +43,11 @@
     status.appendChild(el('span', 'pulse'));
     var line = el('span');
     if (have || soon) {
+      status.hidden = false;
       line.appendChild(el('strong', '', 'Cập nhật ' + fmtDate(data.updated)));
       line.appendChild(document.createTextNode(' · ' + have + ' loại đang có' + (soon ? ', ' + soon + ' loại sắp có' : '')));
     } else {
-      line.appendChild(el('strong', '', 'Số lượng hôm nay chưa được cập nhật.'));
-      line.appendChild(document.createTextNode(' Bạn nhắn cho mình ở mục Liên hệ để hỏi về món bạn thích nhé.'));
+      status.hidden = true; /* không còn món nào để báo: ẩn dải, tránh lặp với mục Liên hệ */
     }
     status.appendChild(line);
 
