@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 320" role="img" aria-label="Máy ảnh và bong bóng hỏi xin phép trước khi chụp">
+<rect width="480" height="320" fill="#faf7ec"/>
+<circle cx="392" cy="96" r="118" fill="#e9f0e2"/>
+<ellipse cx="240" cy="300" rx="250" ry="34" fill="#e9e1c8"/>
+
+<path d="M70 62 Q70 46 86 46 L176 46 Q192 46 192 62 L192 104 Q192 120 176 120 L118 120 L104 136 L104 120 L86 120 Q70 120 70 104 Z" fill="#fbeed3" stroke="#e8a33d" stroke-width="3"/>
+<text x="130" y="100" text-anchor="middle" font-family="Georgia,serif" font-size="52" fill="#9c5433">?</text>
+<rect x="152" y="136" width="164" height="112" rx="16" fill="#1a3223"/>
+<rect x="206" y="118" width="58" height="22" rx="7" fill="#234430"/>
+<circle cx="234" cy="192" r="40" fill="#3c6b46"/>
+<circle cx="234" cy="192" r="22" fill="#7fb3d5"/>
+<circle cx="226" cy="184" r="6" fill="#fffdf4" opacity=".8"/>
+<circle cx="296" cy="154" r="6" fill="#f4c87e"/>
+<rect x="290" y="176" width="16" height="10" rx="3" fill="#6f9e6a"/>
+
+<circle cx="440" cy="40" r="24" fill="#f4c87e"/>
+<text x="440" y="48" text-anchor="middle" font-family="Georgia,serif" font-size="22" fill="#1a3223">08</text>
+</svg>

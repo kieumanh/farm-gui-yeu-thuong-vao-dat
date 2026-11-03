@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 320" role="img" aria-label="Lịch có dấu tích, điện thoại nhắn tin và hộp sơ cứu">
+<rect width="480" height="320" fill="#faf7ec"/>
+<circle cx="392" cy="96" r="118" fill="#e9f0e2"/>
+<ellipse cx="240" cy="300" rx="250" ry="34" fill="#e9e1c8"/>
+
+<rect x="84" y="86" width="164" height="152" rx="14" fill="#faf7ec" stroke="#3c6b46" stroke-width="3"/>
+<path d="M84 100 A14 14 0 0 1 98 86 L234 86 A14 14 0 0 1 248 100 L248 124 L84 124 Z" fill="#3c6b46"/>
+<rect x="110" y="72" width="8" height="26" rx="4" fill="#7a5a3a"/>
+<rect x="210" y="72" width="8" height="26" rx="4" fill="#7a5a3a"/>
+<g fill="#d9cfae">
+<rect x="102" y="140" width="22" height="18" rx="4"/><rect x="132" y="140" width="22" height="18" rx="4"/><rect x="162" y="140" width="22" height="18" rx="4"/><rect x="192" y="140" width="22" height="18" rx="4"/>
+<rect x="102" y="166" width="22" height="18" rx="4"/><rect x="132" y="166" width="22" height="18" rx="4"/><rect x="162" y="166" width="22" height="18" rx="4"/><rect x="192" y="166" width="22" height="18" rx="4"/>
+</g>
+<rect x="162" y="192" width="22" height="18" rx="4" fill="#3c6b46"/>
+<path d="M167 201 L171 205 L178 197" fill="none" stroke="#fffdf4" stroke-width="2.5" stroke-linecap="round"/>
+<rect x="290" y="110" width="92" height="150" rx="16" fill="#1a3223"/>
+<rect x="298" y="126" width="76" height="118" rx="8" fill="#faf7ec"/>
+<rect x="306" y="140" width="48" height="24" rx="10" fill="#cfe0c6"/>
+<rect x="320" y="172" width="50" height="24" rx="10" fill="#fbeed3"/>
+<rect x="306" y="206" width="30" height="8" rx="4" fill="#d9cfae"/>
+<rect x="330" y="236" width="0" height="0"/>
+<rect x="252" y="244" width="30" height="30" rx="6" fill="#b5472a"/>
+<path d="M267 252 v14 M260 259 h14" stroke="#fffdf4" stroke-width="5" stroke-linecap="round"/>
+
+<circle cx="440" cy="40" r="24" fill="#f4c87e"/>
+<text x="440" y="48" text-anchor="middle" font-family="Georgia,serif" font-size="22" fill="#1a3223">09</text>
+</svg>

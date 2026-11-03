@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 320" role="img" aria-label="Dụng cụ được treo gọn trên giá và giỏ đặt đúng chỗ">
+<rect width="480" height="320" fill="#faf7ec"/>
+<circle cx="392" cy="96" r="118" fill="#e9f0e2"/>
+<ellipse cx="240" cy="300" rx="250" ry="34" fill="#e9e1c8"/>
+
+<rect x="50" y="52" width="300" height="196" rx="14" fill="#d9cfae"/>
+<rect x="50" y="52" width="300" height="14" rx="7" fill="#c4b68e"/>
+<circle cx="90" cy="84" r="4" fill="#9c8f6a"/><circle cx="190" cy="84" r="4" fill="#9c8f6a"/><circle cx="290" cy="84" r="4" fill="#9c8f6a"/>
+<line x1="130" y1="92" x2="130" y2="238" stroke="#7a5a3a" stroke-width="7" stroke-linecap="round"/>
+<path d="M116 226 L144 226 L148 258 Q130 272 112 258 Z" fill="#8a9196"/>
+<line x1="200" y1="92" x2="200" y2="236" stroke="#7a5a3a" stroke-width="7" stroke-linecap="round"/>
+<rect x="178" y="234" width="44" height="8" rx="2" fill="#8a9196"/>
+<path d="M186 242 v12 M194 242 v12 M202 242 v12 M210 242 v12" stroke="#8a9196" stroke-width="3"/>
+<line x1="272" y1="92" x2="272" y2="240" stroke="#7a5a3a" stroke-width="7" stroke-linecap="round"/>
+<path d="M248 238 L300 238 L296 250 L252 250 Z" fill="#8a9196"/>
+<path d="M92 300 L92 262 L172 262 L172 300 Z" fill="none"/>
+<path d="M300 226 L372 226 L362 292 L310 292 Z" fill="#b98b5e"/>
+<path d="M304 240 L368 240 M308 256 L364 256 M312 272 L360 272" stroke="#8a5a3a" stroke-width="3"/>
+<path d="M300 226 Q336 210 372 226" fill="none" stroke="#7a5a3a" stroke-width="5"/>
+<circle cx="404" cy="120" r="30" fill="#3c6b46"/><path d="M390.5 120 L401.0 130.5 L419.0 109.5" fill="none" stroke="#fffdf4" stroke-width="6.6" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="440" cy="40" r="24" fill="#f4c87e"/>
+<text x="440" y="48" text-anchor="middle" font-family="Georgia,serif" font-size="22" fill="#1a3223">01</text>
+</svg>

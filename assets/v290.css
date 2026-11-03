@@ -87,10 +87,18 @@
 .volunteer-v290 .vol-perk-band .vol-perk-amount { text-wrap: balance; font-family: var(--font-display); font-size: clamp(1.6rem, 2.8vw, 2.2rem); line-height: 1.1; color: var(--forest-900); }
 @media (max-width: 900px) { .volunteer-v290 .vol-perk-cols { grid-template-columns: minmax(0, 1fr); } .volunteer-v290 .vol-perk-band { grid-template-columns: minmax(0, 1fr); gap: 12px; } }
 
-/* v2.9.14 — nội quy cho tình nguyện viên */
-.volunteer-v290 .vol-rule-key { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 20px; align-items: center; margin: 0 0 clamp(20px, 2.8vw, 28px); padding: clamp(22px, 3vw, 30px) clamp(22px, 3vw, 34px); border-radius: 21px; background: var(--forest-900); color: #f4f1e4; }
-.volunteer-v290 .vol-rule-key .vol-perk-icon { background: rgba(255, 255, 255, .12); }
-.volunteer-v290 .vol-rule-key h3 { margin: 0 0 6px; font-size: 1.3rem; line-height: 1.3; color: #fffdf4; }
-.volunteer-v290 .vol-rule-key p { margin: 0; color: #dfe6d6; line-height: 1.65; }
-.volunteer-v290 .vol-rule-note { margin: clamp(22px, 3vw, 30px) 0 0; color: var(--ink-700); line-height: 1.75; max-width: 780px; }
-@media (max-width: 900px) { .volunteer-v290 .vol-rule-key { grid-template-columns: minmax(0, 1fr); gap: 12px; } }
+/* v2.9.15 — nội quy chín phần với minh họa */
+.volunteer-v290 .vol-rule-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.volunteer-v290 .vol-rule-card { padding: 0; overflow: hidden; display: flex; flex-direction: column; }
+.volunteer-v290 .vol-rule-img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; background: #faf7ec; border-bottom: 1px dashed #cbc2aa; }
+.volunteer-v290 .vol-rule-body { padding: clamp(18px, 2.2vw, 24px); display: flex; flex-direction: column; gap: 6px; }
+.volunteer-v290 .vol-rule-body .partner-step-number { margin: 0 0 4px; font-size: 1.6rem; }
+.volunteer-v290 .vol-rule-body h3 { margin: 0 0 6px; font-size: 1.2rem; line-height: 1.3; }
+.volunteer-v290 .vol-rule-body ul { margin: 0; padding-left: 18px; display: grid; gap: 6px; color: var(--ink-700); font-size: .92rem; line-height: 1.65; }
+.volunteer-v290 .vol-rule-body ul { list-style: disc; }
+.volunteer-v290 .vol-rule-body ul li { min-width: 0; margin: 0; padding: 0; border: 0; border-radius: 0; background: none; color: inherit; font-size: inherit; line-height: inherit; }
+.volunteer-v290 .vol-rule-body ul li::marker { color: var(--forest-600); }
+.volunteer-v290 .vol-rule-card.is-key { background: var(--sun-100); border-style: solid; border-color: #ecd29a; }
+.volunteer-v290 .vol-rule-tag { margin: 0 0 2px; font-size: .76rem; letter-spacing: .08em; text-transform: uppercase; color: var(--basalt-700); font-weight: 700; }
+@media (max-width: 999px) { .volunteer-v290 .vol-rule-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 620px) { .volunteer-v290 .vol-rule-grid { grid-template-columns: minmax(0, 1fr); } }

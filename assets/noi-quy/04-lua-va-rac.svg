@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 320" role="img" aria-label="Ngọn lửa bị gạch chéo, khu ủ rác hữu cơ và thùng rác">
+<rect width="480" height="320" fill="#faf7ec"/>
+<circle cx="392" cy="96" r="118" fill="#e9f0e2"/>
+<ellipse cx="240" cy="300" rx="250" ry="34" fill="#e9e1c8"/>
+
+<path d="M122 244 Q100 214 118 184 Q124 204 134 204 Q124 170 150 146 Q150 188 166 200 Q178 218 160 244 Q140 258 122 244 Z" fill="#e8a33d"/>
+<path d="M134 240 Q124 222 136 206 Q140 220 148 222 Q142 236 134 240 Z" fill="#f4c87e"/>
+<circle cx="140" cy="200" r="60" fill="none" stroke="#b5472a" stroke-width="8"/><line x1="98.0" y1="158.0" x2="182.0" y2="242.0" stroke="#b5472a" stroke-width="8" stroke-linecap="round"/>
+<path d="M270 262 Q330 170 392 262 Z" fill="#9c5433"/>
+<ellipse cx="318" cy="222" rx="10" ry="6" fill="#6f9e6a"/>
+<ellipse cx="346" cy="206" rx="10" ry="6" fill="#6f9e6a"/>
+<ellipse cx="368" cy="232" rx="9" ry="5" fill="#3c6b46"/>
+<ellipse cx="336" cy="240" rx="10" ry="6" fill="#3c6b46"/>
+<rect x="408" y="236" width="36" height="46" rx="6" fill="#3c6b46"/>
+<rect x="404" y="228" width="44" height="10" rx="4" fill="#2e5739"/>
+<rect x="250" y="250" width="0" height="0"/>
+
+<circle cx="440" cy="40" r="24" fill="#f4c87e"/>
+<text x="440" y="48" text-anchor="middle" font-family="Georgia,serif" font-size="22" fill="#1a3223">04</text>
+</svg>

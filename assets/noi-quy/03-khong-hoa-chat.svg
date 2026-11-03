@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 320" role="img" aria-label="Cây non trồng trong đất, bình xịt hóa chất bị gạch chéo">
+<rect width="480" height="320" fill="#faf7ec"/>
+<circle cx="392" cy="96" r="118" fill="#e9f0e2"/>
+<ellipse cx="240" cy="300" rx="250" ry="34" fill="#e9e1c8"/>
+
+<path d="M130 262 Q240 236 350 262 L350 296 L130 296 Z" fill="#8a5a3c"/>
+<path d="M150 276 Q200 270 240 276 M270 282 Q310 276 340 282" stroke="#6e4630" stroke-width="3" fill="none"/>
+<line x1="240" y1="262" x2="240" y2="168" stroke="#3c6b46" stroke-width="6" stroke-linecap="round"/>
+<path d="M240 200 Q200 194 186 166 Q224 166 240 200 Z" fill="#3c6b46"/>
+<path d="M240 180 Q282 172 300 140 Q262 140 240 180 Z" fill="#6f9e6a"/>
+<rect x="66" y="176" width="52" height="84" rx="12" fill="#d9cfae"/>
+<rect x="78" y="150" width="28" height="30" rx="6" fill="#c4b68e"/>
+<rect x="104" y="150" width="20" height="8" rx="3" fill="#c4b68e"/>
+<circle cx="92" cy="206" r="62" fill="none" stroke="#b5472a" stroke-width="8"/><line x1="48.6" y1="162.6" x2="135.4" y2="249.4" stroke="#b5472a" stroke-width="8" stroke-linecap="round"/>
+<circle cx="440" cy="40" r="24" fill="#f4c87e"/>
+<text x="440" y="48" text-anchor="middle" font-family="Georgia,serif" font-size="22" fill="#1a3223">03</text>
+</svg>

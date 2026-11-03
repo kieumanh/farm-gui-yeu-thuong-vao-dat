@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 320" role="img" aria-label="Gà con trong sân, ao cá và rau mới hái">
+<rect width="480" height="320" fill="#faf7ec"/>
+<circle cx="392" cy="96" r="118" fill="#e9f0e2"/>
+<ellipse cx="240" cy="300" rx="250" ry="34" fill="#e9e1c8"/>
+
+<ellipse cx="136" cy="236" rx="58" ry="40" fill="#f4efdd" stroke="#c9b98f" stroke-width="3"/>
+<path d="M104 226 Q132 200 166 226 Q140 246 104 226 Z" fill="#e8a33d"/>
+<circle cx="184" cy="180" r="24" fill="#f4efdd" stroke="#c9b98f" stroke-width="3"/>
+<path d="M176 160 q6 -14 12 0 q6 -14 12 0" fill="#b5472a"/>
+<path d="M206 180 L222 186 L206 192 Z" fill="#e8a33d"/>
+<circle cx="190" cy="176" r="3" fill="#1a3223"/>
+<path d="M118 272 L118 292 M132 274 L132 292 M150 274 L150 292" stroke="#e8a33d" stroke-width="5" stroke-linecap="round"/>
+<ellipse cx="352" cy="262" rx="88" ry="28" fill="#7fb3d5"/>
+<ellipse cx="346" cy="258" rx="20" ry="9" fill="#e8a33d"/>
+<path d="M364 258 L380 248 L380 268 Z" fill="#e8a33d"/>
+<ellipse cx="312" cy="276" rx="16" ry="6" fill="#5f9fc5" opacity=".7"/>
+<path d="M400 226 Q386 176 410 146 Q420 186 440 178 Q426 214 400 226 Z" fill="#6f9e6a"/>
+<path d="M404 220 Q414 186 430 170" stroke="#3c6b46" stroke-width="3" fill="none"/>
+<path d="M340 214 Q326 184 350 160 Q360 192 376 190 Q364 218 340 214 Z" fill="#3c6b46"/>
+
+<circle cx="440" cy="40" r="24" fill="#f4c87e"/>
+<text x="440" y="48" text-anchor="middle" font-family="Georgia,serif" font-size="22" fill="#1a3223">06</text>
+</svg>
