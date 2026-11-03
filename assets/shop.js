@@ -3,7 +3,7 @@
   'use strict';
   var root = document.getElementById('shop-root');
   if (!root) return;
-  var V = '2.9.21';
+  var V = '2.9.22';
   /* Nguồn cấp của Kho vườn. Để '' để chỉ dùng assets/shop-data.json (cần khớp với connect-src trong _headers). */
   var KHO_FEED = 'https://quan-ly-kho-hang.guiyeuthuongvaodat.com/api/shop-feed';
   var LOCAL_FEED = '/assets/shop-data.json';
@@ -27,6 +27,8 @@
   function plain(s) { // bỏ dấu để tìm kiếm
     return String(s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/đ/g, 'd');
   }
+
+  function isYearRound(it) { return plain(it.season).indexOf('quanh nam') >= 0; }
 
   function render(data) {
     var items = (data.items || []).map(function (it, i) { it._i = i; it._k = plain(it.name + ' ' + it.group + ' ' + (Array.isArray(it.keywords) ? it.keywords.join(' ') : '')); return it; });
@@ -105,7 +107,8 @@
       var list = items.filter(function (i) {
         if (state.group !== 'Tất cả' && i.group !== state.group) return false;
         if (state.q && i._k.indexOf(state.q) < 0) return false;
-        if (state.onlyHave && i.status !== 'co-hang' && i.status !== 'sap-co') return false;
+        // Quanh năm nghĩa là lúc nào cũng có hàng, nên luôn tính là đang có.
+        if (state.onlyHave && i.status !== 'co-hang' && i.status !== 'sap-co' && !isYearRound(i)) return false;
         return true;
       });
       count.textContent = 'Đang hiện ' + list.length + ' / ' + items.length + ' món';
