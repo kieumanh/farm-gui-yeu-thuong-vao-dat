@@ -19,5 +19,5 @@
 <path d="M300 226 Q336 210 372 226" fill="none" stroke="#7a5a3a" stroke-width="5"/>
 <circle cx="404" cy="120" r="30" fill="#3c6b46"/><path d="M390.5 120 L401.0 130.5 L419.0 109.5" fill="none" stroke="#fffdf4" stroke-width="6.6" stroke-linecap="round" stroke-linejoin="round"/>
 <circle cx="440" cy="40" r="24" fill="#f4c87e"/>
-<text x="440" y="48" text-anchor="middle" font-family="Georgia,serif" font-size="22" fill="#1a3223">01</text>
+<text x="440" y="48" text-anchor="middle" font-family="Georgia,serif" font-size="22" fill="#1a3223">02</text>
 </svg>

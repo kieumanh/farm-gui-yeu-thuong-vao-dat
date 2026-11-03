@@ -13,5 +13,5 @@
 <rect x="104" y="150" width="20" height="8" rx="3" fill="#c4b68e"/>
 <circle cx="92" cy="206" r="62" fill="none" stroke="#b5472a" stroke-width="8"/><line x1="48.6" y1="162.6" x2="135.4" y2="249.4" stroke="#b5472a" stroke-width="8" stroke-linecap="round"/>
 <circle cx="440" cy="40" r="24" fill="#f4c87e"/>
-<text x="440" y="48" text-anchor="middle" font-family="Georgia,serif" font-size="22" fill="#1a3223">03</text>
+<text x="440" y="48" text-anchor="middle" font-family="Georgia,serif" font-size="22" fill="#1a3223">01</text>
 </svg>
