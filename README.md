@@ -2,7 +2,7 @@
 
 **Website:** https://guiyeuthuongvaodat.com/
 
-**Phiên bản hiện tại:** v2.9.20 (04/11/2026) — nhật ký cập nhật tại [/phien-ban/](https://le-lam-son-farm.guiyeuthuongvaodat.com/phien-ban/)  
+**Phiên bản hiện tại:** v2.9.21 (04/11/2026) — nhật ký cập nhật tại [/phien-ban/](https://le-lam-son-farm.guiyeuthuongvaodat.com/phien-ban/)  
 **Tên miền:** guiyeuthuongvaodat.com (chính), le-lam-son-farm.huongthiennature.com (vẫn hoạt động)  
 **Hạ tầng:** GitHub + Cloudflare Pages  
 **Cloudflare Pages project:** `farm-gui-yeu-thuong-vao-dat`  
@@ -46,6 +46,13 @@ Các tệp trong `.github/workflows/` là lịch sử những bản phát hành 
 - Mỗi món có `status`: `co-hang` (Có hàng), `sap-co` (Sắp có), `tam-het` (Tạm hết) hoặc `cho-cap-nhat` (Chờ cập nhật); tùy chọn `qty` (ví dụ "Còn khoảng 5 kg"), `price`, `season`, `note`.
 - Thêm món mới: sao chép một dòng trong `items`, đổi `id`, `name`, `image`, `alt`; ảnh vuông 600×600 `.webp` để trong `assets/shop/`.
 - Trang `/cua-hang/` đọc tệp này bằng `assets/shop.js`; không có bước build.
+
+## Cập nhật v2.9.21 (04/11/2026)
+
+- Cửa hàng: **tin vui** (ví dụ có món mới) hiện nền xanh gradient và biểu tượng xanh đậm, khác hẳn **thông tin** thường (nền giấy trung tính). Lưu ý vẫn màu vàng như cũ.
+- Cùng bộ màu với khung “Thông báo cho khách” trong Kho vườn 1.0.5.
+- Mã cache `?v=2.9.21` được đổi trên mọi trang để trình duyệt tải CSS mới.
+- Số phiên bản: bản này đặt là 2.9.21 vì 2.9.8 đến 2.9.20 đã được phát hành trước đó trên nhánh chính.
 
 ## Cập nhật v2.9.20 (04/11/2026)
 
