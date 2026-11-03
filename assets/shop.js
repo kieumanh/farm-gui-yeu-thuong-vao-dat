@@ -3,7 +3,7 @@
   'use strict';
   var root = document.getElementById('shop-root');
   if (!root) return;
-  var V = '2.9.30';
+  var V = '2.9.31';
   /* Nguồn cấp của Kho vườn. Để '' để chỉ dùng assets/shop-data.json (cần khớp với connect-src trong _headers). */
   var KHO_FEED = 'https://quan-ly-kho-hang.guiyeuthuongvaodat.com/api/shop-feed';
   var LOCAL_FEED = '/assets/shop-data.json';
@@ -36,22 +36,10 @@
       var ra = RANK[a.status] != null ? RANK[a.status] : 2, rb = RANK[b.status] != null ? RANK[b.status] : 2;
       return ra - rb || a._i - b._i;
     });
-    var have = items.filter(function (i) { return i.status === 'co-hang'; }).length;
-    var soon = items.filter(function (i) { return i.status === 'sap-co'; }).length;
-
-    /* ---- dải trạng thái ---- */
+    /* ---- dải trạng thái: đã bỏ dòng tóm tắt “Cập nhật … · N loại đang có” vì trùng với thông báo phía trên ---- */
     var status = document.getElementById('shop-status');
     status.textContent = '';
-    status.appendChild(el('span', 'pulse'));
-    var line = el('span');
-    if (have || soon) {
-      status.hidden = false;
-      line.appendChild(el('strong', '', 'Cập nhật ' + fmtDate(data.updated)));
-      line.appendChild(document.createTextNode(' · ' + have + ' loại đang có' + (soon ? ', ' + soon + ' loại sắp có' : '')));
-    } else {
-      status.hidden = true; /* không còn món nào để báo: ẩn dải, tránh lặp với mục Liên hệ */
-    }
-    status.appendChild(line);
+    status.hidden = true;
 
     /* ---- thông báo của chủ farm (viết ở Kho vườn). Chỉ dùng textContent nên chữ nhập vào không thể chèn mã. ---- */
     var an = document.getElementById('shop-announce');
