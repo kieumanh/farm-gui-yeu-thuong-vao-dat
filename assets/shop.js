@@ -3,7 +3,7 @@
   'use strict';
   var root = document.getElementById('shop-root');
   if (!root) return;
-  var V = '2.9.35';
+  var V = '2.9.36';
   /* Nguồn cấp của Kho vườn. Để '' để chỉ dùng assets/shop-data.json (cần khớp với connect-src trong _headers). */
   var KHO_FEED = 'https://quan-ly-kho-hang.guiyeuthuongvaodat.com/api/shop-feed';
   var LOCAL_FEED = '/assets/shop-data.json';
@@ -30,6 +30,7 @@
 
   function isYearRound(it) { return plain(it.season).indexOf('quanh nam') >= 0; }
 
+  var keep = null; /* giữ bộ lọc khi vẽ lại lần hai (dữ liệu Kho vườn đến sau) */
   function render(data) {
     var items = (data.items || []).map(function (it, i) { it._i = i; it._k = plain(it.name + ' ' + it.group + ' ' + (Array.isArray(it.keywords) ? it.keywords.join(' ') : '')); return it; });
     items.sort(function (a, b) {
@@ -64,10 +65,12 @@
     }
 
     /* ---- bộ lọc ---- */
-    var state = { group: 'Tất cả', q: '', onlyHave: false };
+    var state = keep || { group: 'Tất cả', q: '', onlyHave: false };
+    keep = state;
     var filters = document.getElementById('shop-filters');
     filters.textContent = '';
     var groups = ['Tất cả'].concat(data.groups || []);
+    if (groups.indexOf(state.group) < 0) state.group = 'Tất cả';
     function countOf(g) { return items.filter(function (i) { return g === 'Tất cả' || i.group === g; }).length; }
     groups.forEach(function (g) {
       var b = el('button', 'chip', g);
@@ -83,12 +86,13 @@
     });
 
     var search = document.getElementById('shop-search');
-    if (search) search.addEventListener('input', function () { state.q = plain(search.value.trim()); draw(); });
+    if (search) { state.q = plain(search.value.trim()); search.oninput = function () { state.q = plain(search.value.trim()); draw(); }; }
     var only = document.getElementById('shop-only-have');
     if (only) {
       only.disabled = !have && !soon;
-      if (only.disabled) only.parentNode.classList.add('is-disabled');
-      only.addEventListener('change', function () { state.onlyHave = only.checked; draw(); });
+      only.parentNode.classList.toggle('is-disabled', only.disabled);
+      if (only.disabled) { only.checked = false; state.onlyHave = false; } else only.checked = state.onlyHave;
+      only.onchange = function () { state.onlyHave = only.checked; draw(); };
     }
 
     var grid = document.getElementById('shop-grid');
@@ -111,14 +115,15 @@
         grid.appendChild(empty);
         return;
       }
-      list.forEach(function (it) {
+      list.forEach(function (it, n) {
         var out = it.status === 'tam-het';
         var card = el('article', 'shop-card' + (out ? ' is-out' : ''));
         var ph = el('div', 'shop-photo');
         var img = new Image();
         img.src = imgSrc(it);
         img.alt = it.alt || it.name;
-        img.width = 600; img.height = 600; img.loading = 'lazy'; img.decoding = 'async';
+        img.width = 600; img.height = 600; img.decoding = 'async';
+        if (n < 4) { img.loading = 'eager'; img.fetchPriority = 'high'; } else img.loading = 'lazy';
         ph.appendChild(img);
         var st = LABEL[it.status] ? it.status : 'cho-cap-nhat';
         ph.appendChild(el('span', 'shop-chip ' + st, LABEL[st]));
@@ -138,19 +143,41 @@
     draw();
   }
 
-  /* Ưu tiên Kho vườn (chờ tối đa 6 giây); lỗi hoặc dữ liệu hỏng thì dùng bản dự phòng ngay trên website. */
-  function getJson(url, ms) {
+  /* Tải song song: bản dự phòng ngay trên website (nhanh, có thể đã preload) và Kho vườn (mới nhất).
+     Vẽ bản có trước, bản Kho vườn đến sau thì vẽ lại. Bản Kho vườn lần trước được nhớ trong trình duyệt để lần sau hiện ngay. */
+  var CACHE_KEY = 'farm-shop-feed-v1';
+  function getJson(url, ms, cacheMode) {
     var ctl = typeof AbortController === 'function' ? new AbortController() : null;
     var timer = ctl ? setTimeout(function () { ctl.abort(); }, ms) : null;
-    return fetch(url, { cache: 'no-cache', signal: ctl ? ctl.signal : undefined })
+    return fetch(url, { cache: cacheMode, signal: ctl ? ctl.signal : undefined })
       .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
       .then(function (d) { if (!d || !Array.isArray(d.items) || !d.items.length) throw new Error('bad'); return d; })
       .then(function (d) { if (timer) clearTimeout(timer); return d; }, function (e) { if (timer) clearTimeout(timer); throw e; });
   }
-  (KHO_FEED ? getJson(KHO_FEED, 6000).catch(function () { return getJson(LOCAL_FEED, 10000); }) : getJson(LOCAL_FEED, 10000))
-    .then(render)
-    .catch(function () {
-      var s = document.getElementById('shop-status');
-      s.textContent = 'Chưa tải được danh sách. Bạn vào trang Liên hệ để hỏi mình nhé.';
+  var shown = ''; /* '', 'local', 'cache' hoặc 'kho' */
+  function show(d, from) {
+    if (shown === 'kho') return; /* bản mới nhất đã hiện */
+    if (from !== 'kho' && shown) return;
+    shown = from;
+    render(d);
+  }
+  var cached = null;
+  try { cached = JSON.parse(localStorage.getItem(CACHE_KEY) || 'null'); } catch (e) {}
+  if (cached && Array.isArray(cached.items) && cached.items.length) show(cached, 'cache');
+
+  var pLocal = getJson(LOCAL_FEED + '?v=' + V, 10000, 'default');
+  var pKho = KHO_FEED ? getJson(KHO_FEED, 6000, 'no-cache') : Promise.reject(new Error('off'));
+  pKho.then(function (d) {
+    try { localStorage.setItem(CACHE_KEY, JSON.stringify(d)); } catch (e) {}
+    show(d, 'kho');
+  }, function () {});
+  pLocal.then(function (d) { show(d, 'local'); }, function () {});
+  Promise.all([pLocal.then(function () { return 1; }, function () { return 0; }), pKho.then(function () { return 1; }, function () { return 0; })])
+    .then(function (r) {
+      if (!r[0] && !r[1] && !shown) {
+        var st = document.getElementById('shop-status');
+        st.hidden = false;
+        st.textContent = 'Chưa tải được danh sách. Bạn vào trang Liên hệ để hỏi mình nhé.';
+      }
     });
 })();
