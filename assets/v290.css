@@ -86,3 +86,11 @@
 .volunteer-v290 .vol-perk-band p { margin: 0; color: var(--ink-700); line-height: 1.6; }
 .volunteer-v290 .vol-perk-band .vol-perk-amount { text-wrap: balance; font-family: var(--font-display); font-size: clamp(1.6rem, 2.8vw, 2.2rem); line-height: 1.1; color: var(--forest-900); }
 @media (max-width: 900px) { .volunteer-v290 .vol-perk-cols { grid-template-columns: minmax(0, 1fr); } .volunteer-v290 .vol-perk-band { grid-template-columns: minmax(0, 1fr); gap: 12px; } }
+
+/* v2.9.14 — nội quy cho tình nguyện viên */
+.volunteer-v290 .vol-rule-key { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 20px; align-items: center; margin: 0 0 clamp(20px, 2.8vw, 28px); padding: clamp(22px, 3vw, 30px) clamp(22px, 3vw, 34px); border-radius: 21px; background: var(--forest-900); color: #f4f1e4; }
+.volunteer-v290 .vol-rule-key .vol-perk-icon { background: rgba(255, 255, 255, .12); }
+.volunteer-v290 .vol-rule-key h3 { margin: 0 0 6px; font-size: 1.3rem; line-height: 1.3; color: #fffdf4; }
+.volunteer-v290 .vol-rule-key p { margin: 0; color: #dfe6d6; line-height: 1.65; }
+.volunteer-v290 .vol-rule-note { margin: clamp(22px, 3vw, 30px) 0 0; color: var(--ink-700); line-height: 1.75; max-width: 780px; }
+@media (max-width: 900px) { .volunteer-v290 .vol-rule-key { grid-template-columns: minmax(0, 1fr); gap: 12px; } }
