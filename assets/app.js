@@ -3,21 +3,6 @@
   'use strict';
 
 
-  /* ---- Thanh liên hệ nhanh (điện thoại, máy tính bảng) ---- */
-  (function () {
-    var noindex = document.querySelector('meta[name="robots"][content*="noindex"]');
-    if (noindex || /^\/lien-he\/?/.test(location.pathname)) return;
-    var bar = document.createElement('nav');
-    bar.className = 'contact-bar';
-    bar.setAttribute('aria-label', 'Liên hệ nhanh');
-    bar.innerHTML =
-      '<a class="cb-call" href="tel:+84935819090" aria-label="Gọi điện cho Lê Lam Sơn">☎ Gọi</a>' +
-      '<a href="https://zalo.me/0935819090" target="_blank" rel="noopener noreferrer" aria-label="Nhắn Zalo cho Lê Lam Sơn">Zalo</a>' +
-      '<a href="https://www.facebook.com/le.lam.son.168217" target="_blank" rel="noopener noreferrer" aria-label="Nhắn Facebook cho Lê Lam Sơn">Facebook</a>';
-    document.body.appendChild(bar);
-    document.body.classList.add('has-contact-bar');
-  })();
-
   /* ---- Menu di động ---- */
   var menuBtn = document.querySelector('.menu-button');
   var header = document.querySelector('.site-header');

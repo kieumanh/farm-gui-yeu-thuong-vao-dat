@@ -1071,27 +1071,6 @@ figcaption { color: var(--ink-500); }
 .quick-actions .quick-zalo, .quick-actions .quick-fb { background: transparent; border-color: var(--forest-800); color: var(--forest-800); }
 .quick-actions .quick-zalo:hover, .quick-actions .quick-fb:hover { background: var(--leaf-200); }
 
-/* Thanh liên hệ nhanh */
-.contact-bar { display: none; }
-@media (max-width: 1000px) {
-  .contact-bar {
-    position: fixed; left: 0; right: 0; bottom: 0; z-index: 60;
-    display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 1px;
-    background: var(--forest-950); padding-bottom: env(safe-area-inset-bottom);
-    box-shadow: 0 -4px 18px rgba(18, 36, 26, .2);
-  }
-  .contact-bar a {
-    display: flex; align-items: center; justify-content: center; min-height: 50px;
-    color: var(--paper-50); background: var(--forest-800);
-    font-weight: 650; font-size: .98rem; text-decoration: none;
-  }
-  .contact-bar a.cb-call { background: var(--basalt-700); }
-  .contact-bar a:active { filter: brightness(1.15); }
-  body.has-contact-bar { padding-bottom: calc(50px + env(safe-area-inset-bottom)); }
-  body.has-contact-bar #back-to-top { bottom: 134px; }
-  body.has-contact-bar .nature-control { bottom: 62px; }
-}
-@media print { .contact-bar { display: none !important; } }
 
 /* Trang chủ gọn hơn trên điện thoại: chỉ hiện 4 ảnh tình nguyện viên đầu, còn lại xem ở album */
 @media (max-width: 620px) {

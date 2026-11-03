@@ -129,3 +129,35 @@ dialog.lightbox :focus-visible { outline: 3px solid var(--sun-500); outline-offs
   .site-header nav a { padding: .45rem .5rem; font-size: .88rem; }
   .brand span { font-size: 1.08rem; }
 }
+
+/* ---------- v2.9.34: nút nhạc (trái) và hiệu ứng (phải) đối xứng, gọn; bỏ thanh liên hệ ghim ---------- */
+body .music-player, body .music-player.on-dark, body .nature-control {
+  position: fixed; bottom: max(16px, env(safe-area-inset-bottom, 0px)); top: auto;
+  box-sizing: border-box; display: flex; align-items: center; justify-content: center;
+  width: 88px; height: 46px; min-height: 46px; margin: 0; padding: 3px; gap: 4px;
+  background: rgba(250, 247, 236, .96); color: #28543b;
+  border: 1px solid rgba(34, 75, 49, .27); border-radius: 999px;
+  box-shadow: 0 3px 13px rgba(18, 36, 26, .15);
+}
+body .music-player, body .music-player.on-dark { left: max(18px, env(safe-area-inset-left, 0px)); right: auto; }
+body .nature-control { right: max(18px, env(safe-area-inset-right, 0px)); left: auto; }
+body .nature-control #nature-label {
+  position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden;
+  clip-path: inset(50%); white-space: nowrap; border: 0;
+}
+body .nature-control #nature-toggle, body .nature-control #nature-next {
+  display: grid; place-items: center; flex: 0 0 38px; width: 38px; height: 38px;
+  min-width: 0; min-height: 0; margin: 0; padding: 0; border: 0; border-radius: 50%;
+  font-size: 1rem; line-height: 1; cursor: pointer;
+}
+body .nature-control #nature-toggle { background: #28543b; color: #fffdf6; }
+body .nature-control #nature-toggle[aria-pressed="false"] { background: #dde9d5; color: #28543b; }
+body .nature-control #nature-toggle:hover { background: #1c422e; color: #fffdf6; }
+body .nature-control #nature-next { background: transparent; color: #28543b; }
+body .nature-control #nature-next:hover { background: #dde9d5; }
+body #back-to-top { bottom: calc(max(16px, env(safe-area-inset-bottom, 0px)) + 46px + 12px); right: max(18px, env(safe-area-inset-right, 0px)); }
+@media (max-width: 620px) {
+  body .music-player, body .music-player.on-dark { left: max(12px, env(safe-area-inset-left, 0px)); bottom: max(12px, env(safe-area-inset-bottom, 0px)); }
+  body .nature-control { right: max(12px, env(safe-area-inset-right, 0px)); bottom: max(12px, env(safe-area-inset-bottom, 0px)); }
+  body #back-to-top { bottom: calc(max(12px, env(safe-area-inset-bottom, 0px)) + 46px + 12px); right: max(12px, env(safe-area-inset-right, 0px)); }
+}
