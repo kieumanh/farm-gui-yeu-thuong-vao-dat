@@ -13,7 +13,8 @@ if(typeof document!=='undefined'){
  const names={sun:'Nắng dịu',rain:'Mưa nhẹ',wind:'Gió qua vườn',rest:'Vườn lặng'};
  let cycle;try{cycle=JSON.parse(storage.get('farm-weather-v2'))}catch{}
  cycle=catchUp(cycle);let enabled=storage.get('farm-nature-enabled')!=='false',frame=0,last=0,width=0,height=0,dpr=1,points=[],ctx=canvas?.getContext('2d'),lastKind='';
- const isOn=()=>enabled&&!reduced.matches;
+ const phone=matchMedia('(max-width: 620px)');/* điện thoại: không có nút hiệu ứng nên luôn chạy chế độ tự chuyển */
+ const isOn=()=>(enabled||phone.matches)&&!reduced.matches;
  function resize(){if(!canvas||!ctx)return;width=innerWidth;height=innerHeight;dpr=Math.min(devicePixelRatio||1,1.5);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);canvas.style.height=height+'px';ctx.setTransform(dpr,0,0,dpr,0,0);points=Array.from({length:width<650?60:110},()=>({x:Math.random()*width,y:Math.random()*height,s:.45+Math.random(),phase:Math.random()*6.28}));}
  function draw(t){frame=0;if(!isOn()||document.hidden||cycle.kind==='rest')return;frame=requestAnimationFrame(draw);if(t-last<33)return;const dt=Math.min((t-last)/1000,.06);last=t;ctx?.clearRect(0,0,width,height);if(!ctx)return;
   for(const p of points){const rain=cycle.kind==='rain',wind=cycle.kind==='wind',sun=cycle.kind==='sun';
@@ -27,7 +28,7 @@ if(typeof document!=='undefined'){
  function update(){const old=cycle.kind;cycle=catchUp(cycle);storage.set('farm-weather-v2',JSON.stringify(cycle));const on=isOn();document.body.dataset.weather=on?cycle.kind:'off';document.body.classList.toggle('nature-paused',document.hidden||!on);if(label)label.textContent=reduced.matches?'Chuyển động đã giảm':!enabled?'Hiệu ứng đang tắt':names[cycle.kind];if(button){button.setAttribute('aria-pressed',String(on));button.setAttribute('aria-label',on?'Tắt hiệu ứng thiên nhiên':'Bật hiệu ứng thiên nhiên');button.disabled=reduced.matches;button.title=reduced.matches?'Theo cài đặt giảm chuyển động của thiết bị':'Tự đổi cảnh sau 5–10 phút';}if(old!==cycle.kind||lastKind!==document.body.dataset.weather){animate();lastKind=document.body.dataset.weather}}
  button?.addEventListener('click',()=>{enabled=!enabled;storage.set('farm-nature-enabled',String(enabled));update();animate()});
  document.querySelector('#nature-next')?.addEventListener('click',()=>{if(reduced.matches)return;enabled=true;storage.set('farm-nature-enabled','true');cycle=startCycle(Date.now(),Math.random,cycle.kind==='rest'?cycle.previous:cycle.kind);update();animate()});
- reduced.addEventListener('change',()=>{update();animate()});document.addEventListener('visibilitychange',()=>{update();animate()});addEventListener('resize',()=>{resize();animate()},{passive:true});
+ reduced.addEventListener('change',()=>{update();animate()});phone.addEventListener('change',()=>{update();animate()});document.addEventListener('visibilitychange',()=>{update();animate()});addEventListener('resize',()=>{resize();animate()},{passive:true});
  resize();update();animate();setInterval(update,1000);
  const stage=document.querySelector('.hero-art'),fine=matchMedia('(hover: hover) and (pointer: fine)');let pointerFrame=0;
  stage?.addEventListener('pointermove',e=>{if(!isOn()||!fine.matches)return;cancelAnimationFrame(pointerFrame);pointerFrame=requestAnimationFrame(()=>{const r=stage.getBoundingClientRect();stage.style.setProperty('--px',(((e.clientX-r.left)/r.width-.5)*12).toFixed(2)+'px');stage.style.setProperty('--py',(((e.clientY-r.top)/r.height-.5)*9).toFixed(2)+'px')})});

@@ -130,7 +130,8 @@ dialog.lightbox :focus-visible { outline: 3px solid var(--sun-500); outline-offs
   .brand span { font-size: 1.08rem; }
 }
 
-/* ---------- v2.9.34: nút nhạc (trái) và hiệu ứng (phải) đối xứng, gọn; bỏ thanh liên hệ ghim ---------- */
+/* ---------- v2.9.34/35: máy tính bảng và điện thoại — nút nhạc (trái) và hiệu ứng (phải) đối xứng, gọn. Máy tính để bàn (>1000px) giữ kiểu cũ ---------- */
+@media (max-width: 1000px) {
 body .music-player, body .music-player.on-dark, body .nature-control {
   position: fixed; bottom: max(16px, env(safe-area-inset-bottom, 0px)); top: auto;
   box-sizing: border-box; display: flex; align-items: center; justify-content: center;
@@ -156,7 +157,10 @@ body .nature-control #nature-toggle:hover { background: #1c422e; color: #fffdf6;
 body .nature-control #nature-next { background: transparent; color: #28543b; }
 body .nature-control #nature-next:hover { background: #dde9d5; }
 body #back-to-top { bottom: calc(max(16px, env(safe-area-inset-bottom, 0px)) + 46px + 12px); right: max(18px, env(safe-area-inset-right, 0px)); }
+}
 @media (max-width: 620px) {
+  /* Điện thoại: ẩn nút hiệu ứng cho rộng chỗ; hiệu ứng vẫn tự chuyển cảnh (nature.mjs) */
+  body .nature-control { display: none !important; }
   body .music-player, body .music-player.on-dark { left: max(12px, env(safe-area-inset-left, 0px)); bottom: max(12px, env(safe-area-inset-bottom, 0px)); }
   body .nature-control { right: max(12px, env(safe-area-inset-right, 0px)); bottom: max(12px, env(safe-area-inset-bottom, 0px)); }
   body #back-to-top { bottom: calc(max(12px, env(safe-area-inset-bottom, 0px)) + 46px + 12px); right: max(12px, env(safe-area-inset-right, 0px)); }

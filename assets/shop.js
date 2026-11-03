@@ -3,7 +3,7 @@
   'use strict';
   var root = document.getElementById('shop-root');
   if (!root) return;
-  var V = '2.9.34';
+  var V = '2.9.35';
   /* Nguồn cấp của Kho vườn. Để '' để chỉ dùng assets/shop-data.json (cần khớp với connect-src trong _headers). */
   var KHO_FEED = 'https://quan-ly-kho-hang.guiyeuthuongvaodat.com/api/shop-feed';
   var LOCAL_FEED = '/assets/shop-data.json';
