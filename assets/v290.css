@@ -61,5 +61,3 @@
 
 /* v2.9.8 — trang Đồng hành gọn hơn: nút ở cuối thẻ, không còn lớp lồng nhau */
 .partner-v232 .partner-card-cta { margin-top: auto; align-self: flex-start; min-height: 44px; display: inline-flex; align-items: center; gap: .4rem; white-space: normal; }
-.partner-v232 .partner-card .partner-card-note a { color: var(--forest-800); font-weight: 650; text-decoration: none; border-bottom: 1px solid #c9d7bd; }
-.partner-v232 .partner-card .partner-card-note a:hover { border-bottom-color: var(--forest-700); }
