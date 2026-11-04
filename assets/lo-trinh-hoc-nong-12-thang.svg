@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 980" role="img" aria-label="Lộ trình 12 tháng cho người mới học nghề nông: tháng 1 đến 2 nhìn và hỏi, tháng 3 đến 4 làm một luống thử, tháng 5 đến 8 trải qua trọn một mùa, tháng 9 đến 12 nhìn lại và quyết định">
+<rect width="640" height="980" fill="#faf7ec"/>
+<circle cx="560" cy="60" r="130" fill="#e9f0e2"/>
+<ellipse cx="320" cy="974" rx="360" ry="34" fill="#e9e1c8"/>
+<text x="30" y="62" font-family="Georgia,'Times New Roman',serif" font-size="34" font-weight="700" fill="#1a3223">Lộ trình 12 tháng</text>
+<text x="30" y="100" font-family="Arial,Helvetica,sans-serif" font-size="21" fill="#44503f">Giữ việc hiện tại, đi từng bước nhỏ.</text>
+<path d="M90 200 V842" stroke="#a9b99c" stroke-width="4" stroke-linecap="round" stroke-dasharray="2 12"/>
+<g font-family="Arial,Helvetica,sans-serif">
+<rect x="30" y="140" width="580" height="180" rx="22" fill="#fffdf6" stroke="#d6dccb" stroke-width="2"/>
+<circle cx="90" cy="230" r="34" fill="#28543b"/>
+<text x="90" y="240" text-anchor="middle" font-family="Georgia,serif" font-size="30" font-weight="700" fill="#fffdf6">1</text>
+<text x="150" y="186" font-size="20" font-weight="700" fill="#83422a" letter-spacing="1.5">THÁNG 1–2</text>
+<text x="150" y="228" font-family="Georgia,serif" font-size="32" font-weight="700" fill="#1a3223">Nhìn và hỏi</text>
+<text x="150" y="268" font-size="21" fill="#44503f">Ở lại một khu vườn thật 1–2 tuần;</text>
+<text x="150" y="296" font-size="21" fill="#44503f">hỏi cả việc nặng nhọc và thất bại.</text>
+<rect x="30" y="340" width="580" height="180" rx="22" fill="#fffdf6" stroke="#d6dccb" stroke-width="2"/>
+<circle cx="90" cy="430" r="34" fill="#28543b"/>
+<text x="90" y="440" text-anchor="middle" font-family="Georgia,serif" font-size="30" font-weight="700" fill="#fffdf6">2</text>
+<text x="150" y="386" font-size="20" font-weight="700" fill="#83422a" letter-spacing="1.5">THÁNG 3–4</text>
+<text x="150" y="428" font-family="Georgia,serif" font-size="32" font-weight="700" fill="#1a3223">Một luống thử</text>
+<text x="150" y="468" font-size="21" fill="#44503f">Rau ngắn ngày ở một góc nhỏ, phủ</text>
+<text x="150" y="496" font-size="21" fill="#44503f">đất, ghi chép và chụp ảnh mỗi tuần.</text>
+<rect x="30" y="540" width="580" height="180" rx="22" fill="#fffdf6" stroke="#d6dccb" stroke-width="2"/>
+<circle cx="90" cy="630" r="34" fill="#28543b"/>
+<text x="90" y="640" text-anchor="middle" font-family="Georgia,serif" font-size="30" font-weight="700" fill="#fffdf6">3</text>
+<text x="150" y="586" font-size="20" font-weight="700" fill="#83422a" letter-spacing="1.5">THÁNG 5–8</text>
+<text x="150" y="628" font-family="Georgia,serif" font-size="32" font-weight="700" fill="#1a3223">Trọn một mùa</text>
+<text x="150" y="668" font-size="21" fill="#44503f">Làm từ gieo đến thu, cả tuần mưa</text>
+<text x="150" y="696" font-size="21" fill="#44503f">lẫn nắng gắt; tính công và chi phí.</text>
+<rect x="30" y="740" width="580" height="180" rx="22" fill="#fffdf6" stroke="#d6dccb" stroke-width="2"/>
+<circle cx="90" cy="830" r="34" fill="#c28a2e"/>
+<text x="90" y="840" text-anchor="middle" font-family="Georgia,serif" font-size="30" font-weight="700" fill="#fffdf6">4</text>
+<text x="150" y="786" font-size="20" font-weight="700" fill="#83422a" letter-spacing="1.5">THÁNG 9–12</text>
+<text x="150" y="828" font-family="Georgia,serif" font-size="32" font-weight="700" fill="#1a3223">Nhìn lại</text>
+<text x="150" y="868" font-size="21" fill="#44503f">Đọc lại nhật ký rồi mới quyết định:</text>
+<text x="150" y="896" font-size="21" fill="#44503f">mở rộng, làm song song hay dừng.</text>
+</g>
+</svg>
