@@ -107,10 +107,6 @@
     revealEls.forEach(function (el) { el.classList.add('revealed'); });
   }
 
-  /* ---- Nút in bài viết ---- */
-  var printBtn = document.querySelector('.print-button');
-  if (printBtn) printBtn.addEventListener('click', function () { window.print(); });
-
   const search=document.querySelector('#article-search'),filters=document.querySelectorAll('[data-filter]');
   let category='all';const normalize=s=>s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/đ/g,'d').toLowerCase();
   function filter(){let count=0;document.querySelectorAll('.library-grid .story-card').forEach(card=>{const show=(category==='all'||card.dataset.category===category)&&normalize(card.textContent).includes(normalize(search?.value||''));card.hidden=!show;if(show)count++});const result=document.querySelector('#result-count');if(result)result.textContent=count+' bài đọc';const empty=document.querySelector('#empty-results');if(empty)empty.hidden=count!==0}
