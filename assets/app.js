@@ -109,7 +109,7 @@
 
   const search=document.querySelector('#article-search'),filters=document.querySelectorAll('[data-filter]');
   let category='all';const normalize=s=>s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/đ/g,'d').toLowerCase();
-  const PER_PAGE=12;let page=1;const pager=document.getElementById('lib-pager'),libGrid=document.querySelector('.library-grid');
+  const PER_PAGE=9;let page=1;const pager=document.getElementById('lib-pager'),libGrid=document.querySelector('.library-grid');
   const pageReduce=matchMedia('(prefers-reduced-motion: reduce)');
   function matchedCards(){return [...document.querySelectorAll('.library-grid .story-card')].filter(c=>!c.hidden)}
   function syncPager(){if(!pager)return;pager.querySelectorAll('.pg-num').forEach(b=>{const on=Number(b.dataset.page)===page;on?b.setAttribute('aria-current','page'):b.removeAttribute('aria-current')})}
