@@ -109,7 +109,21 @@
 
   const search=document.querySelector('#article-search'),filters=document.querySelectorAll('[data-filter]');
   let category='all';const normalize=s=>s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/đ/g,'d').toLowerCase();
-  function filter(){let count=0;document.querySelectorAll('.library-grid .story-card').forEach(card=>{const show=(category==='all'||card.dataset.category===category)&&normalize(card.textContent).includes(normalize(search?.value||''));card.hidden=!show;if(show)count++});const result=document.querySelector('#result-count');if(result)result.textContent=count+' bài đọc';const empty=document.querySelector('#empty-results');if(empty)empty.hidden=count!==0}
+  const PER_PAGE=12;let page=1;const pager=document.getElementById('lib-pager'),libGrid=document.querySelector('.library-grid');
+  const pageReduce=matchMedia('(prefers-reduced-motion: reduce)');
+  function matchedCards(){return [...document.querySelectorAll('.library-grid .story-card')].filter(c=>!c.hidden)}
+  function syncPager(){if(!pager)return;pager.querySelectorAll('.pg-num').forEach(b=>{const on=Number(b.dataset.page)===page;on?b.setAttribute('aria-current','page'):b.removeAttribute('aria-current')})}
+  function showPage(p){const list=matchedCards();const total=Math.max(1,Math.ceil(list.length/PER_PAGE));page=Math.min(Math.max(1,p),total);const from=(page-1)*PER_PAGE,to=from+PER_PAGE;document.querySelectorAll('.library-grid .story-card').forEach(c=>c.classList.remove('pg-off'));list.forEach((c,i)=>c.classList.toggle('pg-off',i<from||i>=to));syncPager()}
+  function buildPager(total){if(!pager)return;pager.textContent='';if(total<=1){pager.hidden=true;return}pager.hidden=false;for(let n=1;n<=total;n++){const b=document.createElement('button');b.type='button';b.className='pg-num';b.textContent=String(n);b.dataset.page=String(n);b.setAttribute('aria-label','Trang '+n);b.addEventListener('click',()=>goTo(n,b));pager.appendChild(b)}}
+  function scrollToGrid(){if(!libGrid)return;const r=libGrid.getBoundingClientRect();if(r.top<80)window.scrollTo({top:r.top+scrollY-120,behavior:pageReduce.matches?'auto':'smooth'})}
+  function goTo(p,btn){if(p===page)return;if(btn&&!pageReduce.matches){btn.classList.remove('is-pressed');void btn.offsetWidth;btn.classList.add('is-pressed')}
+    const apply=()=>{showPage(p);scrollToGrid()};
+    if(pageReduce.matches||!libGrid){apply();return}
+    libGrid.classList.add('is-turning');
+    setTimeout(()=>{apply();requestAnimationFrame(()=>libGrid.classList.remove('is-turning'))},260)}
+  function filter(){let count=0;document.querySelectorAll('.library-grid .story-card').forEach(card=>{const show=(category==='all'||card.dataset.category===category)&&normalize(card.textContent).includes(normalize(search?.value||''));card.hidden=!show;if(show)count++});const result=document.querySelector('#result-count');if(result)result.textContent=count+' bài đọc';const empty=document.querySelector('#empty-results');if(empty)empty.hidden=count!==0;
+    const total=Math.max(1,Math.ceil(count/PER_PAGE));buildPager(total);showPage(1)}
+  filter();
   search?.addEventListener('input',filter);filters.forEach(btn=>btn.addEventListener('click',()=>{category=btn.dataset.filter;filters.forEach(b=>{b.classList.toggle('selected',b===btn);b.setAttribute('aria-pressed',String(b===btn))});filter()}));
   document.addEventListener('keydown',e=>{if(e.key==='Escape'&&header?.classList.contains('menu-open')){header.classList.remove('menu-open');menuBtn.setAttribute('aria-expanded','false');menuBtn.focus()}});
   /* ---- Năm bản quyền ---- */

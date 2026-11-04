@@ -181,3 +181,26 @@ body #back-to-top { bottom: calc(max(16px, env(safe-area-inset-bottom, 0px)) + 4
   .adapt-table tbody th { padding-bottom: 0; border-bottom: 0; white-space: normal; }
   .adapt-table td { padding-top: .2rem; }
 }
+
+/* ---------- v2.9.43: phân trang Góc học tập (chỉ hiện khi có trên 12 bài) ---------- */
+.library-grid { transition: opacity .26s ease, transform .26s ease; }
+.library-grid.is-turning { opacity: 0; transform: translateY(14px); }
+.library-grid .story-card[hidden], .library-grid .story-card.pg-off { display: none !important; }
+.lib-pager { display: flex; flex-wrap: wrap; justify-content: center; gap: .6rem; margin: 2.4rem auto 0; }
+.lib-pager[hidden] { display: none; }
+.lib-pager .pg-num {
+  min-width: 48px; min-height: 48px; padding: 0 16px; border-radius: 999px;
+  border: 1.5px solid #28543b; background: #fffdf6; color: #1a3223;
+  font: inherit; font-weight: 700; font-size: 1rem; cursor: pointer;
+  box-shadow: 0 2px 8px rgba(18, 36, 26, .08);
+  transition: transform .2s ease, background .2s ease, color .2s ease, box-shadow .2s ease;
+}
+.lib-pager .pg-num:hover { background: #e9f0e2; transform: translateY(-2px); box-shadow: 0 6px 14px rgba(18, 36, 26, .12); }
+.lib-pager .pg-num[aria-current="page"] { background: #28543b; color: #fffdf6; }
+.lib-pager .pg-num:focus-visible { outline: 2px solid #a76f39; outline-offset: 3px; }
+.lib-pager .pg-num.is-pressed { animation: pgPulse .38s ease; }
+@keyframes pgPulse { 0% { transform: scale(1); } 45% { transform: scale(.88); } 100% { transform: scale(1); } }
+@media (prefers-reduced-motion: reduce) {
+  .library-grid, .lib-pager .pg-num { transition: none !important; }
+  .lib-pager .pg-num.is-pressed { animation: none; }
+}
