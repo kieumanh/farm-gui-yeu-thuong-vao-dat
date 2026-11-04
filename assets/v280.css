@@ -165,3 +165,19 @@ body #back-to-top { bottom: calc(max(16px, env(safe-area-inset-bottom, 0px)) + 4
   body .nature-control { right: max(12px, env(safe-area-inset-right, 0px)); bottom: max(12px, env(safe-area-inset-bottom, 0px)); }
   body #back-to-top { bottom: calc(max(12px, env(safe-area-inset-bottom, 0px)) + 46px + 12px); right: max(12px, env(safe-area-inset-right, 0px)); }
 }
+
+/* ---------- v2.9.41: bảng mốc thích nghi trong bài viết ---------- */
+.adapt-wrap { margin: 1.4rem 0 1.6rem; overflow-x: auto; }
+.adapt-table { width: 100%; border-collapse: separate; border-spacing: 0; background: #fffdf6; border: 1px solid #d6dccb; border-radius: 16px; overflow: hidden; font-size: .98rem; line-height: 1.55; }
+.adapt-table caption { caption-side: top; text-align: left; padding: 0 0 .6rem; font-size: .85rem; color: var(--ink-500, #546352); font-style: italic; }
+.adapt-table th, .adapt-table td { padding: .8rem 1rem; text-align: left; vertical-align: top; border-bottom: 1px solid #e6e9dc; }
+.adapt-table thead th { background: #e9f0e2; color: #1a3223; font-size: .85rem; letter-spacing: .06em; text-transform: uppercase; }
+.adapt-table tbody th { white-space: nowrap; color: #83422a; font-weight: 700; width: 7.5rem; }
+.adapt-table tbody tr:last-child th, .adapt-table tbody tr:last-child td { border-bottom: 0; }
+@media (max-width: 560px) {
+  .adapt-table thead { display: none; }
+  .adapt-table caption { display: block; width: auto; padding: .8rem 1rem .2rem; }
+  .adapt-table, .adapt-table tbody, .adapt-table tr, .adapt-table th, .adapt-table td { display: block; width: auto; }
+  .adapt-table tbody th { padding-bottom: 0; border-bottom: 0; white-space: normal; }
+  .adapt-table td { padding-top: .2rem; }
+}
