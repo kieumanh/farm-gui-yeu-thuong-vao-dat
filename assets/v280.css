@@ -338,3 +338,32 @@ body #back-to-top {
     font-size: .9rem !important; font-weight: 600 !important; color: #28543b !important;
   }
 }
+
+/* ---------- v2.9.53: hai nút nổi thu gọn trên máy tính; nhãn hiện khi rê chuột hoặc lấy tiêu điểm ---------- */
+@media (min-width: 941px) {
+  body .music-player, body .music-player.on-dark, body .nature-control {
+    width: auto; height: 36px; min-height: 36px; padding: 3px; gap: 2px; bottom: max(16px, env(safe-area-inset-bottom, 0px));
+  }
+  body .music-player .music-toggle, body .music-player .music-settings,
+  body .nature-control #nature-toggle, body .nature-control #nature-next {
+    flex: 0 0 30px; width: 30px; height: 30px; font-size: .85rem;
+  }
+  body .music-player .music-toggle svg, body .music-player .music-settings svg { width: 13px; height: 13px; }
+  body .music-player .music-info {
+    flex: 0 0 auto; max-width: 0; opacity: 0; overflow: hidden; padding: 0; margin: 0;
+    transition: max-width .25s ease, opacity .2s ease, padding .25s ease;
+  }
+  body .nature-control #nature-label {
+    flex: 0 0 auto; max-width: 0; opacity: 0; overflow: hidden; padding: 0; margin: 0;
+    transition: max-width .25s ease, opacity .2s ease, padding .25s ease;
+  }
+  body .music-player:hover .music-info, body .music-player:focus-within .music-info,
+  body .nature-control:hover #nature-label, body .nature-control:focus-within #nature-label {
+    max-width: 150px; opacity: 1; padding: 0 6px;
+  }
+  body .music-player #music-state, body .nature-control #nature-label { font-size: .78rem; font-weight: 600; white-space: nowrap; }
+  body #back-to-top {
+    right: max(16px, env(safe-area-inset-right, 0px)); bottom: calc(max(16px, env(safe-area-inset-bottom, 0px)) + 36px + 8px);
+    width: 36px; height: 36px;
+  }
+}
