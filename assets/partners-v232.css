@@ -146,3 +146,4 @@
 .partner-v232 .partner-duty-values p + p { margin-top: .35rem; }
 .partner-v232 .partner-duty-values strong { color: var(--forest-900); }
 .partner-v232 .partner-duty-flow { padding-bottom: 0; }
+.partner-v232 .partner-duty .partner-exchange-figure img { aspect-ratio: 4 / 3; } /* v2.9.54: khung ảnh chủ farm và đối tác cao hơn để giữ đầu và giỏ rau */

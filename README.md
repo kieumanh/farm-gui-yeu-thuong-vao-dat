@@ -2,7 +2,7 @@
 
 **Website:** https://guiyeuthuongvaodat.com/
 
-**Phiên bản hiện tại:** v2.9.53 (10/11/2026) — nhật ký cập nhật tại [/phien-ban/](https://le-lam-son-farm.guiyeuthuongvaodat.com/phien-ban/)  
+**Phiên bản hiện tại:** v2.9.54 (10/11/2026) — nhật ký cập nhật tại [/phien-ban/](https://le-lam-son-farm.guiyeuthuongvaodat.com/phien-ban/)  
 **Tên miền:** guiyeuthuongvaodat.com (chính), le-lam-son-farm.huongthiennature.com (vẫn hoạt động)  
 **Hạ tầng:** GitHub + Cloudflare Pages  
 **Cloudflare Pages project:** `farm-gui-yeu-thuong-vao-dat`  
@@ -46,6 +46,10 @@ Các tệp trong `.github/workflows/` là lịch sử những bản phát hành 
 - Mỗi món có `status`: `co-hang` (Có hàng), `sap-co` (Sắp có), `tam-het` (Tạm hết) hoặc `cho-cap-nhat` (Chờ cập nhật); tùy chọn `qty` (ví dụ "Còn khoảng 5 kg"), `price`, `season`, `note`.
 - Thêm món mới: sao chép một dòng trong `items`, đổi `id`, `name`, `image`, `alt`; ảnh vuông 600×600 `.webp` để trong `assets/shop/`.
 - Trang `/cua-hang/` đọc tệp này bằng `assets/shop.js`; không có bước build.
+
+## Cập nhật v2.9.54 (10/11/2026)
+
+- Đồng hành: Ảnh chủ farm và đối tác dùng khung 4:3 (`aspect-ratio` trong `assets/partners-v232.css`), `object-position` là `center 27%` và `center 40%`, để giữ đầu, mặt và giỏ rau.
 
 ## Cập nhật v2.9.53 (10/11/2026)
 
