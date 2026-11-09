@@ -23,7 +23,7 @@ for(const file of files){
  must(s,oldNav,file);must(s,oldCopyright,file);
  s=s.replace(oldNav,newNav).replace(oldCopyright,'Farm Yêu Thương');
  must(s,'?v=2.3.2',file);s=s.replaceAll('?v=2.3.2','?v=2.3.3');
- if(file==='doi-tac/index.html'){
+ if(file==='dong-hanh/index.html'){
   const card1='<article class="partner-exchange-card"><h3>Điều Farm có thể chia sẻ</h3><ul>';
   const card2='<article class="partner-exchange-card"><h3>Điều mình mong từ người đồng hành</h3><ul>';
   must(s,card1,file);must(s,card2,file);

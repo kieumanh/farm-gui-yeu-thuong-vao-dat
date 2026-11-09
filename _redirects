@@ -3,5 +3,7 @@
 /scripts/*  /404.html  404
 /mirror-report.json  /404.html  404
 /README.md  /404.html  404
+/doi-tac        /dong-hanh/  301
+/doi-tac/       /dong-hanh/  301
 /tinh-nguyen    /dang-ky-tinh-nguyen-vien/  301
 /tinh-nguyen/   /dang-ky-tinh-nguyen-vien/  301

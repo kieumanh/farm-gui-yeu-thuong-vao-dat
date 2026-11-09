@@ -13,7 +13,7 @@ for(const photo of images) {
  const stat=await fs.stat("assets/"+photo);
  if(stat.size<100000)throw Error("Missing farm photo: "+photo);
 }
-const page="doi-tac/index.html";
+const page="dong-hanh/index.html";
 let html=await fs.readFile(page,"utf8");
 if(html.includes("partner-v232"))throw Error("Page already upgraded");
 const start=html.indexOf('<main id="main">'),end=html.indexOf("</main>",start);

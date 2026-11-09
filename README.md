@@ -2,7 +2,7 @@
 
 **Website:** https://guiyeuthuongvaodat.com/
 
-**Phiên bản hiện tại:** v2.9.49 (10/11/2026) — nhật ký cập nhật tại [/phien-ban/](https://le-lam-son-farm.guiyeuthuongvaodat.com/phien-ban/)  
+**Phiên bản hiện tại:** v2.9.50 (10/11/2026) — nhật ký cập nhật tại [/phien-ban/](https://le-lam-son-farm.guiyeuthuongvaodat.com/phien-ban/)  
 **Tên miền:** guiyeuthuongvaodat.com (chính), le-lam-son-farm.huongthiennature.com (vẫn hoạt động)  
 **Hạ tầng:** GitHub + Cloudflare Pages  
 **Cloudflare Pages project:** `farm-gui-yeu-thuong-vao-dat`  
@@ -14,7 +14,7 @@ Website là mã tĩnh (HTML, CSS, JavaScript, ảnh, font, nhạc) nằm thẳng
 
 | Thành phần | Vai trò |
 | --- | --- |
-| `index.html`, `gioi-thieu/`, `cau-chuyen/`, `cua-hang/`, `doi-tac/`, `nhat-ky/`, `hoc-tap/`, `lien-he/`, `phien-ban/` | Các trang của website |
+| `index.html`, `gioi-thieu/`, `cau-chuyen/`, `cua-hang/`, `dong-hanh/`, `nhat-ky/`, `hoc-tap/`, `lien-he/`, `phien-ban/` | Các trang của website |
 | `assets/` | CSS, JavaScript, ảnh, font, nhạc |
 | `scripts/`, `.github/workflows/` | Lịch sử các bản phát hành trước (xem mục bên dưới) |
 
@@ -47,6 +47,11 @@ Các tệp trong `.github/workflows/` là lịch sử những bản phát hành 
 - Thêm món mới: sao chép một dòng trong `items`, đổi `id`, `name`, `image`, `alt`; ảnh vuông 600×600 `.webp` để trong `assets/shop/`.
 - Trang `/cua-hang/` đọc tệp này bằng `assets/shop.js`; không có bước build.
 
+## Cập nhật v2.9.50 (10/11/2026)
+
+- Đổi tên thư mục `doi-tac/` thành `dong-hanh/` (URL `/dong-hanh/`). `_redirects` chuyển `/doi-tac` và `/doi-tac/` sang `/dong-hanh/` (301); các liên kết, sitemap, script phát hành và workflow đã đổi theo.
+- Đồng hành: viết lại phần phúc lợi và trách nhiệm hai phía, thêm bước xử lý khi có việc lớn; bỏ các cụm "viết ra".
+
 ## Cập nhật v2.9.49 (10/11/2026)
 
 - Nút nổi: `assets/v280.css` (khối v2.9.49 cuối file) đặt nút nhạc và nút hiệu ứng cùng khung 224×52 px; `assets/nature.mjs` gắn `.on-dark` cho nút hiệu ứng khi nền tối.
@@ -54,7 +59,7 @@ Các tệp trong `.github/workflows/` là lịch sử những bản phát hành 
 
 ## Cập nhật v2.9.48 (10/11/2026)
 
-- Đồng hành: mục `#phuc-loi-trach-nhiem` trong `doi-tac/index.html` viết lại theo hai vai (chủ vườn và người đồng hành), thêm giá trị chia sẻ và khung "Trước khi góp"; kiểu dáng ở cuối `assets/partners-v232.css`.
+- Đồng hành: mục `#phuc-loi-trach-nhiem` trong `dong-hanh/index.html` viết lại theo hai vai (chủ vườn và người đồng hành), thêm giá trị chia sẻ và khung "Trước khi góp"; kiểu dáng ở cuối `assets/partners-v232.css`.
 
 ## Cập nhật v2.9.47 (10/11/2026)
 
@@ -223,14 +228,14 @@ Các tệp trong `.github/workflows/` là lịch sử những bản phát hành 
 ## Cập nhật v2.9.9 (03/11/2026)
 
 - Câu chuyện: căn giữa nút “Dạo xem ảnh vườn”.
-- Đồng hành (`doi-tac/`): ảnh ba thẻ đổi thành `nguoi-lam-vuon-thu-hoach-bap.webp`, `ca-tim-ca-chua-bap-non.webp`, `vuon-xen-tang.webp`; nút “Xem lời mời tình nguyện viên” có `target="_blank"`; bỏ liên kết “Quyền lợi và trách nhiệm”; khối “Cùng cho đi, cùng nhận lại” khôi phục nguyên bản.
+- Đồng hành (`dong-hanh/`): ảnh ba thẻ đổi thành `nguoi-lam-vuon-thu-hoach-bap.webp`, `ca-tim-ca-chua-bap-non.webp`, `vuon-xen-tang.webp`; nút “Xem lời mời tình nguyện viên” có `target="_blank"`; bỏ liên kết “Quyền lợi và trách nhiệm”; khối “Cùng cho đi, cùng nhận lại” khôi phục nguyên bản.
 
 ## Cập nhật v2.9.8 (03/11/2026)
 
 - Trang chủ: hình minh họa “Cây cũng có một khoảng trời riêng” được vẽ lại (`index.html`, khối `figure.section-cut`).
 - Câu chuyện: thêm `assets/khu-vuon-xanh.webp` làm ảnh cuối bài, trước nút “Dạo xem ảnh vườn”.
 - Tình nguyện viên (`tinh-nguyen/`): danh sách việc nữ và nam theo bài đăng; thay ảnh trùng bằng `assets/ban-tay-lem-dat-do.webp`; phúc lợi giữ đúng nội dung bài đăng của anh Sơn, không thêm mục nào khác; meta mô tả đồng bộ.
-- Đồng hành (`doi-tac/`): đổi tên thẻ thành “Tình nguyện viên nông nghiệp” và “Đối tác đồng hành”; khối “Quyền lợi và trách nhiệm” (`#quyen-loi-trach-nhiem`) thay cho khối “Cùng cho đi, cùng nhận lại”; CSS bổ sung trong `assets/v290.css`.
+- Đồng hành (`dong-hanh/`): đổi tên thẻ thành “Tình nguyện viên nông nghiệp” và “Đối tác đồng hành”; khối “Quyền lợi và trách nhiệm” (`#quyen-loi-trach-nhiem`) thay cho khối “Cùng cho đi, cùng nhận lại”; CSS bổ sung trong `assets/v290.css`.
 
 ## Cập nhật v2.9.7 (03/11/2026)
 
@@ -265,7 +270,7 @@ Các tệp trong `.github/workflows/` là lịch sử những bản phát hành 
 ## Cập nhật v2.9.0 (03/11/2026)
 
 - Trang mới `/tinh-nguyen/` (lời mời tình nguyện viên, phúc lợi, cơ chế tham gia, hỏi nhanh) với `assets/v290.css`. Nội dung lấy từ bài đăng tuyển TNV của chủ vườn; mức hỗ trợ tiền mặt 1–5 triệu đồng lấy từ bài đó, cần chủ vườn xác nhận khi thay đổi.
-- Trang `/doi-tac/`: thẻ 01 tách hai cách bắt đầu và dẫn tới `/tinh-nguyen/`.
+- Trang `/dong-hanh/`: thẻ 01 tách hai cách bắt đầu và dẫn tới `/tinh-nguyen/`.
 - Trang `/lien-he/`: bỏ khối “Nhắn nhanh”.
 
 ## Cập nhật v2.8.1 (03/11/2026)

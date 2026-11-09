@@ -23,7 +23,7 @@ jobs:
           node --check scripts/release-partners-v232.mjs
           git diff --check
           test -s assets/partners-v232.css
-          grep -q 'assets/partners-v232.css?v=2.3.2' doi-tac/index.html
+          grep -q 'assets/partners-v232.css?v=2.3.2' dong-hanh/index.html
           grep -q 'v2.3.2' phien-ban/index.html
           test ! -e _worker.js
       - name: Publish to main for Cloudflare Pages

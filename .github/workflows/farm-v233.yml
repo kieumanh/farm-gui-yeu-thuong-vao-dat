@@ -24,7 +24,7 @@ jobs:
           node --check scripts/release-farm-v233.mjs
           test -s assets/02-luong-rau-xanh-va-gian-leo.webp
           test -s assets/03-bap-cai-duoi-tan-du-du.webp
-          grep -q 'partner-exchange-figure' doi-tac/index.html
+          grep -q 'partner-exchange-figure' dong-hanh/index.html
           grep -q 'footer-release-link' index.html
           grep -q 'v2.3.3' phien-ban/index.html
           test ! -e _worker.js

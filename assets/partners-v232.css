@@ -140,3 +140,9 @@
 .partner-v232 .partner-duty-foot { margin: .9rem 0 0; color: var(--ink-700); font-size: .92rem; line-height: 1.6; }
 @media (max-width: 900px) { .partner-v232 .partner-duty-values { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 560px) { .partner-v232 .partner-duty-values { grid-template-columns: minmax(0, 1fr); } }
+
+/* v2.9.49 — phần phúc lợi và trách nhiệm hai phía: mô tả đầu thẻ, bước xử lý việc lớn */
+.partner-v232 .partner-duty .partner-duty-lead { margin: 0 0 .4rem; color: var(--forest-900); font-weight: 600; font-size: 1.02rem; line-height: 1.6; }
+.partner-v232 .partner-duty-values p + p { margin-top: .35rem; }
+.partner-v232 .partner-duty-values strong { color: var(--forest-900); }
+.partner-v232 .partner-duty-flow { padding-bottom: 0; }
