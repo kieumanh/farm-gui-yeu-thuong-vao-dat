@@ -147,3 +147,10 @@
 .partner-v232 .partner-duty-values strong { color: var(--forest-900); }
 .partner-v232 .partner-duty-flow { padding-bottom: 0; }
 .partner-v232 .partner-duty .partner-exchange-figure img { aspect-ratio: 4 / 3; } /* v2.9.54: khung ảnh chủ farm và đối tác cao hơn để giữ đầu và giỏ rau */
+
+/* v2.9.58 — ba hướng cùng vun trồng: nút ở cuối mỗi thẻ thẳng hàng, chú thích và nút cùng vị trí; neo cuộn không bị thanh menu che */
+.partner-v232 .partner-card-foot { margin-top: auto; display: grid; gap: 12px; justify-items: start; }
+.partner-v232 .partner-card-foot .partner-card-note { margin: 0; width: 100%; border-top: 1px solid #e4dcca; padding-top: 13px; color: var(--basalt-700); font-size: .84rem; line-height: 1.6; }
+.partner-v232 .partner-card .partner-card-cta { margin-top: 2px; }
+.partner-v232 .partner-paths .partner-links { margin-top: 1.2rem; }
+.partner-v232 section[id] { scroll-margin-top: 90px; }
