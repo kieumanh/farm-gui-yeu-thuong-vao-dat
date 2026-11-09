@@ -40,3 +40,22 @@ if(typeof document!=='undefined'){
  if(typeof ResizeObserver!=='undefined')new ResizeObserver(scheduleTop).observe(document.body);
  topButton?.addEventListener('click',()=>{scrollTo({top:0,behavior:reduced.matches?'instant':'smooth'});document.querySelector('.brand')?.focus({preventScroll:true})});syncTop();
 }
+
+/* v2.9.49: nút hiệu ứng tự đổi màu theo nền phía dưới (cùng ngưỡng với nút nhạc) */
+if(typeof document!=='undefined'){
+ const dock=document.querySelector('.nature-control');
+ const toLinear=(n)=>{n/=255;return n<=.04045?n/12.92:((n+.055)/1.055)**2.4};
+ const luminance=(rgb)=>toLinear(rgb[0])*.2126+toLinear(rgb[1])*.7152+toLinear(rgb[2])*.0722;
+ let frame=0;
+ function tone(){
+  frame=0;if(!dock)return;
+  const r=dock.getBoundingClientRect(),x=Math.min(innerWidth-1,Math.max(0,r.left+r.width/2)),y=Math.min(innerHeight-1,Math.max(0,r.top+r.height/2));
+  const hit=(document.elementsFromPoint?.(x,y)||[]).find(el=>!dock.contains(el)&&!el.closest?.('.nature-atmosphere,#back-to-top,.music-player')&&el!==document.documentElement&&el!==document.body);
+  let rgb=[250,247,236];
+  for(let el=hit;el;el=el.parentElement){const values=getComputedStyle(el).backgroundColor.match(/[\d.]+/g)?.map(Number);if(values&&values.length>=3&&(values.length<4||values[3]>.75)){rgb=values;break}}
+  dock.classList.toggle('on-dark',luminance(rgb)<.27);
+ }
+ const request=()=>{if(!frame)frame=requestAnimationFrame(tone)};
+ addEventListener('scroll',request,{passive:true});addEventListener('resize',request,{passive:true});
+ request();
+}

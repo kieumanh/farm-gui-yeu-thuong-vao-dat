@@ -204,3 +204,79 @@ body #back-to-top { bottom: calc(max(16px, env(safe-area-inset-bottom, 0px)) + 4
   .library-grid, .lib-pager .pg-num { transition: none !important; }
   .lib-pager .pg-num.is-pressed { animation: none; }
 }
+
+/* ---------- v2.9.49: hai nút nổi đồng bộ — cùng kích thước, đối xứng hai bên, tự đổi màu theo nền ----------
+   Nút nhạc (trái, chỉ máy tính) và nút hiệu ứng (phải) có cùng khung 224 × 52 px:
+   [nút tròn] [nhãn] [nút tròn]. Nút Lên đầu trang nằm giữa, phía trên nút hiệu ứng.
+   Class .on-dark do nature.mjs và music.mjs gắn khi nền phía dưới tối. */
+body .music-player, body .music-player.on-dark, body .nature-control {
+  --dock-bg: #28543b; --dock-fg: #fffdf6; --dock-ring: rgba(18, 36, 26, .28);
+  --dock-chip: #fffdf6; --dock-chip-fg: #1a3223; --dock-chip-hover: #dde9d5;
+  position: fixed; top: auto; left: auto; right: auto;
+  bottom: max(18px, env(safe-area-inset-bottom, 0px));
+  z-index: 58; box-sizing: border-box;
+  width: 224px; max-width: calc(100vw - 36px); height: 52px; min-height: 52px;
+  margin: 0; padding: 4px 5px; gap: 6px;
+  display: flex; align-items: center; justify-content: space-between;
+  background: var(--dock-bg); color: var(--dock-fg);
+  border: 1px solid var(--dock-ring); border-radius: 999px;
+  box-shadow: 0 4px 16px rgba(18, 36, 26, .16);
+  font-family: var(--font-body, system-ui, sans-serif);
+  transition: background-color .35s ease, color .35s ease, box-shadow .2s ease;
+}
+body .music-player.on-dark, body .nature-control.on-dark {
+  --dock-bg: #fbf7ea; --dock-fg: #1a3223; --dock-ring: rgba(255, 253, 246, .45);
+  --dock-chip: #28543b; --dock-chip-fg: #fffdf6; --dock-chip-hover: #1c422e;
+}
+body .music-player { left: max(18px, env(safe-area-inset-left, 0px)); right: auto; }
+body .nature-control { right: max(18px, env(safe-area-inset-right, 0px)); left: auto; }
+body .music-player:hover, body .nature-control:hover { box-shadow: 0 6px 22px rgba(18, 36, 26, .2); }
+
+body .music-player .music-toggle, body .music-player .music-settings,
+body .nature-control #nature-toggle, body .nature-control #nature-next {
+  display: grid; place-items: center; flex: 0 0 40px;
+  width: 40px; height: 40px; min-width: 0; min-height: 0; margin: 0; padding: 0;
+  border: 0; border-radius: 50%; background: var(--dock-chip); color: var(--dock-chip-fg);
+  cursor: pointer; line-height: 1; font-size: 1rem; transform: none;
+  transition: background-color .2s ease, color .35s ease;
+}
+body .music-player .music-toggle:hover, body .music-player .music-settings:hover,
+body .music-player .music-settings[aria-expanded="true"],
+body .nature-control #nature-toggle:hover, body .nature-control #nature-next:hover {
+  background: var(--dock-chip-hover); color: var(--dock-chip-fg);
+}
+body .music-player .music-toggle svg, body .music-player .music-settings svg {
+  position: static; inset: auto; width: 16px; height: 16px; fill: currentColor; stroke: none;
+}
+body .music-player .music-settings svg { fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+/* nhãn ở giữa: hiện đầy đủ thay vì ẩn đi */
+body .music-player .music-info {
+  position: static; width: auto; height: auto; margin: 0; padding: 0 2px; flex: 1 1 auto; min-width: 0;
+  clip-path: none; overflow: hidden; white-space: nowrap; border: 0;
+  display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
+}
+body .music-player #music-state {
+  display: block; max-width: 100%; overflow: hidden; text-overflow: ellipsis;
+  font-size: .9rem; font-weight: 700; line-height: 1.2; color: var(--dock-fg);
+}
+body .music-player .music-info small { display: none; }
+body .nature-control #nature-label {
+  position: static; width: auto; height: auto; margin: 0; padding: 0; flex: 1 1 auto; min-width: 0;
+  clip-path: none; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; border: 0;
+  font-size: .9rem; font-weight: 700; line-height: 1.2; text-align: center; color: var(--dock-fg);
+}
+
+/* nút Lên đầu trang: căn giữa phía trên nút hiệu ứng (phải) */
+body #back-to-top {
+  right: calc(max(18px, env(safe-area-inset-right, 0px)) + (224px - 46px) / 2);
+  bottom: calc(max(18px, env(safe-area-inset-bottom, 0px)) + 52px + 10px);
+  width: 46px; height: 46px;
+}
+@media (max-width: 620px) {
+  /* điện thoại: không có nút nhạc và nút hiệu ứng; nút Lên đầu trang đứng ở góc phải */
+  body #back-to-top { right: max(16px, env(safe-area-inset-right, 0px)); bottom: max(16px, env(safe-area-inset-bottom, 0px)); }
+}
+@media (prefers-reduced-motion: reduce) {
+  body .music-player, body .nature-control, body .music-player .music-toggle, body .nature-control #nature-toggle { transition: none; }
+}
