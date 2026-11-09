@@ -102,3 +102,21 @@
 .volunteer-v290 .vol-rule-tag { margin: 0 0 2px; font-size: .76rem; letter-spacing: .08em; text-transform: uppercase; color: var(--basalt-700); font-weight: 700; }
 @media (max-width: 999px) { .volunteer-v290 .vol-rule-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 620px) { .volunteer-v290 .vol-rule-grid { grid-template-columns: minmax(0, 1fr); } }
+
+/* v2.9.46 — lịch làm việc và khung thông báo lịch riêng ở trang Tình nguyện viên */
+.volunteer-v290 .vol-schedule { padding-block: clamp(52px, 6vw, 84px); border-top: 1px solid #e0dfd2; }
+.volunteer-v290 .vol-schedule-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(14px, 2vw, 22px); }
+.volunteer-v290 .vol-schedule-card { padding: clamp(20px, 2.8vw, 28px); border-radius: 21px; background: #fffdf6; border: 1px solid #d6dccb; box-shadow: var(--shadow-card); }
+.volunteer-v290 .vol-schedule-card h3 { margin: 0 0 .25rem; font-size: 1.35rem; }
+.volunteer-v290 .vol-schedule-card p { margin: 0 0 .7rem; color: var(--ink-700); font-size: .95rem; line-height: 1.7; }
+.volunteer-v290 .vol-schedule-card .vol-schedule-note { margin: 0 0 .9rem; color: var(--forest-600); font-weight: 600; }
+.volunteer-v290 .vol-schedule-times { list-style: none; margin: 0 0 1rem; padding: 0; display: grid; gap: 8px; }
+.volunteer-v290 .vol-schedule-times li { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 12px; padding: .6rem .9rem; border-radius: 14px; background: #eef4e6; border: 1px solid #cfe0c6; font-size: .95rem; }
+.volunteer-v290 .vol-schedule-times span { color: var(--ink-700); }
+.volunteer-v290 .vol-schedule-times strong { color: var(--forest-900); white-space: nowrap; }
+.volunteer-v290 .vol-schedule-notice { margin-top: clamp(18px, 2.4vw, 26px); padding: clamp(20px, 3vw, 30px); border-radius: 21px; background: var(--sun-100); border: 1px solid #ecd29a; }
+.volunteer-v290 .vol-schedule-tag { margin: 0 0 4px; font-size: .76rem; letter-spacing: .08em; text-transform: uppercase; color: var(--basalt-700); font-weight: 700; }
+.volunteer-v290 .vol-schedule-notice h3 { margin: 0 0 .7rem; font-size: 1.3rem; }
+.volunteer-v290 .vol-schedule-notice ol { margin: 0; padding-left: 20px; display: grid; gap: 8px; color: var(--ink-700); font-size: .95rem; line-height: 1.65; }
+.volunteer-v290 .vol-schedule-notice ol li::marker { color: var(--forest-600); }
+@media (max-width: 720px) { .volunteer-v290 .vol-schedule-grid { grid-template-columns: minmax(0, 1fr); } }

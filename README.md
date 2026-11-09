@@ -2,7 +2,7 @@
 
 **Website:** https://guiyeuthuongvaodat.com/
 
-**Phiên bản hiện tại:** v2.9.45 (05/11/2026) — nhật ký cập nhật tại [/phien-ban/](https://le-lam-son-farm.guiyeuthuongvaodat.com/phien-ban/)  
+**Phiên bản hiện tại:** v2.9.46 (10/11/2026) — nhật ký cập nhật tại [/phien-ban/](https://le-lam-son-farm.guiyeuthuongvaodat.com/phien-ban/)  
 **Tên miền:** guiyeuthuongvaodat.com (chính), le-lam-son-farm.huongthiennature.com (vẫn hoạt động)  
 **Hạ tầng:** GitHub + Cloudflare Pages  
 **Cloudflare Pages project:** `farm-gui-yeu-thuong-vao-dat`  
@@ -46,6 +46,12 @@ Các tệp trong `.github/workflows/` là lịch sử những bản phát hành 
 - Mỗi món có `status`: `co-hang` (Có hàng), `sap-co` (Sắp có), `tam-het` (Tạm hết) hoặc `cho-cap-nhat` (Chờ cập nhật); tùy chọn `qty` (ví dụ "Còn khoảng 5 kg"), `price`, `season`, `note`.
 - Thêm món mới: sao chép một dòng trong `items`, đổi `id`, `name`, `image`, `alt`; ảnh vuông 600×600 `.webp` để trong `assets/shop/`.
 - Trang `/cua-hang/` đọc tệp này bằng `assets/shop.js`; không có bước build.
+
+## Cập nhật v2.9.46 (10/11/2026)
+
+- Tình nguyện viên: thêm mục lịch làm việc (thứ 2 đến thứ 6: 7h30–10h30 và 14h00–17h00; thứ 7, Chủ nhật linh hoạt, cần báo trước) và khung thông báo lịch riêng trong `dang-ky-tinh-nguyen-vien/index.html`; kiểu dáng ở `assets/v290.css`.
+- Ảnh chia sẻ trang Tình nguyện viên: `assets/share-dang-ky-tinh-nguyen-vien-2.jpg`, URL trong thẻ meta có `?v=2.9.46`.
+- Album Dạo vườn: thêm `assets/nguoi-lam-vuon-om-rau.webp` và bản xem nhanh `assets/thumb/nguoi-lam-vuon-om-rau.webp`.
 
 ## Cập nhật v2.9.45 (05/11/2026)
 
