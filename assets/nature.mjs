@@ -14,7 +14,7 @@ if(typeof document!=='undefined'){
  let cycle;try{cycle=JSON.parse(storage.get('farm-weather-v2'))}catch{}
  cycle=catchUp(cycle);let enabled=storage.get('farm-nature-enabled')!=='false',frame=0,last=0,width=0,height=0,dpr=1,points=[],ctx=canvas?.getContext('2d'),lastKind='';
  const phone=matchMedia('(max-width: 620px)');/* điện thoại: không có nút hiệu ứng nên luôn chạy chế độ tự chuyển */
- const isOn=()=>(enabled||phone.matches)&&!reduced.matches;
+ const isOn=()=>enabled&&!reduced.matches;
  function resize(){if(!canvas||!ctx)return;width=innerWidth;height=innerHeight;dpr=Math.min(devicePixelRatio||1,1.5);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);canvas.style.height=height+'px';ctx.setTransform(dpr,0,0,dpr,0,0);points=Array.from({length:width<650?60:110},()=>({x:Math.random()*width,y:Math.random()*height,s:.45+Math.random(),phase:Math.random()*6.28}));}
  function draw(t){frame=0;if(!isOn()||document.hidden||cycle.kind==='rest')return;frame=requestAnimationFrame(draw);if(t-last<33)return;const dt=Math.min((t-last)/1000,.06);last=t;ctx?.clearRect(0,0,width,height);if(!ctx)return;
   for(const p of points){const rain=cycle.kind==='rain',wind=cycle.kind==='wind',sun=cycle.kind==='sun';
@@ -41,7 +41,7 @@ if(typeof document!=='undefined'){
  topButton?.addEventListener('click',()=>{scrollTo({top:0,behavior:reduced.matches?'instant':'smooth'});document.querySelector('.brand')?.focus({preventScroll:true})});syncTop();
 }
 
-/* v2.9.50: nút hiệu ứng tự đổi màu theo nền phía dưới (cùng ngưỡng với nút nhạc) */
+/* v2.9.51: nút hiệu ứng tự đổi màu theo nền phía dưới (cùng ngưỡng với nút nhạc) */
 if(typeof document!=='undefined'){
  const dock=document.querySelector('.nature-control');
  const toLinear=(n)=>{n/=255;return n<=.04045?n/12.92:((n+.055)/1.055)**2.4};

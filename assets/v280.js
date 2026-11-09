@@ -102,3 +102,33 @@
     });
   }
 })();
+
+/* v2.9.51: từ 940px trở xuống (điện thoại, máy tính bảng), nút nhạc và nút hiệu ứng chuyển vào cuối thanh menu; trên máy tính vẫn nằm góc dưới */
+(function () {
+  'use strict';
+  var nav = document.getElementById('navigation');
+  var nature = document.querySelector('.nature-control');
+  var music = document.getElementById('music-player');
+  if (!nav || (!nature && !music)) return;
+  var mq = window.matchMedia('(max-width: 940px)');
+  var dock = null;
+  function place() {
+    if (mq.matches) {
+      if (!dock) {
+        dock = document.createElement('div');
+        dock.className = 'menu-dock';
+        dock.setAttribute('role', 'group');
+        dock.setAttribute('aria-label', 'Nhạc nền và hiệu ứng');
+      }
+      if (music) dock.appendChild(music);
+      if (nature) dock.appendChild(nature);
+      nav.appendChild(dock);
+    } else {
+      if (music) document.body.appendChild(music);
+      if (nature) document.body.appendChild(nature);
+      if (dock && dock.parentNode) dock.parentNode.removeChild(dock);
+    }
+  }
+  if (mq.addEventListener) mq.addEventListener('change', place); else mq.addListener(place);
+  place();
+})();

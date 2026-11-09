@@ -160,7 +160,6 @@ body #back-to-top { bottom: calc(max(16px, env(safe-area-inset-bottom, 0px)) + 4
 }
 @media (max-width: 620px) {
   /* Điện thoại: ẩn nút hiệu ứng cho rộng chỗ; hiệu ứng vẫn tự chuyển cảnh (nature.mjs) */
-  body .nature-control { display: none !important; }
   body .music-player, body .music-player.on-dark { left: max(12px, env(safe-area-inset-left, 0px)); bottom: max(12px, env(safe-area-inset-bottom, 0px)); }
   body .nature-control { right: max(12px, env(safe-area-inset-right, 0px)); bottom: max(12px, env(safe-area-inset-bottom, 0px)); }
   body #back-to-top { bottom: calc(max(12px, env(safe-area-inset-bottom, 0px)) + 46px + 12px); right: max(12px, env(safe-area-inset-right, 0px)); }
@@ -279,4 +278,63 @@ body #back-to-top {
 }
 @media (prefers-reduced-motion: reduce) {
   body .music-player, body .nature-control, body .music-player .music-toggle, body .nature-control #nature-toggle { transition: none; }
+}
+
+/* ---------- v2.9.51: nút nổi dịu hơn trên máy tính; trên điện thoại và máy tính bảng (≤940px) nằm cuối thanh menu ---------- */
+@media (min-width: 941px) {
+  body .music-player, body .music-player.on-dark, body .nature-control {
+    --dock-bg: rgba(250, 247, 236, .8); --dock-fg: #3e4d40; --dock-ring: rgba(40, 84, 59, .14);
+    --dock-chip: rgba(40, 84, 59, .09); --dock-chip-fg: #28543b; --dock-chip-hover: rgba(40, 84, 59, .18);
+    width: 196px; height: 44px; min-height: 44px; padding: 3px 4px; gap: 4px;
+    bottom: max(16px, env(safe-area-inset-bottom, 0px));
+    box-shadow: 0 2px 10px rgba(18, 36, 26, .07);
+    -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+    opacity: .9;
+  }
+  body .music-player.on-dark, body .nature-control.on-dark {
+    --dock-bg: rgba(31, 44, 36, .72); --dock-fg: #f3efe2; --dock-ring: rgba(255, 253, 246, .18);
+    --dock-chip: rgba(255, 253, 246, .12); --dock-chip-fg: #f3efe2; --dock-chip-hover: rgba(255, 253, 246, .22);
+  }
+  body .music-player:hover, body .nature-control:hover { opacity: 1; box-shadow: 0 3px 14px rgba(18, 36, 26, .12); }
+  body .music-player .music-toggle, body .music-player .music-settings,
+  body .nature-control #nature-toggle, body .nature-control #nature-next {
+    flex: 0 0 36px; width: 36px; height: 36px;
+  }
+  body .music-player #music-state, body .nature-control #nature-label { font-size: .82rem; font-weight: 600; }
+  body #back-to-top {
+    right: calc(max(16px, env(safe-area-inset-right, 0px)) + (196px - 40px) / 2);
+    bottom: calc(max(16px, env(safe-area-inset-bottom, 0px)) + 44px + 8px);
+    width: 40px; height: 40px;
+  }
+}
+@media (max-width: 940px) {
+  /* nút nổi chuyển vào cuối thanh menu (phần tử .menu-dock do v280.js tạo) */
+  body .music-player .music-settings, body .music-player .music-panel { display: none !important; }
+  body #back-to-top { right: max(16px, env(safe-area-inset-right, 0px)); bottom: max(16px, env(safe-area-inset-bottom, 0px)); width: 42px; height: 42px; }
+  body .menu-dock {
+    display: flex !important; align-items: stretch; gap: 8px; margin-top: 10px; padding-top: 10px;
+    border-top: 1px solid rgba(32, 41, 31, .12);
+  }
+  body .menu-dock > .music-player, body .menu-dock > .nature-control {
+    position: static !important; top: auto !important; left: auto !important; right: auto !important; bottom: auto !important;
+    display: flex !important; flex: 1 1 0 !important; align-items: center; justify-content: space-between;
+    width: auto !important; max-width: none !important; height: 44px !important; min-height: 44px !important;
+    margin: 0 !important; padding: 3px 4px !important; gap: 4px !important; transform: none !important;
+    background: #efe9d6 !important; color: #28543b !important; border: 1px solid rgba(34, 75, 49, .16) !important;
+    border-radius: 999px !important; box-shadow: none !important; backdrop-filter: none !important; opacity: 1 !important;
+  }
+  body .menu-dock .music-toggle, body .menu-dock #nature-toggle, body .menu-dock #nature-next {
+    flex: 0 0 36px !important; width: 36px !important; height: 36px !important; min-height: 0 !important;
+    background: rgba(40, 84, 59, .1) !important; color: #28543b !important; border-radius: 50% !important;
+  }
+  body .menu-dock .music-toggle:hover, body .menu-dock #nature-toggle:hover, body .menu-dock #nature-next:hover {
+    background: rgba(40, 84, 59, .2) !important; color: #28543b !important;
+  }
+  body .menu-dock .music-info { display: flex !important; flex: 1 1 auto; min-width: 0; position: static !important; width: auto !important; height: auto !important; clip-path: none !important; margin: 0 !important; padding: 0 2px !important; overflow: hidden; }
+  body .menu-dock .music-info small { display: none !important; }
+  body .menu-dock #music-state, body .menu-dock #nature-label {
+    position: static !important; width: auto !important; height: auto !important; clip-path: none !important; margin: 0 !important; padding: 0 !important;
+    flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; text-align: center;
+    font-size: .9rem !important; font-weight: 600 !important; color: #28543b !important;
+  }
 }
