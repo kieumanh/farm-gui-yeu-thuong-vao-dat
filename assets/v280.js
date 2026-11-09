@@ -103,7 +103,7 @@
   }
 })();
 
-/* v2.9.51: từ 940px trở xuống (điện thoại, máy tính bảng), nút nhạc và nút hiệu ứng chuyển vào cuối thanh menu; trên máy tính vẫn nằm góc dưới */
+/* v2.9.52: từ 940px trở xuống (điện thoại, máy tính bảng), nút nhạc và nút hiệu ứng chuyển vào cuối thanh menu; trên máy tính vẫn nằm góc dưới */
 (function () {
   'use strict';
   var nav = document.getElementById('navigation');
