@@ -127,3 +127,7 @@
   .volunteer-v290 .vol-schedule-times li:hover { transform: translateY(-2px); background-color: #e2eed6; border-color: #a9c99a; box-shadow: 0 10px 20px -12px rgba(31, 58, 38, .5); }
   .volunteer-v290 .vol-schedule-times li:hover strong { color: var(--forest-600); background-size: 100% 2px; transform: translateX(-2px); }
 }
+
+/* v2.9.61: ghi chú việc nấu ăn chung */
+.volunteer-v290 .vol-shared-note { margin: clamp(18px, 2.4vw, 26px) 0 0; padding: 16px 20px; border-radius: 16px; background: #eef4e6; border: 1px solid #cfe0c6; color: var(--ink-700); font-size: .98rem; line-height: 1.7; }
+.volunteer-v290 .vol-shared-note strong { color: var(--forest-900); }
