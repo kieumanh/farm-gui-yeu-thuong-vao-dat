@@ -41,7 +41,7 @@ if(typeof document!=='undefined'){
  topButton?.addEventListener('click',()=>{scrollTo({top:0,behavior:reduced.matches?'instant':'smooth'});document.querySelector('.brand')?.focus({preventScroll:true})});syncTop();
 }
 
-/* v2.9.61: nút hiệu ứng tự đổi màu theo nền phía dưới (cùng ngưỡng với nút nhạc) */
+/* v2.9.62: nút hiệu ứng tự đổi màu theo nền phía dưới (cùng ngưỡng với nút nhạc) */
 if(typeof document!=='undefined'){
  const dock=document.querySelector('.nature-control');
  const toLinear=(n)=>{n/=255;return n<=.04045?n/12.92:((n+.055)/1.055)**2.4};
